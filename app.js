@@ -8,30 +8,50 @@ const DAY_CONFIG = [
 
 const DAY_LOOKUP = new Map(DAY_CONFIG.filter((day) => day.date).map((day) => [day.label, day]));
 const STORAGE_KEY = "icibm2026.savedBlocks";
-const CONFERENCE_TZ = "America/New_York";
 
 const START_TIME_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]/i;
 const TIME_ONLY_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))$/i;
 const ROOM_RE = /\bRoom\s+\d{4}[A-Z](?:&[A-Z])?/i;
 
+const THEME_RULES = [
+  { label: "AI & ML", patterns: [/ai\b/i, /machine learning/i, /deep learning/i, /foundation model/i, /large language model/i, /\bllm\b/i, /generative ai/i, /transformer/i, /neural/i] },
+  { label: "Clinical", patterns: [/clinical/i, /\bpatient\b/i, /\bicu\b/i, /\behr\b/i, /medical/i, /health/i, /disease/i] },
+  { label: "CRISPR", patterns: [/crispr/i, /perturb/i] },
+  { label: "Cancer", patterns: [/cancer/i, /tumou?r/i, /oncology/i] },
+  { label: "Drug discovery", patterns: [/drug/i, /repurpos/i, /adverse drug/i, /pharmac/i] },
+  { label: "Epigenetics", patterns: [/chromatin/i, /methylation/i, /epigenetic/i, /histone/i] },
+  { label: "Genomics", patterns: [/genom/i, /genetic/i, /\bsnp\b/i, /sequence/i, /\bdna\b/i] },
+  { label: "Methods", patterns: [/benchmark/i, /framework/i, /tool/i, /method/i, /algorithm/i, /optimization/i, /inference/i, /statistical/i] },
+  { label: "Multi-omics", patterns: [/multi-omics/i, /multiomic/i, /multi-modal/i, /multimodal/i, /integration/i, /cross-modal/i] },
+  { label: "Proteomics", patterns: [/protein/i, /proteome/i, /antibody/i, /alphafold/i] },
+  { label: "Single-cell", patterns: [/single-cell/i, /scRNA/i, /single cell/i] },
+  { label: "Spatial biology", patterns: [/spatial/i, /histology/i, /microenvironment/i] },
+];
+
 const state = {
   activeDay: "all",
+  activeTheme: "all",
   search: "",
-  savedOnly: false,
+  concurrentOnly: false,
   saved: loadSavedBlocks(),
   blocks: [],
   filtered: [],
+  themeStats: [],
 };
 
 const elements = {
   dayTabs: document.getElementById("dayTabs"),
   scheduleList: document.getElementById("scheduleList"),
+  themeChips: document.getElementById("themeChips"),
+  themeSummary: document.getElementById("themeSummary"),
+  themeList: document.getElementById("themeList"),
   savedList: document.getElementById("savedList"),
   searchInput: document.getElementById("searchInput"),
-  savedOnlyToggle: document.getElementById("savedOnlyToggle"),
+  concurrentOnlyToggle: document.getElementById("concurrentOnlyToggle"),
+  resetFiltersButton: document.getElementById("resetFiltersButton"),
   clearSavedButton: document.getElementById("clearSavedButton"),
-  exportIcsButton: document.getElementById("exportIcsButton"),
   blockCount: document.getElementById("blockCount"),
+  themeCount: document.getElementById("themeCount"),
   savedCount: document.getElementById("savedCount"),
   activeDayTitle: document.getElementById("activeDayTitle"),
   resultSummary: document.getElementById("resultSummary"),
@@ -54,10 +74,11 @@ async function init() {
   }
 
   const rawText = await response.text();
-  state.blocks = parseScheduleText(rawText);
-  state.blocks = fillMissingEndTimes(state.blocks);
+  state.blocks = fillMissingEndTimes(parseScheduleText(rawText));
+  state.themeStats = buildThemeStats(state.blocks);
 
   elements.blockCount.textContent = String(state.blocks.length);
+  elements.themeCount.textContent = String(state.themeStats.length);
   renderAll();
 }
 
@@ -67,12 +88,22 @@ function bindEvents() {
     renderAll();
   });
 
-  elements.savedOnlyToggle.addEventListener("change", (event) => {
-    state.savedOnly = event.target.checked;
+  elements.concurrentOnlyToggle.addEventListener("change", (event) => {
+    state.concurrentOnly = event.target.checked;
     renderAll();
   });
 
-  elements.clearSavedButton.addEventListener("click", () => {
+  elements.resetFiltersButton.addEventListener("click", () => {
+    state.activeDay = "all";
+    state.activeTheme = "all";
+    state.search = "";
+    state.concurrentOnly = false;
+    elements.searchInput.value = "";
+    elements.concurrentOnlyToggle.checked = false;
+    renderAll();
+  });
+
+  elements.clearSavedButton?.addEventListener("click", () => {
     if (!state.saved.size) {
       return;
     }
@@ -80,67 +111,161 @@ function bindEvents() {
     persistSavedBlocks();
     renderAll();
   });
-
-  elements.exportIcsButton.addEventListener("click", () => {
-    if (!state.saved.size) {
-      window.alert("Save a few sessions first, then export them as an .ics file.");
-      return;
-    }
-    const exportedBlocks = state.blocks.filter((block) => state.saved.has(block.id));
-    downloadFile("icibm2026_schedule.ics", buildIcs(exportedBlocks), "text/calendar;charset=utf-8");
-  });
 }
 
 function renderAll() {
   const activeDay = DAY_CONFIG.find((day) => day.key === state.activeDay) || DAY_CONFIG[0];
+
   const filtered = state.blocks.filter((block) => {
     const matchesDay = state.activeDay === "all" || block.dayKey === state.activeDay;
-    const haystack = block.searchText;
-    const matchesSearch = !state.search || haystack.includes(state.search);
-    const matchesSaved = !state.savedOnly || state.saved.has(block.id);
-    return matchesDay && matchesSearch && matchesSaved;
+    const matchesTheme = state.activeTheme === "all" || block.themes.includes(state.activeTheme);
+    const matchesSearch = !state.search || block.searchText.includes(state.search);
+    const matchesConcurrent = !state.concurrentOnly || block.isConcurrent;
+    return matchesDay && matchesTheme && matchesSearch && matchesConcurrent;
   });
 
   state.filtered = filtered;
   renderBlocks(filtered);
+  renderDayTabs();
+  renderThemeChips();
+  renderThemeList();
   renderSavedList();
-  renderTabs();
 
   elements.activeDayTitle.textContent = activeDay.key === "all" ? "All conference days" : activeDay.label;
   elements.resultSummary.textContent = `${filtered.length} matching block${filtered.length === 1 ? "" : "s"} • ${state.saved.size} saved`;
   elements.savedCount.textContent = String(state.saved.size);
-  elements.exportIcsButton.disabled = state.saved.size === 0;
-  elements.clearSavedButton.disabled = state.saved.size === 0;
+  if (elements.clearSavedButton) {
+    elements.clearSavedButton.disabled = state.saved.size === 0;
+  }
+  elements.themeSummary.textContent = buildThemeSummary();
 }
 
 function renderDayTabs() {
-  elements.dayTabs.innerHTML = "";
-  for (const day of DAY_CONFIG) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "day-tab";
-    button.dataset.day = day.key;
-    button.textContent = day.label;
-    button.addEventListener("click", () => {
-      state.activeDay = day.key;
-      renderAll();
-      elements.scheduleList.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-    elements.dayTabs.appendChild(button);
+  if (!elements.dayTabs.hasChildNodes()) {
+    elements.dayTabs.innerHTML = "";
+    for (const day of DAY_CONFIG) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "day-tab";
+      button.dataset.day = day.key;
+      button.textContent = day.label;
+      button.addEventListener("click", () => {
+        state.activeDay = day.key;
+        renderAll();
+        elements.scheduleList.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      elements.dayTabs.appendChild(button);
+    }
   }
-}
 
-function renderTabs() {
   for (const tab of elements.dayTabs.querySelectorAll(".day-tab")) {
     tab.classList.toggle("is-active", tab.dataset.day === state.activeDay);
   }
+}
+
+function renderThemeChips() {
+  elements.themeChips.innerHTML = "";
+
+  const allButton = document.createElement("button");
+  allButton.type = "button";
+  allButton.className = "theme-chip";
+  allButton.textContent = "All themes";
+  allButton.classList.toggle("is-active", state.activeTheme === "all");
+  allButton.addEventListener("click", () => {
+    state.activeTheme = "all";
+    renderAll();
+  });
+  elements.themeChips.appendChild(allButton);
+
+  for (const theme of state.themeStats) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "theme-chip";
+    button.textContent = `${theme.label} (${theme.count})`;
+    button.classList.toggle("is-active", state.activeTheme === theme.label);
+    button.addEventListener("click", () => {
+      state.activeTheme = state.activeTheme === theme.label ? "all" : theme.label;
+      renderAll();
+    });
+    elements.themeChips.appendChild(button);
+  }
+}
+
+function renderThemeList() {
+  elements.themeList.innerHTML = "";
+
+  if (!state.themeStats.length) {
+    elements.themeList.innerHTML = `<p class="empty-state">Themes will appear here once the schedule loads.</p>`;
+    return;
+  }
+
+  const visibleThemes = state.themeStats.slice(0, 8);
+  const fragment = document.createDocumentFragment();
+
+  for (const theme of visibleThemes) {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "theme-row";
+    item.innerHTML = `
+      <span>
+        <strong>${escapeHtml(theme.label)}</strong>
+        <small>${theme.sample}</small>
+      </span>
+      <span class="theme-row-count">${theme.count}</span>
+    `;
+    item.addEventListener("click", () => {
+      state.activeTheme = state.activeTheme === theme.label ? "all" : theme.label;
+      renderAll();
+    });
+    fragment.appendChild(item);
+  }
+
+  elements.themeList.appendChild(fragment);
+}
+
+function renderSavedList() {
+  elements.savedList.innerHTML = "";
+
+  const savedBlocks = state.blocks
+    .filter((block) => state.saved.has(block.id))
+    .sort((left, right) => left.date.localeCompare(right.date) || left.startMinutes - right.startMinutes);
+
+  if (!savedBlocks.length) {
+    elements.savedList.innerHTML = `<p class="empty-state">Tap the star on any session to keep it in this browser.</p>`;
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  for (const block of savedBlocks) {
+    const item = document.createElement("div");
+    item.className = "saved-item";
+    item.innerHTML = `
+      <div class="saved-item-head">
+        <span class="time-chip">${escapeHtml(shortDayLabel(block.date))} · ${escapeHtml(block.startTime)}${block.endTime ? `–${escapeHtml(block.endTime)}` : ""}</span>
+        <button type="button" class="button button-ghost saved-remove">Remove</button>
+      </div>
+      <strong>${escapeHtml(block.title)}</strong>
+      <p>${escapeHtml([block.dayLabel, block.room].filter(Boolean).join(" • "))}</p>
+      <div class="session-themes">${renderThemePills(block.themes)}</div>
+    `;
+
+    item.querySelector(".saved-remove").addEventListener("click", () => {
+      state.saved.delete(block.id);
+      persistSavedBlocks();
+      renderAll();
+    });
+
+    fragment.appendChild(item);
+  }
+
+  elements.savedList.appendChild(fragment);
 }
 
 function renderBlocks(blocks) {
   elements.scheduleList.innerHTML = "";
 
   if (!blocks.length) {
-    elements.scheduleList.innerHTML = `<p class="empty-state">No matching sessions. Try a broader search or switch days.</p>`;
+    elements.scheduleList.innerHTML = `<p class="empty-state">No matching sessions. Try a broader search or switch filters.</p>`;
     return;
   }
 
@@ -151,65 +276,39 @@ function renderBlocks(blocks) {
   elements.scheduleList.appendChild(fragment);
 }
 
-function renderSavedList() {
-  elements.savedList.innerHTML = "";
-  const savedBlocks = state.blocks.filter((block) => state.saved.has(block.id));
-
-  if (!savedBlocks.length) {
-    elements.savedList.innerHTML = `<p class="empty-state">Saved sessions will appear here.</p>`;
-    return;
-  }
-
-  const fragment = document.createDocumentFragment();
-  for (const block of savedBlocks) {
-    const item = document.createElement("div");
-    item.className = "saved-item";
-    item.innerHTML = `
-      <div class="session-badge">${escapeHtml(shortDayLabel(block.date))}</div>
-      <h3>${escapeHtml(block.title)}</h3>
-      <p>${escapeHtml(`${block.dayLabel}${block.room ? ` • ${block.room}` : ""}`)}</p>
-      <p>${escapeHtml(`${block.startTime}${block.endTime ? ` — ${block.endTime}` : ""}`)}</p>
-    `;
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "button button-ghost";
-    button.textContent = "Remove";
-    button.addEventListener("click", () => {
-      state.saved.delete(block.id);
-      persistSavedBlocks();
-      renderAll();
-    });
-    item.appendChild(button);
-    fragment.appendChild(item);
-  }
-
-  elements.savedList.appendChild(fragment);
-}
-
 function createBlockCard(block) {
   const card = cardTemplate.content.firstElementChild.cloneNode(true);
-  const saveButton = card.querySelector(".save-button");
+  const bookmarkButton = card.querySelector(".bookmark-button");
   const timeChip = card.querySelector(".time-chip");
   const title = card.querySelector(".session-title");
   const meta = card.querySelector(".session-meta");
   const body = card.querySelector(".session-body");
+  const themeWrap = card.querySelector(".session-themes");
 
   const isSaved = state.saved.has(block.id);
 
   timeChip.textContent = `${shortDayLabel(block.date)} · ${block.startTime}${block.endTime ? `–${block.endTime}` : ""}`;
-  saveButton.textContent = isSaved ? "Saved" : "Save";
-  saveButton.classList.toggle("is-saved", isSaved);
-  saveButton.addEventListener("click", () => {
+  bookmarkButton.textContent = isSaved ? "★ Saved" : "☆ Save";
+  bookmarkButton.classList.toggle("is-saved", isSaved);
+  bookmarkButton.setAttribute("aria-pressed", String(isSaved));
+  bookmarkButton.setAttribute("aria-label", isSaved ? "Remove bookmark" : "Save bookmark");
+  bookmarkButton.addEventListener("click", () => {
     toggleSaved(block.id);
   });
 
   title.textContent = block.title;
-  const metaParts = [block.kindLabel, block.room, block.dayLabel];
-  meta.textContent = metaParts.filter(Boolean).join(" • ");
+  meta.textContent = [block.kindLabel, block.room, block.dayLabel].filter(Boolean).join(" • ");
   body.textContent = block.body;
+  themeWrap.innerHTML = renderThemePills(block.themes);
 
   return card;
+}
+
+function renderThemePills(themes) {
+  if (!themes.length) {
+    return `<span class="theme-pill theme-pill-muted">Other</span>`;
+  }
+  return themes.map((theme) => `<span class="theme-pill">${escapeHtml(theme)}</span>`).join("");
 }
 
 function toggleSaved(blockId) {
@@ -233,12 +332,49 @@ function parseScheduleText(rawText) {
       currentBlock = null;
       return;
     }
+
+    const normalizedLines = currentBlock.lines.map((line) => line.replace(/\s+$/g, "").trimEnd());
+    const cleanedLines = normalizedLines.map((line) => line.replace(/\s+/g, " ").trim());
+    const bodyLines = cleanedLines.filter(Boolean);
+    const bodyText = bodyLines.join(" ");
+    const title = deriveTitle(bodyLines);
+    const room = deriveRoom(bodyText);
+    const kindLabel = classifyBlock(bodyText, title);
+    const themes = detectThemes(`${title} ${room} ${kindLabel} ${bodyText}`);
+    const endTime = extractEndTime(currentBlock.lines);
+    const startMinutes = timeToMinutes(currentBlock.startTime);
+    const isConcurrent = Boolean(room) && !/^(Registration|Opening|Lunch|Coffee Break|Keynote)$/i.test(kindLabel);
+    const searchText = [
+      currentDay.label,
+      currentBlock.startTime,
+      endTime,
+      title,
+      room,
+      kindLabel,
+      themes.join(" "),
+      bodyText,
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
     blocks.push({
-      ...currentBlock,
+      id: `${currentDay.date}-${String(blocks.length).padStart(3, "0")}`,
       dayKey: currentDay.key,
       dayLabel: currentDay.label,
       date: currentDay.date,
+      title,
+      room,
+      kindLabel,
+      themes,
+      startTime: currentBlock.startTime,
+      endTime,
+      startMinutes,
+      body: bodyLines.slice(1).join("\n") || bodyLines.join("\n"),
+      searchText,
+      isConcurrent,
     });
+
     currentBlock = null;
   };
 
@@ -274,45 +410,7 @@ function parseScheduleText(rawText) {
   }
 
   flushBlock();
-
-  return blocks.map((block, index) => {
-    const normalizedLines = block.lines.map((line) => line.replace(/\s+$/g, "").trimEnd());
-    const cleanedLines = normalizedLines.map((line) => line.replace(/\s+/g, " ").trim());
-    const bodyLines = cleanedLines.filter(Boolean);
-    const title = deriveTitle(bodyLines);
-    const room = deriveRoom(bodyLines.join(" "));
-    const kindLabel = classifyBlock(bodyLines.join(" "), title);
-    const endTime = extractEndTime(block.lines);
-    const body = bodyLines.slice(1).join("\n");
-    const startMinutes = timeToMinutes(block.startTime);
-    const searchText = [
-      block.dayLabel,
-      block.startTime,
-      endTime,
-      title,
-      room,
-      kindLabel,
-      bodyLines.join(" "),
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
-
-    return {
-      id: `${block.date}-${String(index).padStart(3, "0")}`,
-      dayKey: block.dayKey,
-      dayLabel: block.dayLabel,
-      date: block.date,
-      title,
-      room,
-      kindLabel,
-      startTime: block.startTime,
-      endTime,
-      startMinutes,
-      body: body || bodyLines.join("\n"),
-      searchText,
-    };
-  });
+  return blocks;
 }
 
 function fillMissingEndTimes(blocks) {
@@ -325,7 +423,7 @@ function fillMissingEndTimes(blocks) {
   }
 
   const result = [];
-  for (const [dayKey, dayBlocks] of grouped.entries()) {
+  for (const dayBlocks of grouped.values()) {
     for (let index = 0; index < dayBlocks.length; index += 1) {
       const block = { ...dayBlocks[index] };
       if (!block.endTime) {
@@ -339,26 +437,50 @@ function fillMissingEndTimes(blocks) {
   return result;
 }
 
+function buildThemeStats(blocks) {
+  const themeMap = new Map();
+
+  for (const block of blocks) {
+    for (const theme of block.themes) {
+      if (!themeMap.has(theme)) {
+        themeMap.set(theme, { label: theme, count: 0, sample: block.title });
+      }
+      const entry = themeMap.get(theme);
+      entry.count += 1;
+    }
+  }
+
+  return [...themeMap.values()]
+    .sort((left, right) => right.count - left.count || left.label.localeCompare(right.label))
+    .map((theme) => ({
+      ...theme,
+      sample: theme.sample.length > 56 ? `${theme.sample.slice(0, 56)}…` : theme.sample,
+    }));
+}
+
+function buildThemeSummary() {
+  if (!state.themeStats.length) {
+    return "No themes detected yet.";
+  }
+
+  if (state.activeTheme !== "all") {
+    const theme = state.themeStats.find((entry) => entry.label === state.activeTheme);
+    return theme
+      ? `Focused on ${theme.label}. ${theme.count} blocks mention this theme.`
+      : `Focused on ${state.activeTheme}.`;
+  }
+
+  return `${state.themeStats.length} themes detected across ${state.blocks.length} blocks. Pick one to narrow the list.`;
+}
+
 function deriveTitle(lines) {
   const candidates = lines.filter((line) => {
-    if (!line) {
-      return false;
-    }
-    if (TIME_ONLY_RE.test(line)) {
-      return false;
-    }
-    if (/^Room\s/i.test(line)) {
-      return false;
-    }
-    if (/^Chair/i.test(line)) {
-      return false;
-    }
-    if (/^Sunday,|^Monday,|^Tuesday,|^Wednesday,/i.test(line)) {
-      return false;
-    }
-    if (/^SCHEDULE$/i.test(line)) {
-      return false;
-    }
+    if (!line) return false;
+    if (TIME_ONLY_RE.test(line)) return false;
+    if (/^Room\s/i.test(line)) return false;
+    if (/^Chair/i.test(line)) return false;
+    if (/^Sunday,|^Monday,|^Tuesday,|^Wednesday,/i.test(line)) return false;
+    if (/^SCHEDULE$/i.test(line)) return false;
     return true;
   });
 
@@ -391,6 +513,17 @@ function classifyBlock(text, title) {
   return "Block";
 }
 
+function detectThemes(text) {
+  const matches = [];
+  for (const theme of THEME_RULES) {
+    if (theme.patterns.some((pattern) => pattern.test(text))) {
+      matches.push(theme.label);
+    }
+  }
+
+  return matches.length ? [...new Set(matches)].slice(0, 4) : ["Other"];
+}
+
 function extractStartTime(line) {
   const match = line.match(START_TIME_RE);
   return match ? match[1].toUpperCase() : "";
@@ -416,15 +549,18 @@ function timeToMinutes(time) {
   if (!match) {
     return 0;
   }
+
   let hours = Number(match[1]);
   const minutes = Number(match[2]);
   const period = match[3].toUpperCase();
+
   if (period === "PM" && hours !== 12) {
     hours += 12;
   }
   if (period === "AM" && hours === 12) {
     hours = 0;
   }
+
   return hours * 60 + minutes;
 }
 
@@ -443,6 +579,7 @@ function shortDayLabel(date) {
   if (!config) {
     return "";
   }
+
   return config.label
     .replace(", 2026", "")
     .replace("Sunday", "Sun")
@@ -450,79 +587,6 @@ function shortDayLabel(date) {
     .replace("Tuesday", "Tue")
     .replace("Wednesday", "Wed")
     .replace("August ", "Aug ");
-}
-
-function buildIcs(blocks) {
-  const lines = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//ICIBM 2026 Schedule Explorer//EN",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
-  ];
-
-  const stamp = toUtcStamp(new Date());
-  for (const block of blocks) {
-    if (!block.date || !block.startTime) {
-      continue;
-    }
-    const start = toIcsDateTime(block.date, block.startTime);
-    const end = toIcsDateTime(block.date, block.endTime || addMinutes(block.startTime, 60));
-    lines.push(
-      "BEGIN:VEVENT",
-      `UID:${block.id}@icibm2026`,
-      `DTSTAMP:${stamp}`,
-      `DTSTART;TZID=${CONFERENCE_TZ}:${start}`,
-      `DTEND;TZID=${CONFERENCE_TZ}:${end}`,
-      `SUMMARY:${escapeIcsText(block.title)}`,
-      `DESCRIPTION:${escapeIcsText([block.dayLabel, block.room, block.body].filter(Boolean).join(" | "))}`,
-      "LOCATION:Jacobs School of Medicine and Biomedical Sciences, Buffalo, NY",
-      "END:VEVENT",
-    );
-  }
-
-  lines.push("END:VCALENDAR");
-  return lines.join("\r\n");
-}
-
-function toIcsDateTime(date, time) {
-  const [year, month, day] = date.split("-").map(Number);
-  const [clock, period] = time.split(" ");
-  let [hours, minutes] = clock.split(":").map(Number);
-  if (period === "PM" && hours !== 12) {
-    hours += 12;
-  }
-  if (period === "AM" && hours === 12) {
-    hours = 0;
-  }
-  return `${year}${String(month).padStart(2, "0")}${String(day).padStart(2, "0")}T${String(hours).padStart(2, "0")}${String(minutes).padStart(2, "0")}00`;
-}
-
-function toUtcStamp(date) {
-  return date
-    .toISOString()
-    .replace(/[-:]/g, "")
-    .replace(/\.\d{3}Z$/, "Z");
-}
-
-function escapeIcsText(text) {
-  return String(text)
-    .replace(/\\/g, "\\\\")
-    .replace(/\n/g, "\\n")
-    .replace(/,/g, "\\,")
-    .replace(/;/g, "\\;");
-}
-
-function downloadFile(filename, content, mimeType) {
-  const blob = new Blob([content], { type: mimeType });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = filename;
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
-  URL.revokeObjectURL(url);
 }
 
 function loadSavedBlocks() {
@@ -538,7 +602,7 @@ function persistSavedBlocks() {
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify([...state.saved]));
   } catch {
-    // ignore storage failures
+    // Ignore storage failures on locked-down browsers.
   }
 }
 

@@ -1,6 +1,6 @@
 # ICIBM 2026 Schedule Explorer
 
-This folder now includes a lightweight schedule explorer built from the official ICIBM 2026 program PDF.
+This folder now includes a lightweight ICIBM 2026 live schedule explorer built from the official program PDF.
 
 ## Preview locally
 
@@ -12,10 +12,17 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000/` in your browser.
 
+## What it does
+
+- Browse by conference day
+- Search sessions by title, room, speaker, or topic
+- Filter concurrent sessions and theme clusters
+- Bookmark sessions in `localStorage` for your own browser
+
 ## Files
 
 - `index.html` — app shell
 - `styles.css` — visual styling
-- `app.js` — schedule parsing, filters, bookmarks, and `.ics` export
+- `app.js` — schedule parsing, filters, theme discovery, and browser bookmarks
 - `icibm2026_program_schedule.txt` — text extracted from the official schedule PDF
 - `ICIBM2026_program_schedule_07_23_2026.pdf` — source document

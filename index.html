@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ICIBM 2026 schedule explorer with day filters, search, bookmarks, and calendar export."
+      content="ICIBM 2026 live schedule explorer with day filters, theme browsing, and search."
     />
     <meta name="theme-color" content="#295cff" />
     <meta property="og:title" content="ICIBM 2026 Schedule Explorer" />
     <meta
       property="og:description"
-      content="Browse ICIBM 2026 by day, search talks, and save a personal schedule."
+      content="Browse ICIBM 2026 by day, search talks, and filter sessions by theme."
     />
     <title>ICIBM 2026 Schedule Explorer</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -24,15 +24,15 @@
           <p class="eyebrow">ICIBM 2026 • Buffalo, NY • August 2–5</p>
           <h1>Schedule Explorer</h1>
           <p class="lede">
-            Browse the conference by day, search talks and sessions, and save a
-            lightweight personal plan.
+            Browse the conference live, search sessions, and narrow concurrent
+            talks by theme.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="ICIBM2026_program_schedule_07_23_2026.pdf" target="_blank" rel="noreferrer">
               Open official PDF
             </a>
-            <button class="button button-secondary" id="exportIcsButton" type="button">
-              Export saved items (.ics)
+            <button class="button button-secondary" id="resetFiltersButton" type="button">
+              Reset filters
             </button>
           </div>
         </div>
@@ -42,12 +42,12 @@
             <strong id="blockCount">—</strong>
           </div>
           <div class="metric-card">
-            <span class="metric-label">Saved</span>
-            <strong id="savedCount">0</strong>
+            <span class="metric-label">Themes</span>
+            <strong id="themeCount">—</strong>
           </div>
           <div class="metric-card">
-            <span class="metric-label">Days</span>
-            <strong>4</strong>
+            <span class="metric-label">Saved</span>
+            <strong id="savedCount">—</strong>
           </div>
         </div>
       </header>
@@ -65,13 +65,18 @@
 
         <div class="toggle-group" role="group" aria-label="View filters">
           <label class="toggle">
-            <input id="savedOnlyToggle" type="checkbox" />
-            <span>Saved only</span>
+            <input id="concurrentOnlyToggle" type="checkbox" />
+            <span>Concurrent only</span>
           </label>
-          <button class="button button-ghost" id="clearSavedButton" type="button">
-            Clear saved
-          </button>
         </div>
+      </section>
+
+      <section class="theme-strip" aria-label="Theme filters">
+        <div class="theme-strip-head">
+          <p class="panel-kicker">Browse by theme</p>
+          <p class="panel-note" id="themeSummary"></p>
+        </div>
+        <div class="theme-chips" id="themeChips"></div>
       </section>
 
       <nav class="day-tabs" id="dayTabs" aria-label="Conference days"></nav>
@@ -89,15 +94,30 @@
           <div class="schedule-list" id="scheduleList"></div>
         </section>
 
-        <aside class="saved-panel">
+        <aside class="theme-panel">
           <div class="panel-header">
             <div>
-              <p class="panel-kicker">My schedule</p>
-              <h2>Saved items</h2>
+              <p class="panel-kicker">Theme map</p>
+              <h2>Popular themes</h2>
             </div>
           </div>
-          <div class="saved-list" id="savedList">
-            <p class="empty-state">Saved sessions will appear here.</p>
+          <div class="theme-list" id="themeList">
+            <p class="empty-state">Themes will appear here.</p>
+          </div>
+
+          <div class="saved-panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-kicker">Browser bookmarks</p>
+                <h2>Saved in this browser</h2>
+              </div>
+              <button class="button button-secondary button-small" id="clearSavedButton" type="button">
+                Clear saved
+              </button>
+            </div>
+            <div class="saved-list" id="savedList">
+              <p class="empty-state">Tap the star on any session to keep it here.</p>
+            </div>
           </div>
         </aside>
       </main>
@@ -113,10 +133,11 @@
       <article class="session-card">
         <div class="session-topline">
           <span class="time-chip"></span>
-          <button class="save-button" type="button"></button>
+          <button class="button button-ghost bookmark-button" type="button" aria-pressed="false"></button>
         </div>
         <h3 class="session-title"></h3>
         <div class="session-meta"></div>
+        <div class="session-themes"></div>
         <pre class="session-body"></pre>
       </article>
     </template>
