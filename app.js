@@ -366,7 +366,7 @@ function parseScheduleText(rawText) {
     const normalizedLines = currentBlock.lines.map((line) => line.replace(/\s+$/g, "").trimEnd());
     const cleanedLines = normalizedLines.map((line) => line.replace(/\s+/g, " ").trim());
     const bodyLines = cleanedLines.filter(Boolean);
-    const bodyText = bodyLines.join(" ");
+    const bodyText = compactText(bodyLines);
     const title = deriveTitle(bodyLines);
     const room = deriveRoom(bodyText);
     const kindLabel = classifyBlock(bodyText, title);
@@ -400,7 +400,7 @@ function parseScheduleText(rawText) {
       startTime: currentBlock.startTime,
       endTime,
       startMinutes,
-      body: bodyLines.slice(1).join("\n") || bodyLines.join("\n"),
+      body: bodyText,
       searchText,
       isConcurrent,
     });
@@ -552,6 +552,17 @@ function detectThemes(text) {
   }
 
   return matches.length ? [...new Set(matches)].slice(0, 4) : ["Other"];
+}
+
+function compactText(lines) {
+  return lines
+    .map((line) => line.replace(/\s+/g, " ").trim())
+    .filter(Boolean)
+    .join(" ")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .replace(/\s*-\s*/g, " - ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function extractStartTime(line) {

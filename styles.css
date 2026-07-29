@@ -403,7 +403,8 @@ input {
 
 .session-body {
   margin: 0;
-  white-space: pre-wrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
   color: #33405d;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.85rem;
