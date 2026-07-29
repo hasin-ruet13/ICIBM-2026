@@ -83,25 +83,35 @@ async function init() {
 }
 
 function bindEvents() {
-  elements.searchInput.addEventListener("input", (event) => {
-    state.search = event.target.value.trim().toLowerCase();
-    renderAll();
-  });
+  if (elements.searchInput) {
+    elements.searchInput.addEventListener("input", (event) => {
+      state.search = event.target.value.trim().toLowerCase();
+      renderAll();
+    });
+  }
 
-  elements.concurrentOnlyToggle.addEventListener("change", (event) => {
-    state.concurrentOnly = event.target.checked;
-    renderAll();
-  });
+  if (elements.concurrentOnlyToggle) {
+    elements.concurrentOnlyToggle.addEventListener("change", (event) => {
+      state.concurrentOnly = event.target.checked;
+      renderAll();
+    });
+  }
 
-  elements.resetFiltersButton.addEventListener("click", () => {
-    state.activeDay = "all";
-    state.activeTheme = "all";
-    state.search = "";
-    state.concurrentOnly = false;
-    elements.searchInput.value = "";
-    elements.concurrentOnlyToggle.checked = false;
-    renderAll();
-  });
+  if (elements.resetFiltersButton) {
+    elements.resetFiltersButton.addEventListener("click", () => {
+      state.activeDay = "all";
+      state.activeTheme = "all";
+      state.search = "";
+      state.concurrentOnly = false;
+      if (elements.searchInput) {
+        elements.searchInput.value = "";
+      }
+      if (elements.concurrentOnlyToggle) {
+        elements.concurrentOnlyToggle.checked = false;
+      }
+      renderAll();
+    });
+  }
 
   elements.clearSavedButton?.addEventListener("click", () => {
     if (!state.saved.size) {
@@ -141,6 +151,10 @@ function renderAll() {
 }
 
 function renderDayTabs() {
+  if (!elements.dayTabs) {
+    return;
+  }
+
   if (!elements.dayTabs.hasChildNodes()) {
     elements.dayTabs.innerHTML = "";
     for (const day of DAY_CONFIG) {
@@ -164,6 +178,10 @@ function renderDayTabs() {
 }
 
 function renderThemeChips() {
+  if (!elements.themeChips) {
+    return;
+  }
+
   elements.themeChips.innerHTML = "";
 
   const allButton = document.createElement("button");
@@ -192,6 +210,10 @@ function renderThemeChips() {
 }
 
 function renderThemeList() {
+  if (!elements.themeList) {
+    return;
+  }
+
   elements.themeList.innerHTML = "";
 
   if (!state.themeStats.length) {
@@ -224,6 +246,10 @@ function renderThemeList() {
 }
 
 function renderSavedList() {
+  if (!elements.savedList) {
+    return;
+  }
+
   elements.savedList.innerHTML = "";
 
   const savedBlocks = state.blocks
@@ -262,6 +288,10 @@ function renderSavedList() {
 }
 
 function renderBlocks(blocks) {
+  if (!elements.scheduleList) {
+    return;
+  }
+
   elements.scheduleList.innerHTML = "";
 
   if (!blocks.length) {
