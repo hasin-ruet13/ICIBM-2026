@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ICIBM">
+  <defs>
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#295cff"/>
+      <stop offset="1" stop-color="#7b5cff"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#g)"/>
+  <path d="M24 16v32" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M40 16v32" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+  <path d="M23 24c5-5 13-5 18 0" stroke="#d7fffb" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M23 40c5 5 13 5 18 0" stroke="#d7fffb" stroke-width="4" stroke-linecap="round" fill="none"/>
+</svg>
