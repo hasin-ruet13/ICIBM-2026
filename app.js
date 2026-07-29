@@ -371,7 +371,7 @@ function parseScheduleText(rawText) {
     const room = deriveRoom(bodyText);
     const kindLabel = classifyBlock(bodyText, title);
     const themes = detectThemes(`${title} ${room} ${kindLabel} ${bodyText}`);
-    const endTime = extractEndTime(currentBlock.lines);
+    const endTime = currentBlock.endTime || extractEndTime(currentBlock.lines);
     const startMinutes = timeToMinutes(currentBlock.startTime);
     const isConcurrent = Boolean(room) && !/^(Registration|Opening|Lunch|Coffee Break|Keynote)$/i.test(kindLabel);
     const searchText = [
@@ -430,7 +430,14 @@ function parseScheduleText(rawText) {
       currentBlock = {
         lines: [line],
         startTime: extractStartTime(trimmed),
+        endTime: "",
       };
+      continue;
+    }
+
+    if (TIME_ONLY_RE.test(trimmed) && currentBlock) {
+      currentBlock.endTime = extractStartTime(trimmed);
+      flushBlock();
       continue;
     }
 
