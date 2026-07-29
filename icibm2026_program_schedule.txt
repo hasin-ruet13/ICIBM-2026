@@ -1,0 +1,2448 @@
+SCHEDULE
+
+International Conference on Intelligent Biology and Medicine
+
+ICIBM 2026 | August 2–5, 2026
+
+Jacobs School of Medicine and Biomedical Sciences, University at Buffalo
+955 Main Street, Buffalo, NY 14203 - 1121
+
+Sunday, August 2nd, 2026
+
+8:00 AM –
+Registration
+5:00 PM
+
+9:00 AM –
+Opening Remarks (Room 2220A&B)
+9:30 AM
+
+Concurrent Sessions/Workshops
+
+Room 2220A&B
+Room 2213A
+Room 2213B
+
+AI and Computational Modeling
+Genomic Modeling and
+Spatial Single - Cell and Multi - Omics
+for Biomedical Discovery and
+Biomolecular Structure
+Chair: Yuehua Cui
+Precision Health
+Chair: TBD
+Chairs: Yijie Wang, Xun Wu
+
+9:30 AM – 9:50 AM
+Room 2220A&B
+Atlas - based analysis of high -
+resolution spatial
+transcriptomics
+H. Robert Frost
+Dartmouth College
+
+9:30 AM – 9:50 AM
+Room 2213A
+Structured and scalable AI for high -
+dimensional biological data: beyond
+lasso under correlation
+Yijie Wang
+Indiana University Bloomington
+
+9:30 AM – 9:50 AM
+Room 2213B
+Computational hardness and
+flow - based optimization
+forneural connectivity inference
+Amy Li
+Canyon Crest Academy
+
+9:50 AM – 10:10 AM
+Room 2220A&B
+Tools for comparative spatial
+transcriptomics
+Saurabh Sinha,
+Georgia Institute of Technology
+
+9:50 AM – 10:10 AM
+Room 2213A
+Explainable AI models for decoding
+proteins and microbiome
+Yuzhen Ye
+Indiana University Bloomington
+
+9:50 AM – 10:10 AM
+Room 2213B
+GI - Joe: Taming long - context
+genotype imputation for
+higheraccuracy and efficiency
+Mohammad Erfan Mowlaei
+Temple University
+
+10:10 AM – 10:30 AM
+Room 2220A&B
+Categorization of 34
+computational methods to
+detect spatially variable genes
+from spatially resolved
+transcriptomics data
+Guanao Yan
+Michigan State University
+
+10:10 AM – 10:30 AM
+Room 2213A
+Reinforcement post - training aligns
+flow - matching perturbation models
+with DEG recovery
+Xuhong Zhang
+Indiana University Bloomington
+
+10:10 AM – 10:30 AM
+Room 2213B
+TFBindFormer: A cross -
+attention transformer
+fortranscription factor–DNA
+binding prediction
+Ping Liu
+University of Missouri
+
+10:30 AM – 10:50 AM Coffee Break
+
+10:50 AM
+Room 2220A&B
+CySCI: Regularized
+multitasking graphical
+attention for integrative single -
+cell analysis
+
+10:50 AM
+Room 2213A
+Advancing dietary assessment with
+computer vision
+Jianpeng He
+
+10:50 AM
+Room 2213B
+Comprehensive benchmarking
+of long - read fusion - detection
+Xinlei Wang
+Indiana University Bloomington
+methods leads to improved
+University of Texas, Arlington
+fusion discovery
+
+Ke Ma
+Hong Kong Polytechnic
+University
+
+11:10 AM – 11:30 AM
+Room 2220A&B
+Identification of
+in single - cell spatially
+transcriptomics data
+transfer learning and
+smoothing
+Debolina Chatterjee
+University of
+
+11:10 AM – 11:30 AM
+Room 2213A
+high - risk cells
+resolved
+Detecting precise
+using
+from real - world
+spatial
+Penyue
+Indiana University
+Mississippi
+
+11:10 AM – 11:30 AM
+Room 2213B
+KoGNER: A novel framework
+adverse drug events for knowledge graph
+distillationon biomedical named
+data
+entity recognition
+Zhang
+School of Medicine Heming Zhang
+Washington University
+
+11:30 AM – 11:50 AM
+Room 2220A&B
+Decoding pediatric
+scleroderma across
+spatial omics and
+Wei Chen
+University of
+
+11:30 AM – 11:50 AM
+Room 2213A
+Unbiased in vitro
+CRISPR screens
+scales using regulatory genes
+histology efferocytosis
+Xun
+Pittsburgh Columbia
+
+11:30 AM – 11:50 AM
+Room 2213B
+and in vivo
+Multiple versus pairwise
+identify novel
+sequence alignments for protein
+in macrophage
+phylogenetics using foundation
+models
+Wu
+Rohan Alibutud
+University
+Temple University
+
+11:50 AM
+Room 2220A&B
+Decipher non - coding
+high - resolution
+of single - cell spatial
+architectures in 3D
+
+11:50 AM
+Room 2213A
+SNPs by Aging Synergizes
+reconstruction Hypercholesterolemia
+genome Smooth
+space Transdifferentiation
+
+11:50 AM
+Room 2213B
+with ChromDiffusion: Refining
+to Drive chromatin structure
+Muscle Cell characterization through
+diffusion models
+
+Jianrong Wang
+Mingqiao Li
+Yang Zhao
+Michigan State University
+Tulane University
+Temple University
+
+12:10 AM – 12:30 PM
+Room 2220A&B
+Multimodal AI for
+microenvironment
+characterization
+therapeutic
+Qianqian Song
+University of
+
+12:10 AM – 12:30 PM
+Room 2213A
+tumor
+Model - guided
+single - cell secretion
+and
+live CAR - T/tumor - cell
+prediction
+Yujing
+New York
+Florida
+
+12:10 AM – 12:30 PM
+Room 2213B
+A structural antibody
+reconstruction of
+benchmark of AlphaFold3
+dynamics during
+reveals hallucinated epitopes
+interactions
+and a bias for orderness
+Song
+Arnav Solanki
+University
+UTHealth Houston
+
+12:30 PM –
+Lunch Break (Room 1220)
+2:00 PM
+
+CONCURRENT SESSIONS/WORKSHOPS
+
+Room 2220A&B
+Room 2213A
+Room 2213B
+Room 1220
+
+From Data to Models
+
+Computational and AI models to
+AI and Statistical
+to Agents: Using
+AI and Multi - Modal
+decode disease mechanisms based on
+Methods for
+LLMs to Accelerate
+Integration for
+chromatin and multi - omics
+Genomics and
+Clinical Development
+Disease
+integration
+Multi - Omics
+and Personalize
+Characterization
+Chair: Jianrong Wang
+Chairs: Wanding
+Patient Care
+Chair: Shibiao Wan
+Zhou, Gang Peng
+Chairs: Huanmei Wu,
+
+Yuzhou Chen
+Comprehensive
+characterization of
+N6 - methyladenosine
+RNA modification in
+Agentic - AI for
+Advancing the
+Dual - stream cross -
+cancer
+hypothesis generation
+Interpretation of
+modal alignment for
+Eminent Scholar:
+for aging and drug
+Human Genetic
+clinical trial outcome
+2:00 PM –
+Comprehensive
+repurposing
+Variation Using
+prediction
+2:20 PM
+Characterization of
+Generative AI
+Kyoung Jae Won
+Yuzhou Chen
+N6 - methyladenosine
+Cedars - Sinai Medical
+Xinghua (Mindy) Shi
+University of California,
+RNA modification in
+Center
+Temple University
+Riverside
+Cancer
+
+Han Liang
+MD Anderson Cancer
+Center
+
+Development of
+An optimal - transport
+SepsisGuard - ICU: an
+Combining natural
+Epigenetic Clocks
+based multi - modal
+evidence - grounded
+genetic variations with
+from Oxford
+integration for
+multi - agent system for
+single molecule
+Nanopore
+categorizing T - cell
+safe and explainable
+footprinting to learn
+2:20 PM –
+Methylation Data in
+acute lymphoblastic
+sepsis decision support
+about the rules of
+Human Caudate
+2:40 PM
+leukemia
+in the ICU
+chromatin regulation
+Tissue
+Shibiao Wan
+Xin He
+Gang Peng
+Lei Liu
+University of Nebraska
+University of Chicago
+Indiana University
+Fudan University
+Medical Center
+
+Robust causal
+inference from
+The Cancer Proteome
+ShinyFeatures: a Shiny
+imperfect CRISPR
+Atlas: From
+Developing social work
+App for prioritizing
+interventions in
+Functional
+language models for
+features for machine
+Perturb - seq:
+Proteomics to Next -
+SYNC - Smart AI
+2:40 PM –
+learning models
+Heterogeneous
+Generation Analytics
+assistant
+3:00 PM
+Perturbation Strength
+Timothy Shaw
+and Off - target Bias
+Jun Li
+Phillip McCarllion
+H Lee Moffitt Cancer
+University of North
+Temple University
+Sunduz Keles
+Center
+Carolina at Chapel Hill
+University of
+Wisconsin - Madison
+
+TENET+: A tool for
+BehaviorGround: a fair
+Learning single - cell
+reconstructing gene
+Unified Statistical
+benchmark for cognitive
+multiomic trajectories
+networks by
+Inference Beyond
+decline detection under
+using neural ODEs
+integrating single cell
+Gene Expression in
+subjective - complaint
+3:00 PM –
+expression and
+Single - Cell RNA
+contamination
+Christina Leslie
+3:20 PM
+chromatin accessibility
+Sequencing
+Memorial Sloan
+data
+Sambit Mukherjee
+Kettering Cancer
+Guoshuai Cai
+University of South
+Center
+Junil Kim
+University of Florida
+Carolina
+Soongsil University
+
+3:20 PM – 3:40 PM Coffee Break
+
+From ontology
+Advancing prenatal
+Reliable significance
+Leveraging synthetic
+3:40 PM –
+fingerprints to
+congenital heart
+analysis for protein
+text and image data to
+4:00 PM
+BRAINCELL - AID:
+disease screening
+structure - to - structure
+improve the robustness
+literature - driven gene
+through artificial
+search
+and generalizability of
+function and brain cell
+intelligence
+biomedical AI models
+annotation
+Yang Lu
+Jieqiong Wang
+Kai Wang
+University of
+Wenjin Zheng
+University of Nebraska
+Children’s Hospital of
+Wisconsin
+UTHealth Houston
+Medical Center
+Philadelphia
+
+Machine learning -
+based small - RNA
+From EHR phenotyping
+Interpreting deep
+Transposable
+liquid biopsy enables
+to proactive maternal
+learning models in
+Element–Driven Viral
+accurate classification
+care: Trustworthy AI
+genomics via concept
+Mimicry Constrains
+of benign, malignant,
+for early risk detection
+4:400 PM –
+attribution
+Multistep Pancreatic
+and metastatic breast
+and personalized
+4:20 PM
+Cancer Progression
+diseases
+decision support
+Shaun Mahony
+Pennsylvania State
+Siyu Sun
+Xuhang Liu
+Huanmei Wu
+University
+University of Rochester
+Roswell Park Cancer
+Temple University
+Center
+
+Spatially - informed
+AI in biomedical
+reference - free
+Single - molecule RNA
+Interpretable spatial
+research - - hypothesis
+deconvolution for
+modification mapping
+programs from multi -
+generation, drug target
+spatial
+by AI analysis of
+sample tumor spatial
+4:20 PM –
+and activity prediction
+transcriptomics with
+nanopore sequencing
+transcriptomics
+4:40 PM
+SpatialCD
+Jie Zhang
+Yunxia Wang
+Yi Zhang
+Indiana University
+Yuehua Cui
+Boston Children’s
+Duke University
+Michigan State
+Hospital
+University
+
+Recurrent
+Prompt - tuned open -
+spatiAlytica: Spatially
+Computational
+Methylation Pattern
+source large language
+intelligent multimodal
+techniques for cell -
+Encoding for
+model for structured
+agentic system for
+level inference of gene
+Interpretable Analysis
+extraction of social
+4:40 PM –
+decoding tumor
+effects on human traits
+of Sparse DNA
+determinants of health
+5:00 PM
+ecosystems
+Methylomes
+from clinical notes
+Jinzhuang Dou
+Yufei Huang
+The University of
+Wanding Zhou
+Yan Zhuang, Indiana
+University of Pittsburgh
+Alabama at Birmingham
+Children’s Hospital of
+University
+Philadelphia
+
+A rigorous leak - free
+microbiome pipeline
+Identifying subgroups in
+Single - molecule RNA
+revealing batch effects
+patient with low back
+fate modeling by deep
+as the dominant
+pain for personalized
+learning
+challenge in a multi -
+5:00 PM –
+treatment using machine
+TBD
+cohort immunotherapy
+5:20 PM
+learning
+Dean Li
+response prediction
+Boston Children’s
+Leming Zhou
+Hospital
+Amey Garg
+University of Pittsburg
+Santa Clara High School
+5:00 PM – 5:10 PM
+
+Monday, August 3rd, 2026
+8:00 AM –
+Registration
+5:00 PM
+
+8:20 AM
+Room 2213A
+Keynote Lecture: The
+
+8:20 AM
+Room 2213B
+Human Pangenome Project
+
+9:00 AM
+Ting Wang, PhD (Room 2220A&B)
+
+CONCURRENT SESSIONS/WORKSHOPS
+
+Room 2220A&B
+Room 2213A
+Room 2213B
+Room 1220
+
+Eminent Scholar
+Computational Multi -
+Bridging
+
+Dr. Yun Li
+Omics Approaches to
+Methodological
+AI and Multi - omics
+
+Dissect Regulatory Innovation and Real - for Modeling Aging
+
+Precision Medicine and Cancer
+Variation and Disease World Applications in
+and Disease
+
+Systems
+Mechanisms
+Genetic Studies
+Chair: Sheng Li
+
+Chair: TBD
+Chair: Lei Li
+Chair: Zikun Yang
+
+9:00 AM – 9:20 AM
+Room 2220A&B
+Eminent Scholar:
+Multi - omics
+Understanding of
+Complex Human
+Diseases
+Dr. Yun Li
+
+9:00 AM – 9:20 AM
+Room 2213A
+Prediction of rapid
+fibrosis progression in
+metabolic dysfunction–
+associated steatotic liver
+disease with
+interpretable machine
+learning models
+Tahmina Sultana Priya
+Virginia Tech
+
+9:00 AM – 9:20 AM
+Room 2213B
+Transcriptional
+fastGxE: Powering
+heterogeneity predicts
+genome - wide detection
+and shapes clonal
+of genotype - environment
+selection in aging
+interactions in biobank
+hematopoiesis
+studies
+Sheng Li
+Xiang Zhou
+University of Southern
+Yale University
+California
+
+9:20 AM – 9:40 AM
+Room 2220A&B
+Gain and loss of DNA
+methylation during
+tumor evolution
+Deyana Tabatabaei
+Temple University
+
+9:20 AM – 9:40 AM
+Room 2213A
+Atlas of cell type - specific
+post - transcriptional
+genetic impacts in
+immune - related diseases
+Lei Li
+Shenzhen Bay Laboratory
+
+9:20 AM – 9:40 AM
+Room 2213B
+Distributional genetic Liquid biopsy
+effects reveal context - biomarkers for
+dependent molecular cancer detection and
+regulation in human disease monitoring
+brain aging and
+Bodour Salhia
+Alzheimer’s disease
+University of Southern
+Tianying Wang California
+Colorado State University
+
+9:40 AM
+Room 2220A&B
+Deep learning for
+hepatocellular
+carcinoma risk
+prediction in patients
+with chronic liver
+insights from
+retrospective cohort
+analysis
+Jinlian Wang
+UT Austin
+
+9:40 AM
+Room 2213A
+early
+A lifespan regulatory
+atlas of the East Asian
+brain resolves the
+psychiatric traits
+Chao Chen
+South China University
+
+9:40 AM
+Room 2213B
+A transcriptomics -
+Powerful statistical
+native foundation
+frameworks for genome -
+model for universal
+wide survival association
+cell representation
+analysis
+and virtual cell
+synthesis
+Shiyang Ma
+Shanghai Jiao Tong
+Jichun Xie
+University
+Duke University
+RNA stability as a
+An immune cell
+Functional reconciliation
+key link between
+signature for sepsis
+of human gut microbes Interplay of Polygenic genetic variation and
+10:00 AM
+with multiple organ
+through comparative and Monogenic Kidney disease: insights from
+dysfunction syndrome
+pangenome analysis
+Disease
+multi - omics and deep
+–
+learning
+10:20 AM
+Rama Shankar
+WeiHua Chen
+Atlas Khan
+Michigan State
+Huazhong University of
+Columbia University
+Xinshu Grace Xiao
+University
+Science and Technology
+University of
+California
+
+10:20 AM – 10:40 AM Coffee Break
+
+GenePriori: a leakage -
+Precisely integrate
+aware multi - agent
+single - cell data to
+framework for bias - Multi - omics integration Integrating genomic and
+decipher aging
+robust gene
+predicts 17 disease
+proteomic data improves signatures in the
+10:40 AM
+prioritization with
+incidences in the UK complex trait prediction monkey brain under
+– 11:00
+translational oncology
+biobank
+in diverse populations.
+calorie restriction
+PM
+relevance
+Quan Sun
+Haoyu Zhang
+Chao Zhang
+Yuxuan Jiang
+University of Pennsylvania National Cancer Institute
+Boston University
+Southwest Medical
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -
+University
+-
+Single - cell multiomics
+Identification of
+reveals malignant
+intrinsic pancreatic
+Multi - ancestry modeling
+plasticity and
+Accurate estimation and
+cancer expression
+leveraging genetic
+immune suppression
+correction of open
+diversity reveals
+in high - risk pediatric
+subtypes from patient -
+11:00 AM
+chromatin biases in
+heterogeneous
+cancers
+derived xenograft
+CUT&Tag data
+– 11:20
+architecture in primary Wenbao Yu, Temple
+samples
+open - angle glaucoma
+PM
+Sheng’en Shawn Hu
+University
+Orry Huang
+University of Virginia
+Jessica Cooke Bailey - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+University of Texas
+School of Medicine
+-
+East Carolina University
+Health Science Center,
+Integrative AI - driven
+San Antonio
+multi - omics identifies
+NR2F1 as a key
+Oncoordinate captures
+A novel admixed
+driver of lineage
+microenvironmental population fine - mapping Signatures of recent
+plasticity and
+state dynamics and method: mitigating false positive selection refine
+metastatic
+11:20 AM
+discovery rate through
+novel Primary open -
+progression in
+identifies aggressive
+local genetic ancestry angle glaucoma risk loci
+– 11:40
+prostate cancer
+niches in tumors
+modeling
+PM
+Timothy Ciesielski
+Amanda Leonita
+Vignesh Venkat
+Kai
+Yuan
+Case
+Western Reserve
+Yale University
+Rutgers Cancer Institute
+Indiana University School
+University
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -
+& Icahn School of
+of Medicine
+-
+Medicine at Mount Sinai
+Quantifiable blood
+TCR repertoire
+components
+associated with
+immune aging
+
+Associated cell types and
+Bo Li
+A density - based spatial
+influential genes
+University of
+functional modularity
+identified through
+Tractor - PGS uses local
+Pennsylvania
+framework for
+integration of genome -
+ancestry to improve - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+characterizing tumor
+11:40 AM
+wide association studies prediction accuracy in
+-
+functional niches in
+and single - cell
+admixed populations
+– 12:00
+Cell - free
+DNA
+HER2 - positive breast
+transcriptomics for
+fragmentomics
+and
+PM
+cancer
+Yi - Sian Lin
+circulating fatty acid
+methylation
+as
+AI -
+Baylor College of
+traits
+Fan Jhen Liu
+enabled
+multi - omics
+Medicine
+National Taiwan
+biomarkers across
+Elijah Sterling
+University
+cancer and
+University of Georgia
+neuroinflammatory
+disease
+
+Yaping Liu
+Northwestern
+University
+
+12:00 PM
+
+–
+Lunch Break (Room 1220)
+
+1:00 PM
+
+CONCURRENT SESSIONS/WORKSHOPS
+
+Room 2220A&B
+Room 2213A
+Room 2213B
+Room 1220
+
+Invited Speaker
+Biological and
+Dr. Min Xu
+Biomedical
+Cancer Genomics
+Deep Learning and
+Ontology Workshop
+Chairs: Siyuan
+CRISPR Screening
+Genome Browser Tutorial
+in the AI Era
+Zheng, Xiaojing
+Chair: Xueqiu Lin
+Chair: Daofeng Li
+Chairs: Oliver He,
+Wang
+
+Alexander Diehl
+
+1:00 PM
+Room 2220A&B
+From Pixels to
+Biological
+Reasoning:
+Semantic,
+Hierarchical, and
+Graph - Structured
+Learning for
+Interpretable
+Biomedical AI
+Min Xu
+Mohamed bin Zayed
+University of
+Artificial Intelligence
+& CMU
+
+1:00 PM
+Room 2213A
+Representing dental
+care - related fear and
+anxiety
+Bill Duncan
+University of Florida
+
+1:00 PM
+Room 2213B
+An embedding - based
+framework for
+statistical testing of
+Decoding Non - Coding
+LLM - inferred gene -
+Regulatory Mutations
+set functions
+in Cancer Using
+FFPE - CUTAC and
+Yu - Chiao Chiu
+Interpretable Deep
+University of
+Learning
+Pittsburgh
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Xueqiu (Chu) Lin
+-
+Fred Hutchinson
+Creative applications
+Cancer Center
+of AI in biomedical
+research
+Yan Guo
+Harnessing tandem
+Pain in both general
+Browser tutorial
+University of Miami repeats to understand
+and specific
+session introduction
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - the genetic basis of
+ontological
+1:20 PM –
+-
+human diseases
+Daofeng Li
+representation
+1:40 PM
+Proteogenomics
+Washington
+Ya (Allen) Cui
+guides tumor systems
+Alexander Diehl
+University
+University of
+biology: opportunities
+University at Buffalo
+1:20PM - 1:30PM
+California
+and challenges
+
+UCSC Genome
+Chen Huang
+Browser:
+Recent developments
+University of Alabama Structured Modeling
+Introduction + 5min
+in social ontology
+of Allelic - specific
+at Birmingham
+QA
+1:40 PM –
+Gene Expression
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Virtual
+Bill Hogan
+2:00 PM
+-
+Robert Kuhn,
+Medical College of
+William H. Majoros
+Phenylalanine
+UCSC Genomics
+Wisconsin
+Duke University
+reprograms TLS
+Institute
+architecture and
+1:30PM - 2:00PM
+plasma cell fate in
+UCSC Brain
+MASH - HCC
+Characterizing the
+Explorer
+genetic architecture
+Introducing the Injury
++ 5min QA
+Chunru Lin
+and molecular
+Ontology
+2:00 PM –
+Virtual
+The University of
+mechanism of
+2:20 PM
+Mary Goldman
+Texas MD Anderson circulating fatty acids
+Barry Smith
+UCSC Genomics
+Cancer Center
+University at Buffalo
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - Kaixiong (Calvin) Ye
+Institute
+University of Georgia
+2:00PM - 2:30PM
+-
+HOXA9 maintains
+How to Align
+cancer - specific 3D
+The 2026 Cell Line
+Unpaired Single - Cell
+WashU Epigenome
+genome organization
+Ontology Updating
+Omics: Benchmarks,
+Browser:
+in AML
+and CellCards Web
+Practical Guidelines,
+Introduction
+2:20 PM –
+Display
+and Impacts on Gene
+Qili Shi
+Daofeng Li
+2:40 PM
+Regulatory Modeling
+UT Health San Antonio
+Jie Zheng
+Washington
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+University of Michigan
+Zhana Duren
+University
+-
+Medical School
+Indiana University
+2:30PM - 2:40PM
+From unresolved
+School of Medicine
+variants to actionable
+biomarkers: defining Perturbation of allele
+A decade of progress
+specific chromatin
+Develop
+when long - read
+in automated quality
+sequencing is required variants in human
+visualization portal
+assurance of
+colon organoids links
+(example: BICAN &
+Xiaotu Ma, St. Jude
+biomedical ontologies
+gene regulation to
+IGVF)
+2:40 PM –
+Children's Research
+non - coding variants
+3:00 PM
+Licong Cui
+Wenjin Zhang
+Hospital
+associated with
+University of Texas
+Washington
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+digestive disease
+Health Science Center
+University
+-
+at Houston
+Siming Zhao
+2:40PM - 2:45PM
+Dartmouth College
+AI - empowered virtual
+Automating
+immunopeptidomics
+Intervention Discovery
+Improving Disease
+of neoantigen
+HPRC Epigenome
+from Scientific
+Risk Prediction with
+immunogenicity
+Browser
+Literature: A
+Functional Genomics
+3:00 PM –
+Yuhao Tan
+Progressive Ontology
+Annotations Using
+Tianjie Liu
+The Children's Hospital
+3:20 PM
+Prompting and Dual -
+LLMs
+Washington
+of Philadelphia /
+LLM Framework
+University
+Wanwen Zeng
+University of
+2:45PM - 2:50PM
+Jinjun Xiong
+Stanford University
+Pennsylvania
+University at Buffalo
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Genomic alterations
+across racial/ethnic
+5min QA for WashU
+groups and cancer
+Epigenome Browser
+outcome disparities
+2:50PM - 2:55PM
+Xiaojing Wang
+5min Break
+UT Health San Antonio
+From Biomedical
+2:55PM - 3:00PM
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Interpret human
+Ontologies to
+Genome - scale
+genetic variants via
+Knowledge Discovery:
+discovery of RNA -
+single - cell multimodal
+Ontology - Driven
+centered regulation in
+omics and AI/ML
+3:20 PM –
+Hands - on for
+Applications in Ignet
+cancer drug response
+models
+WashU Epigenome
+3:40 PM
+2.0 and Vignet
+and immunotherapy
+Browser
+Yang Li
+Junguk Hur
+Da Yang
+Washington University
+Chad Seng,
+University of North
+in St. Louis
+University of
+Washington
+Dakota
+Pittsburgh
+University
+3:00PM - 3:40PM
+Bring laptop
+
+3:40 PM – 4:00 PM Coffee Break
+
+Special panel: AI in
+Clinical Imaging, Multimodal AI,
+Technology Session
+Research and
+Flash Talks
+and Healthcare Deployment
+Chair: TBD
+Scientific Writing
+Chair: TBD
+Chair: TBD
+Chair: Wei Zhang
+
+CO - PICO/PECO:
+Condition - based
+occupational
+Empowering genomic
+Matching speech
+PICO/PECO and its
+discovery: Accelerating
+models to ADRD
+applications for LLM
+regulatory biology
+subtypes: A
+extraction and
+through multi - omic
+mechanistic
+ontological modeling
+4:00 PM –
+TBD
+solutions
+benchmark
+of structured
+Zhandong Liu (panelist)
+4:20 PM
+occupational safety
+Yun Zhao, Zonghui Peng
+Xiaoyu Zhang
+and health
+Admera Health
+SUNY at Buffalo
+(30 minutes)
+Hasin Rehana,
+4:00 PM – 4:30 PM
+University of North
+Dakota
+4:00 PM – 4:10 PM
+CIRCA identifies cell -
+and niche - level
+interactions with
+amyloid - β plaques
+using causal
+representation
+learning
+
+Tyler Lovelace
+UTHealth Houston
+4:10 PM – 4:20 PM
+
+Machine learning
+augmented
+mechanistic modeling
+for identifying
+A framework for
+predictive tumor
+dynamically training
+biomarkers
+and adapting deep
+Unlocking Archived
+reinforcement
+Alexander Silalahi
+Pathology Specimens:
+learning models to
+MD Anderson Cancer
+Robust Single - Cell
+different, low -
+Center
+Transcriptomics
+from
+compute, and
+4:20 PM –
+4:20 PM – 4:30 PM
+FFPE
+Tissue
+TBD
+continuously
+4:40 PM
+Multimodal protein
+changing radiology
+Jing Zhou
+function inference via
+deployment
+Singleron Biotechnologies
+vision - language
+environments
+(20 minutes)
+models and structural
+4:30 PM – 4:50 PM
+Zoom
+similarity
+Guangyao Zheng
+representations,
+Rice University
+Christopher Barker,
+Pacific Lutheran
+University
+4:30 PM – 4:40 PM
+
+scDCBC: Model -
+based scRNA - seq
+deep clustering with
+batch correction
+Multimodal deep
+Protein interactomics by
+learning for
+Xiaohe Chen, Florida
+proximity networks of
+Alzheimer’s disease
+State University
+single cells
+prediction with
+4:40 PM – 4:50 PM
+4:40 PM –
+Improved training
+Zoom
+TBD
+5:00 PM
+stability and
+Michael Förster
+flexibility
+Pixelgen
+Jianan Liu
+(30 minutes)
+TBD
+Southeast University
+4:50 PM – 5:20 PM
+4:50 PM – 5:00 PM
+
+A systematic
+RA - CMF: Region -
+Use of Stereo - seq to
+investigation of
+adaptive conditional
+5:00 PM –
+dissect cell type spatial
+TBD
+molecular encoding
+MeanFlow for CT
+5:20 PM
+differences in human
+methods for drug
+image reconstruction
+property predictions
+Md Shifatul Ahsan
+brain organoids and
+across neural
+Apurba
+mouse eyeball
+network and
+University of
+transformer encoder -
+Zoom
+Alabama at
+based model
+Birmingham
+Elaine Lim
+Shan - Ju Yeh, National
+MGI US LLC
+Tsing Hua University
+5:00 PM – 5:10 PM
+(20 minutes)
+5:20 PM – 5:40 PM
+Beyond PCA:
+Multiple
+correspondence
+analysis for robust
+cell - type annotation
+and trajectory
+inference
+
+Tsai - Jung Lu, National
+Taiwan University UT
+San Antonio
+5:10 PM – 5:20 PM
+
+WoundWise: A
+mobile deep learning
+solution for accurate
+pressure ulcer
+5:20 PM –
+Built for What's Next:
+staging
+TBD
+TBD
+How 10x's Flex Apex,
+5:40 PM
+Xenium, and Atera
+Daniel Change
+Platforms Are Powering
+University of Nevada,
+the AI Era of Biology
+Las Vegas
+
+Aleksandar Janjic
+ICA - based analysis
+10x Genomics
+of progressive multi -
+(20 minutes)
+scale structural–
+5:40 PM – 6:00 PM
+5:40 PM –
+functional fusion for
+TBD
+TBD
+6:00 PM
+Alzheimer’s disease
+
+Yanteng Zhang
+TReNDS Center
+
+6:00 PM –
+Poster Session (Atrium)
+7:30 PM
+
+Tuesday, August 4th, 2026
+
+8:00 AM –
+Registration
+5:00 PM
+
+8:20 AM –
+Keynote Lecture: Mapping the Multiscale Human
+
+9:00 AM
+Gary Bader, PhD (Room 2220A&B)
+
+CONCURRENT SESSIONS/WORKSHOPS
+Room 2220A&B
+Room 2213A
+Room 2213B
+Room 1220
+
+Invited Speaker
+From Metagenomes to
+Integrative omics to
+Dr. Zemin Zhang
+Mechanisms:
+AI and Data Science
+understand and
+
+Functional Microbiome in Health Informatics
+predict disease
+AI - Driven Multi - Omics for Disease
+Discovery
+Chairs: Yu Huang, Yan
+progression
+Mechanisms and Therapeutic
+Chairs: Qiyun Zhu,
+Zhuang
+Chairs: Jingwen Yan,
+Discovery
+Xiaofang Jiang
+Sha Cao
+Chairs: Hongying Sun, Kaifu Chen
+
+9:00 AM – 9:20 AM
+Room 2220A&B
+Invited Speaker:
+Decoding the tumor
+microenvironment
+pan - cancer single
+analysis
+Zemin Zhang
+Chongqing Medical
+University
+
+9:00 AM – 9:20 AM
+Room 2213A
+Spatiotemporal
+microbiome dynamics:
+by from early disease
+cell prediction to single - cell
+functional analysis and
+sorting
+Shi Huang
+University of Hong Kong
+
+9:00 AM – 9:20 AM
+Room 2213B
+Continuous Modeling
+Agentic AI for complex
+of Disease Progression
+clinical informatics
+in Alzheimer's Disease
+workflows
+and Related Dementias
+Xing He
+Lu Zhang
+Indiana University School
+Indiana University
+of Medicine
+Indianapolis
+
+9:20 AM – 9:40 AM
+Room 2220A&B
+Longitudinal epigenome -
+wide associations
+pre - chemotherapy
+prediction of post -
+chemotherapy
+inflammation in patients
+with breast cancer
+undergoing
+chemotherapy
+Hongying Sun
+University of Rochester
+
+9:20 AM – 9:40 AM
+Room 2213A
+and
+Decoding the gut
+microbiome’s functional
+dark matter via
+comparative genomics
+Xiaofang Jiang
+National Institutes of Health
+(NIH)
+
+9:20 AM – 9:40 AM
+Room 2213B
+Stability - aware
+Multi - modal AI using integrative clustering
+neuroimaging genomics for characterizing
+to study alzheimer's and disease progression
+dementia from multi - modal data
+Da Ma Rachael Hageman Blair
+Wake Forest University New York University at
+Buffalo
+
+9:40 AM – 10:00 AM
+Room 2220A&B
+Quantum computing
+single - cell biology:
+networks, dynamics,
+generative models
+James J. Cai
+Texas A&M University
+
+9:40 AM – 10:00 AM
+Room 2213A
+for
+Microbiome - Informed
+Therapeutic Peptide
+and
+Discovery
+Shanlin Ke
+Ohio State University
+
+9:40 AM – 10:00 AM
+Room 2213B
+Continuous staging of
+amyloid progression in
+Immune digital twin and Alzheimer’s disease
+vascular disease with enhanced
+sensitivity to early
+Juilee Thakar
+changes
+University of Rochester
+Jingwen Yan
+Indiana University
+
+10:00 AM
+Room 2220A&B
+Cross - Trait PRS
+data - driven subtyping
+uncover obesity
+heterogeneity and
+precision risk prediction
+Shulan Tian
+Mayo Clinic
+
+10:00 AM
+Room 2213A
+and Microbiome - based early
+to screening of intestinal
+tumors driven by
+enable intelligent sensing and
+privacy protection
+Xiaoquan Su
+Qingdao University
+
+10:00 AM
+Room 2213B
+AD - LLaVA - 3D:
+Unlocking clinical Forecasting
+development innovation Alzheimer's Disease
+with artificial Progression with a
+intelligence and real - Unified Multimodal
+world evidence Video - Language
+Framework
+Chuan Gao
+Johnson & Johnson Sha Cao
+Innovative Medicine Oregon Health &
+Science University
+10:20 AM – 10:40 AM Coffee Break
+
+10:40 AM – 11:00 AM
+Room 2220A&B
+Agentic AI for atlas
+analysis of cell - cell
+communications
+Kaifu Chen
+Harvard Medical School
+
+10:40 AM – 11:00 AM
+Room 2213A
+Multi - dimensional virome
+profiling from bulk
+metagenomes reveals non -
+redundant signatures of
+gut dysbiosis
+Zheng Sun
+Harvard University
+
+10:40 AM – 11:00 AM
+Room 2213B
+Staging and
+Agentic AI for Pseudotime Inference
+automated RNA of Alzheimer’s Disease
+structural motif analysis Progression Using
+and biomedical Multimodal Imaging
+discovery Data
+Jie Hou Zixuan Wen
+Michigan State University University of
+Pennsylvania
+
+11:00 AM – 11:20 AM
+Room 2220A&B
+Cellular and molecular
+dynamics of smooth
+muscle cells during
+aortic disease
+development
+Yanming Li
+Maine Health Institute
+Research
+
+11:00 AM – 11:20 AM
+Room 2213A
+Predicting metabolite
+response to dietary
+intervention using deep
+learning
+Tong Wang
+for
+Purdue University
+
+11:00 AM – 11:20 AM
+Room 2213B
+From 2D Snapshots to
+3D Molecular
+LLM - Agent - Based
+Landscapes:
+clinical trial cohort
+Reconstructing
+building: an
+Volumetric Spatial
+experimental evaluation
+Transcriptomics with
+using MIMIC - IV
+AI
+Hao Liu
+Wei Zhang
+Montclair State University
+University of Central
+Florida
+
+11:20 AM – 11:40 AM
+Room 2220A&B
+Computational biology
+early drug discovery:
+turning complex
+into biological insights
+Yu Sun
+Biogen
+
+11:20 AM – 11:40 AM
+Room 2213A
+in
+Calculating differential
+genome coverages among
+data
+metagenomic sources
+Yuhan Weng
+University of California San
+Diego
+
+11:20 AM – 11:40 AM
+Room 2213B
+A scalable multi - omics
+representation
+How Much Biological
+framework for disease
+Knowledge Is Encoded
+modeling across
+in LLM - Derived Gene
+proteomic, single - cell,
+Embeddings?
+and spatial
+transcriptomic data
+Jun Li
+Notre Dame University
+Daisy Shen
+Moffitt Cancer Center
+
+11:40 AM – 12:00 PM
+Room 2220A&B
+Machine learning - based
+prediction of gene
+expression using
+motifs and structural
+properties
+Mingyi Zhu
+Yale School of Medicine
+
+11:40 AM – 12:00 PM
+Room 2213A
+Enabling AI - driven
+discovery in complex
+RNA
+biological systems with
+scikit - bio
+Qiyun Zhu
+Arizona State University
+
+11:40 AM – 12:00 PM
+Room 2213B
+Toward integrative
+Cross - Hospital privacy - modeling of drug
+preserving distributed response in acute
+AI myeloid leukemia
+Tsung - Ting Kuo Olga Nikolova
+Yale University Oregon Health &
+Science University
+
+12:00 PM –
+Lunch Break (Room 1220)
+1:00 PM
+
+1:00 PM
+Room 2220A&B
+Keynote Lecture:
+
+1:00 PM
+Room 2213A
+A Research Agenda
+Post - EHR
+James Cimino, MD
+
+1:00 PM
+Room 2213B
+for Clinical Informatics in the Post - AI,
+Vendor World
+(Room 2220A&B)
+
+CONCURRENT SESSIONS/WORKSHOPS
+
+Room 2220A&B
+Room 2213A
+Room 2213B
+Room 1220
+Future Scientist
+Eminent Scholar
+Session
+Dr. Chongzhi Zang
+Single - Cell, Spatial,
+Chair: Chi Zhang,
+and Regulatory
+Flash Talk
+
+Multi - Omics, Microbiome, and
+Networks
+Chair: Yufang Jin
+Jingwen Yan，
+
+Metabolomics
+Chair: TBD
+Arhan Patel
+Chair: TBD
+
+Nanoparticle - Induced
+Thermogenic
+Adipocytes Improve
+Endothelial Tube
+Eminent Scholar:
+Formation and
+Single - cell analysis of
+Chromatin and Gene
+Network
+intracellular transport
+Regulation through
+Derek Ai
+and expression of cell
+Parker Olkowski
+Transcriptional
+Park Tudor High School
+1:40 PM –
+surface proteins
+UT San Antonio
+Condensates
+2:00 PM
+Rekha Mudappathi
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Dr. Chongzhi Zang
+Electroencephalograp
+Arizona State University
+hy (EEG) for Remote
+Christopher Barker
+Vehicle Control
+Pacific Lutheran
+Applications
+University
+
+Seth Johnston
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+UT at San Antonio
+
+Hardware - Oriented
+Joshua Bie
+Programming for an
+Havard Westlake School
+Autonomous Robot
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Angela Zhang
+Basis San Antonio
+Multi - modality
+Knowledge grounded
+Alyssa Chen
+Shavano Campus
+foundation model to
+multi - agent
+Carrollwood Day High
+link pathology with
+orchestration for
+School
+Bridging Computer
+omics
+interpretable functional
+2:00 PM –
+Vision and Food
+summarization of
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Guangyu Wang
+Policy: A YOLOv11
+2:20 PM
+single - cell
+Houston Methodist,
+Produce Freshness
+transcriptomics
+Tim Chu
+Weill Cornell Medicine
+Detector Aligned with
+Forest Hills Central High
+School
+Jinlian Wang
+California AB 660
+School
+UTHealth Houston
+Date Label
+Vocabulary
+
+Aston Liu
+The Kinkaid School,
+Houston
+
+Analyzing soil
+DUET - Knockoffs:
+microbial diversity in
+FDR - Controlled
+Bianca Ehling
+organically managed
+Cross - Platform
+The Ohio State
+fields amended with
+Feature Selection
+University
+2:20 PM –
+TBD
+dredged material in
+from Paired 16S and
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+2:40 PM
+northwest ohio
+Shotgun Microbiome
+Count Data
+Katelyn Hur
+Shikshya Gautam
+Red River High School
+Bowling Green State
+Shiyuan Wang
+University
+UT at San Antonio
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+TBD
+
+Jason Li
+Westwood High School
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+TBD
+DUET - Knockoffs: fdr -
+Isabella Jiayi Li
+controlled cross -
+Westlake High School
+miR - CellMap: a graph -
+platform feature
+transformer framework
+selection from paired
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+for single - cell
+16S and shotgun
+microRNA - gene
+2:40 PM –
+microbiome count
+Addison Liu
+regulatory analysis
+3:00 PM
+data
+Park Tudor School
+Jane Ohia
+Yiqiao Zhu
+University of Nebraska -
+TBD
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+The University of Texas
+Lincoln
+at San Antonio &
+Emily Liu
+University of Michigan
+The Bishop Strachan
+School
+
+3:00 PM – 3:20 PM Coffee Break
+
+Multiomic integration
+Cell segmentation using
+reveals regulatory
+TBD
+Sunny Lowel
+spatial transcriptomic
+function of GWAS
+Brock University
+data from the multi -
+variants within
+3:20 PM –
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+objective optimization
+transposable elements
+3:40 PM
+Alex Mao
+perspective
+in brain aging
+Winston Churchill High
+TBD
+Aleksandar Necakov,
+School
+Sreejato Chatterjee,
+Brock University
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+University of Rochester
+Emma K. Molnar
+metaSRNA: a unified
+Waterford School
+framework for
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+MolGene - E: inverse
+TBD
+reprocessing bacterial
+Christina Teng
+molecular design to
+data from microrna
+Thomas S. Wootton
+modulate single cell
+sequencing protocols
+High School
+3:40 PM –
+transcriptomics
+and drafting bacterial
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+4:00 PM
+small RNA catalogs
+Alexander Wu
+Rahul Ohlan
+TBD
+Arizona State University
+The City University of
+Mengyuan Zhou
+New York
+University of Nebraska
+Lincoln
+
+SPLISUM: spectral
+Dysregulated
+Austin Xu
+prediction and library
+intercellular
+TBD
+Williamsville East High
+searching for
+communication and
+School
+untargeted
+signaling pathways
+4:00 PM –
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+metabolomics
+across brain regions in
+4:20 PM
+Shaoyu Xu
+Alzheimer’s disease
+Shanghai World Foreign
+Chhavi Thakur
+TBD
+Language Academy
+Indiana University,
+Hani Alostaz
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Bloomington
+UTHealth Houston
+Adrian Z. Yang
+Celltaminate: a
+EVTS: a topology -
+Lawrence E. Elkins High
+TBD
+bioinformatic pipeline
+aware metric for
+School
+for rapid detection of
+evaluating RNA
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+pathogenic
+velocity embeddings in
+4:20 PM –
+Henry Yang
+microorganisms
+single - cell
+4:40 PM
+Sage Hill School
+transcriptomics
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Ahmad Salman Sirajee
+TBD
+Alina Yu
+Rutgers University,
+Xiuquan Wang
+Germantown Friends
+New Brunswick
+Tougaloo College
+School
+
+Flash Talks
+Flash Talks
+Flash Talks
+Chair: TBD
+Chair: TBD
+Chair: TBD
+
+Cross - species gene set
+and cell type
+annotation through
+SomAtt: a foundation
+large language models
+model for the tumor
+4:40 PM –
+and agentic AI with
+genome
+TBD
+4:50 PM
+Daniel Zhang
+literature - grounded
+David Arredondo
+Canyon Crest Academy
+validation
+University of New Mexico
+Wenbo Chen
+UTHealth Houston
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Improved drug
+Drug - drug interaction
+discovery through
+prediction using
+accurate prediction of
+proteomic scale
+adverse drug reactions
+4:50 PM –
+signatures within the
+Simon Zhang
+TBD
+within the CANDO
+5:00 PM
+CANDO platform
+Lexington High School
+platform
+Lucille Tomin
+Vida Bodaghi - Namileh
+University at Buffalo
+University at Buffalo
+
+Prevalence and Genetic - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+L2b - Probiotics: A
+AI - based Characterization Determinants of Chronic
+Fusion Genetic
+of Alzheimer’s Disease Diseases in a University
+Language model for
+Phenotypes from
+Student Population: A
+Eva Zhao
+probiotics
+population scale single cell Cross - Sectional Analysis
+5:00 PM –
+Middlesex school
+identification
+data
+with International
+5:10 PM
+Comparisons
+Caihao Sun
+Chenfeng He
+The University of Hong University of Wisconsin -
+Afagh Bapirzadeh
+Kong
+Madison
+Islamic Azad University - - - - - - - - - - - - - - - - - - - - - - - - - -
+Pre - recording
+
+FACET: criterion -
+AI in Fast Detection of
+Single - Cell viral
+anchored semantic
+Diseases
+detection from
+Katherine Zhou
+phenotype matching with
+unmapped scRNA - seq
+Zarrin Minuchehr
+Choate Rosemary Hall
+a guarded LLM for DSM -
+reads
+National Research
+5:10 PM –
+5 - TR face validity of
+Institute of Genetic
+5:20 PM
+psychiatric mouse models
+Mohammadamin
+Engineering and
+Mahmanzar
+An Le
+Biotechnology, Tehran -
+University of Hawaii at
+SUNY Upstate Medical
+Karaj Highway
+Manoa
+University
+Pre - recording
+Wednesday, August 5th, 2026
+
+8:00 AM –
+Registration
+5:00 PM
+
+8:00 AM
+Room 2220A&B
+Keynote Lecture:
+
+8:00 AM
+Room 2213A
+Digital Tissue Twins: Shaping the
+
+8:00 AM
+Room 2213B
+Future of Precision Medicine
+
+8:40 AM
+Mingyao Li, PhD (Room 2220A&B)
+
+8:40 AM
+Room 2213A
+Award Ceremony (Room
+
+8:40 AM
+Room 2213B
+2220A&B)
+
+CONCURRENT SESSIONS/WORKSHOPS
+
+Room 2220A&B
+Room 2213A
+Room 2213B
+
+Computational Drug Discovery and
+Multi - omics, AI, and the
+Emerging BioHealth and
+
+Therapeutic Modeling
+Future of Precision Health
+Environmental Frontiers
+
+Chair: TBD
+Chair: Yuanyuan Fu
+Chair: TBD
+
+9:20 AM – 9:40 AM
+Room 2220A&B
+KGPredict - Com: a knowledge
+graph model for drug
+combination prediction
+Zhenxiang Gao
+Case Western Reserve
+
+9:20 AM – 9:40 AM
+Room 2213A
+Genetic architecture of plasma
+ATX(N) biomarkers in
+Alzheimer’s disease reveals
+distinct cis and trans regulation
+Yuxi Liu
+University Harvard T.H. Chan School of
+Public Health
+
+9:20 AM – 9:40 AM
+Room 2213B
+Weakly - supervised topology -
+preserving 3D mitochondria
+segmentation
+Elliott Seo
+Stony Brook University,
+
+9:40 AM – 10:00 AM
+Room 2220A&B
+Sparsity, structure, and
+interpretability in biologically
+informed neural networks
+drug response prediction
+Jason Chia
+Purdue University & Argonne
+National Laboratory
+
+9:40 AM – 10:00 AM
+Room 2213A
+Evaluation of statistical
+differential analysis methods
+for for identification of senescent
+cells using single - cell
+transcriptomics
+Dongmei Li
+University of Rochester
+
+9:40 AM – 10:00 AM
+Room 2213B
+Learning - augmented resource
+allocation for intelligent healthcare
+scheduling
+Fei Li
+George Mason University
+
+10:00 AM – 10:20 AM
+Room 2220A&B
+A DALEX - based explainable
+framework for lymphography
+prediction
+Tapas Si
+University of Engineering
+Management, Jaipur (Zhao)
+
+10:00 AM – 10:20 AM
+Room 2213A
+ai
+TRACED: A Graph - Based
+Algorithm to Infer Single - cell
+Time - lagged Gene Regulation
+& Yang Yu
+Boston Children’s Hospital
+
+10:00 AM – 10:20 AM
+Room 2213B
+Hyperspectral deep learning for
+compositional classification of
+municipal solid waste: an
+environmental health informatics
+application
+Jason Li
+Westwood High School
+
+10:20 AM – 10:40 AM Coffee Break
+TransGen: de novo enzyme
+XLCenter: crosslink - induced
+design via catalytic - conditioned Leveraging gene - environment truncation site identification reveals
+interactions to understand
+sequence and structural specificities
+10:40 AM –
+sequence generation
+colorectal cancer risk
+of RNA binding protein motifs
+11:20 PM
+Hongming Cai
+Mulong Du
+Yuping Zhang
+South China University of
+Nanjing Medical University
+University of Connecticut
+Technology
+
+DrugPTM - Bench: a large - scale
+Machine learning - derived
+Genetic heterogeneity underlying
+dataset for predictive modeling
+subtypes of autism reveal
+breast cancer subtypes: genetic
+of drug - induced cell type -
+distinct genetic contributions
+epidemiologic investigations to
+11:00 AM –
+specific protein post -
+from common and rare
+disentangle disease complexity
+11:20 PM
+translational modifications
+variants
+Xiang Shu
+Amitesh Badkul
+Chang Shu
+Memorial Sloan Kettering Cancer
+City University of New York
+University of Southern California
+Center
+
+Risk - stratified hepato -
+pancreato - biliary cancer
+From generalist to specialist:
+screening with self - evolving
+evolution of PS2 α - integrins and
+11:20 AM –
+trustworthy AI
+implications for drug targeting
+TBD
+11:40 PM
+He Ren
+Shixi Sun
+The Affiliated Hospital of
+Arizona State University
+Qingdao University
+
+A reproducible hybrid QSPR -
+machine learning framework
+integrating graph - theoretic and
+TBD
+cheminformatics descriptors for
+11:40 AM –
+anticancer drug property
+Yixing Han
+TBD
+12:00 PM
+prediction
+National Institutes of Health
+(NIH)
+H Muhammad Fraz
+COMSATS University Islamabad
+& Riphah International University
+
+12:00 PM –
+Closing Remarks (Room 2220A&B)
+12:10 PM
