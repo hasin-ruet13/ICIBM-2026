@@ -1,6 +1,7 @@
 # ICIBM 2026 Schedule Explorer
 
-This folder now includes a lightweight ICIBM 2026 live schedule explorer built from the official program PDF.
+This folder now includes a lightweight ICIBM 2026 live schedule explorer built from the official program Word file.
+The Word tables are still imperfect in a few spots, but they preserve the schedule structure better than the PDF source.
 
 ## Preview locally
 
@@ -24,5 +25,5 @@ Then open `http://localhost:8000/` in your browser.
 - `index.html` — app shell
 - `styles.css` — visual styling
 - `app.js` — schedule parsing, filters, theme discovery, and browser bookmarks
-- `icibm2026_program_schedule.txt` — text extracted from the official schedule PDF
-- `ICIBM2026_program_schedule_07_23_2026.pdf` — source document
+- `icibm2026_program_schedule.txt` — text extracted from the Word schedule source
+- `ICIBM2026_program_schedule_07_23_2026.docx` — source document

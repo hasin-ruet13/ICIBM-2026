@@ -2,267 +2,183 @@
 from __future__ import annotations
 
 import re
-import subprocess
 import sys
-import tempfile
-import xml.etree.ElementTree as ET
-from collections import defaultdict
 from pathlib import Path
+from zipfile import ZipFile
+import xml.etree.ElementTree as ET
 
 
-NS = {"x": "http://www.w3.org/1999/xhtml"}
-START_TIME_RE = re.compile(r"^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]")
-TIME_ONLY_RE = re.compile(r"^(\d{1,2}:\d{2}\s*(?:AM|PM))$")
-ROOM_RE = re.compile(r"^Room\s+\d{4}[A-Z](?:&[A-Z])?$", re.I)
-CHUNK_GAP = 12.4
+NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+DAY_RE = re.compile(r"^(Sunday|Monday|Tuesday|Wednesday),\s+August\s+\d{1,2}(?:st|nd|rd|th),\s+2026$")
+TIME_RANGE_RE = re.compile(r"^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))", re.I)
+TIME_START_RE = re.compile(r"^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]", re.I)
+ROOM_LABEL_RE = re.compile(r"^Room\s+\d{4}[A-Z](?:&[A-Z])?$", re.I)
 
 
 def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
-    pdf_path = repo_root / "ICIBM2026_program_schedule_07_23_2026.pdf"
+    docx_path = repo_root / "ICIBM2026_program_schedule_07_23_2026.docx"
     output_path = repo_root / "icibm2026_program_schedule.txt"
 
-    if not pdf_path.exists():
-        print(f"Missing PDF source: {pdf_path}", file=sys.stderr)
+    if not docx_path.exists():
+        print(f"Missing Word source: {docx_path}", file=sys.stderr)
         return 1
 
-    with tempfile.NamedTemporaryFile(suffix=".xhtml", delete=False) as temp_file:
-        temp_path = Path(temp_file.name)
-
-    try:
-        subprocess.run(
-            ["pdftotext", "-bbox-layout", str(pdf_path), str(temp_path)],
-            check=True,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        )
-        root = ET.parse(temp_path).getroot()
-        pages = root.findall(".//x:page", NS)
-        lines = []
-
-        for page in pages:
-            lines.extend(extract_page_lines(page))
-
-        output_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
-        return 0
-    finally:
-        temp_path.unlink(missing_ok=True)
+    rows = read_docx_rows(docx_path)
+    output_lines = build_schedule_lines(rows)
+    output_path.write_text("\n".join(output_lines).rstrip() + "\n", encoding="utf-8")
+    return 0
 
 
-def extract_page_lines(page: ET.Element) -> list[str]:
-    line_items = []
-    for line in page.findall(".//x:line", NS):
-        word_entries = [
-            {
-                "text": word.text.strip(),
-                "x0": float(word.attrib["xMin"]),
-                "x1": float(word.attrib["xMax"]),
-                "y0": float(word.attrib["yMin"]),
-                "y1": float(word.attrib["yMax"]),
+def read_docx_rows(docx_path: Path) -> list[list[str]]:
+    with ZipFile(docx_path) as archive:
+        document_xml = archive.read("word/document.xml")
+
+    root = ET.fromstring(document_xml)
+    rows: list[list[str]] = []
+    for table_row in root.findall(".//w:tbl//w:tr", NS):
+        cells = [normalize_cell_text(cell) for cell in table_row.findall("./w:tc", NS)]
+        rows.append(cells)
+    return rows
+
+
+def normalize_cell_text(cell: ET.Element) -> str:
+    paragraphs: list[str] = []
+    for paragraph in cell.findall("./w:p", NS):
+        text = "".join(paragraph.itertext())
+        text = re.sub(r"\s+", " ", text).strip()
+        if text:
+            paragraphs.append(text)
+    return "\n".join(paragraphs)
+
+
+def build_schedule_lines(rows: list[list[str]]) -> list[str]:
+    output: list[str] = []
+    current_room_labels: list[str] = []
+    current_band: dict | None = None
+
+    def flush_band() -> None:
+        nonlocal current_band
+        if not current_band:
+            return
+
+        time_line = current_band["time_line"]
+        room_texts = current_band["room_texts"]
+        room_labels = current_band["room_labels"] or []
+        non_empty = [(index, text) for index, text in enumerate(room_texts) if text.strip()]
+
+        if len(non_empty) <= 1:
+            if non_empty:
+                _, text = non_empty[0]
+                output.append(time_line)
+                output.extend(split_lines(text))
+                output.append("")
+            current_band = None
+            return
+
+        for index, text in non_empty:
+            output.append(time_line)
+            if index < len(room_labels):
+                output.append(room_labels[index])
+            output.extend(split_lines(text))
+            output.append("")
+
+        current_band = None
+
+    for row in rows:
+        compact_row = [cell.strip() for cell in row]
+        row_non_empty = [cell for cell in compact_row if cell]
+
+        if not row_non_empty:
+            continue
+
+        if is_day_row(compact_row):
+            flush_band()
+            output.append(compact_row[0])
+            output.append("")
+            continue
+
+        if looks_like_room_labels(compact_row):
+            current_room_labels = row_non_empty
+            continue
+
+        if len(compact_row) == 1:
+            flush_band()
+            output.extend(split_lines(compact_row[0]))
+            output.append("")
+            continue
+
+        first_cell = compact_row[0]
+        if first_cell and TIME_START_RE.match(first_cell):
+            flush_band()
+            current_band = {
+                "time_line": normalize_time_line(first_cell),
+                "room_texts": compact_row[1:],
+                "room_labels": current_room_labels[:],
             }
-            for word in line.findall(".//x:word", NS)
-            if (word.text or "").strip()
-        ]
-        if not word_entries:
             continue
-        text = join_words(word_entries)
-        line_items.append(
-            {
-                "text": text,
-                "x0": float(line.attrib["xMin"]),
-                "x1": float(line.attrib["xMax"]),
-                "y0": float(line.attrib["yMin"]),
-                "y1": float(line.attrib["yMax"]),
-                "words": word_entries,
-            }
-        )
 
-    line_items.sort(key=lambda item: (item["y0"], item["x0"]))
-    clusters = split_clusters_on_markers(cluster_lines_by_y(line_items))
-    room_centers = extract_room_centers(line_items)
-    rendered = []
+        if current_band and not first_cell:
+            append_continuation(current_band, compact_row[1:])
+            continue
 
-    for index, cluster in enumerate(clusters):
-        rendered.extend(render_cluster(cluster, room_centers, clusters[index + 1] if index + 1 < len(clusters) else None))
-        if index != len(clusters) - 1:
-            rendered.append("")
+        flush_band()
+        output.extend(split_lines("\n".join(row_non_empty)))
+        output.append("")
 
-    return rendered
+    flush_band()
+    return trim_trailing_blank_lines(output)
 
 
-def split_clusters_on_markers(clusters: list[list[dict]]) -> list[list[dict]]:
-    expanded: list[list[dict]] = []
-    marker_re = re.compile(r"\b(Coffee Break|Lunch Break|Opening Remarks|Registration)\b", re.I)
+def append_continuation(current_band: dict, continuation_cells: list[str]) -> None:
+    room_texts = current_band["room_texts"]
+    if len(continuation_cells) > len(room_texts):
+        room_texts.extend([""] * (len(continuation_cells) - len(room_texts)))
 
-    for cluster in clusters:
-        split_index = None
-        has_marker = any(marker_re.search(line["text"]) for line in cluster)
-        if has_marker:
-            for index, line in enumerate(cluster):
-                if index == 0:
-                    continue
-                if line["x0"] < 150 and START_TIME_RE.match(line["text"]):
-                    split_index = index
-                    break
-
-        if split_index is None:
-            expanded.append(cluster)
+    for index, cell_text in enumerate(continuation_cells):
+        if not cell_text:
+            continue
+        if room_texts[index]:
+            room_texts[index] += "\n" + cell_text
         else:
-            expanded.append(cluster[:split_index])
-            expanded.append(cluster[split_index:])
-
-    return [cluster for cluster in expanded if cluster]
+            room_texts[index] = cell_text
 
 
-def cluster_lines_by_y(lines: list[dict]) -> list[list[dict]]:
-    clusters: list[list[dict]] = []
-    current: list[dict] = []
-    last_y: float | None = None
-
-    for line in lines:
-        if last_y is None or line["y0"] - last_y <= CHUNK_GAP:
-            current.append(line)
-        else:
-            clusters.append(current)
-            current = [line]
-        last_y = line["y0"]
-
-    if current:
-        clusters.append(current)
-
-    return clusters
+def normalize_time_line(text: str) -> str:
+    text = normalize_time_text(text)
+    match = TIME_RANGE_RE.match(text)
+    if match:
+        return f"{match.group(1).upper()} – {match.group(2).upper()}"
+    match = TIME_START_RE.match(text)
+    if match:
+        return f"{match.group(1).upper()} –"
+    return text
 
 
-def extract_room_centers(lines: list[dict]) -> list[float]:
-    centers: list[float] = []
-    for line in lines:
-        if ROOM_RE.match(line["text"]):
-            centers.append((line["x0"] + line["x1"]) / 2)
-    return centers
+def normalize_time_text(text: str) -> str:
+    text = re.sub(r"(?<=\d)\s+(?=\d{1,2}:\d{2}\s*(?:AM|PM)\b)", "", text, flags=re.I)
+    text = re.sub(r"(?<!\w)(\d{1,2}:\d{2})\s*(AM|PM)\b", r"\1 \2", text, flags=re.I)
+    text = re.sub(r"(?<!\w)(\d{1,2}:\d{2})\s*[–-]\s*(\d{1,2}:\d{2})", r"\1 – \2", text)
+    text = re.sub(r"(?<!\w)(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))", r"\1 – \2", text, flags=re.I)
+    return text
 
 
-def render_cluster(cluster: list[dict], room_centers: list[float], next_cluster: list[dict] | None) -> list[str]:
-    sorted_cluster = sorted(cluster, key=lambda item: (item["y0"], item["x0"]))
-    marker_re = re.compile(r"\b(Coffee Break|Lunch Break|Opening Remarks|Registration)\b", re.I)
-    if any(marker_re.search(line["text"]) for line in sorted_cluster):
-        return [line["text"] for line in sorted_cluster]
-
-    start_time = find_start_time(sorted_cluster)
-    is_concurrent = start_time and has_multiple_content_columns(sorted_cluster, room_centers)
-
-    if not is_concurrent:
-        return [line["text"] for line in sorted_cluster]
-
-    end_time = find_start_time(next_cluster) if next_cluster else ""
-    label_line = start_time if not end_time else f"{start_time} – {end_time}"
-    rendered: list[str] = []
-
-    column_blocks = split_cluster_into_columns(sorted_cluster, room_centers)
-    for room_index in sorted(column_blocks):
-        block_lines = column_blocks[room_index]
-        if not block_lines:
-            continue
-        rendered.extend([label_line, room_label_for_index(room_index, room_centers)])
-        rendered.extend(block_lines)
-        rendered.append("")
-
-    if rendered and rendered[-1] == "":
-        rendered.pop()
-    return rendered
+def is_day_row(row: list[str]) -> bool:
+    return len(row) == 1 and bool(DAY_RE.match(row[0]))
 
 
-def line_is_split_candidate(line: dict, room_centers: list[float]) -> bool:
-    if line["x0"] < 150 and (START_TIME_RE.match(line["text"]) or TIME_ONLY_RE.match(line["text"])):
-        return True
-    if line["text"] in {"Concurrent Sessions/Workshops"}:
-        return True
-    if ROOM_RE.match(line["text"]):
-        return True
-    return bool(room_centers) and line["x1"] > 180
+def looks_like_room_labels(row: list[str]) -> bool:
+    return len(row) > 1 and all(not cell or ROOM_LABEL_RE.match(cell) for cell in row)
 
 
-def split_cluster_into_columns(cluster: list[dict], room_centers: list[float]) -> dict[int, list[str]]:
-    columns: dict[int, list[dict]] = defaultdict(list)
-    if not room_centers:
-        room_centers = [0.0]
-
-    for line in cluster:
-        if line["x0"] < 150 and (START_TIME_RE.match(line["text"]) or TIME_ONLY_RE.match(line["text"])):
-            continue
-        if line["text"] in {"Concurrent Sessions/Workshops"} or ROOM_RE.match(line["text"]):
-            continue
-        for word in line["words"]:
-            if word["text"] in {"Room"}:
-                continue
-            if word["x0"] < 150 and (START_TIME_RE.match(word["text"]) or TIME_ONLY_RE.match(word["text"])):
-                continue
-            column_index = nearest_room_index(word, room_centers)
-            columns[column_index].append(word)
-
-    rendered: dict[int, list[str]] = {}
-    for column_index, words in columns.items():
-        by_y: dict[float, list[dict]] = defaultdict(list)
-        for word in words:
-            by_y[round(word["y0"], 1)].append(word)
-
-        lines: list[str] = []
-        for y in sorted(by_y):
-            ordered = sorted(by_y[y], key=lambda item: item["x0"])
-            text = join_words(ordered)
-            if text:
-                lines.append(text)
-
-        rendered[column_index] = lines
-
-    return rendered
+def split_lines(text: str) -> list[str]:
+    return [normalize_time_text(line.strip()) for line in text.split("\n") if line.strip()]
 
 
-def nearest_room_index(word: dict, room_centers: list[float]) -> int:
-    center = (word["x0"] + word["x1"]) / 2
-    return min(range(len(room_centers)), key=lambda index: abs(room_centers[index] - center))
-
-
-def room_label_for_index(index: int, room_centers: list[float]) -> str:
-    labels = ["Room 2220A&B", "Room 2213A", "Room 2213B"]
-    if index < len(labels):
-        return labels[index]
-    return "Room"
-
-
-def has_multiple_content_columns(cluster: list[dict], room_centers: list[float]) -> bool:
-    columns = set()
-    for line in cluster:
-        if line["x0"] < 150 and (START_TIME_RE.match(line["text"]) or TIME_ONLY_RE.match(line["text"])):
-            continue
-        if line["text"] in {"Concurrent Sessions/Workshops"} or ROOM_RE.match(line["text"]):
-            continue
-        for word in line["words"]:
-            if word["text"] in {"Room"}:
-                continue
-            if word["x0"] < 150 and START_TIME_RE.match(word["text"]):
-                continue
-            if room_centers:
-                columns.add(nearest_room_index(word, room_centers))
-    return len(columns) >= 2
-
-
-def find_start_time(cluster: list[dict] | None) -> str:
-    if not cluster:
-        return ""
-    for line in cluster:
-        match = START_TIME_RE.match(line["text"])
-        if match:
-            return match.group(1).upper()
-    return ""
-
-
-def join_words(words: list[dict]) -> str:
-    ordered = sorted(words, key=lambda word: word["x0"])
-    text = " ".join(word["text"] for word in ordered).strip()
-    text = re.sub(r"\s+([,.;:!?])", r"\1", text)
-    text = re.sub(r"\s*-\s*", " - ", text)
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
+def trim_trailing_blank_lines(lines: list[str]) -> list[str]:
+    while lines and not lines[-1]:
+        lines.pop()
+    return lines
 
 
 if __name__ == "__main__":
