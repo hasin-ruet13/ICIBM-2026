@@ -1,0 +1,1182 @@
+                                                 SCHEDULE
+
+            International Conference on Intelligent Biology and Medicine
+                           ICIBM 2026 | August 2–5, 2026
+                       Jacobs School of Medicine and Biomedical Sciences, University at Buffalo
+                                      955 Main Street, Buffalo, NY 14203-1121
+
+
+ Sunday, August 2nd, 2026
+
+8:00 AM –
+                                                              Registration
+ 5:00 PM
+9:00 AM –
+                                              Opening Remarks (Room 2220A&B)
+ 9:30 AM
+                                                 Concurrent Sessions/Workshops
+            Room 2220A&B                                      Room 2213A                              Room 2213B
+                                                  AI and Computational Modeling
+                                                                                                  Genomic Modeling and
+  Spatial Single-Cell and Multi-Omics              for Biomedical Discovery and
+                                                                                                  Biomolecular Structure
+            Chair: Yuehua Cui                             Precision Health
+                                                                                                       Chair: TBD
+                                                    Chairs: Yijie Wang, Xun Wu
+                Atlas-based analysis of high-     Structured and scalable AI for high- Computational hardness and
+                      resolution spatial          dimensional biological data: beyond     flow-based optimization
+9:30 AM –              transcriptomics                  lasso under correlation       forneural connectivity inference
+ 9:50 AM
+                      H. Robert Frost                         Yijie Wang                                 Amy Li
+                     Dartmouth College               Indiana University Bloomington                Canyon Crest Academy
+
+                                                                                              GI-Joe: Taming long-context
+               Tools for comparative spatial Explainable AI models for decoding
+                                                                                                 genotype imputation for
+9:50 AM –             transcriptomics             proteins and microbiome
+                                                                                              higheraccuracy and efficiency
+10:10 AM               Saurabh Sinha,                          Yuzhen Ye
+                                                                                                  Mohammad Erfan Mowlaei
+               Georgia Institute of Technology       Indiana University Bloomington
+                                                                                                     Temple University
+
+                    Categorization of 34
+                                                                                                TFBindFormer: A cross-
+                 computational methods to      Reinforcement post-training aligns
+                                                                                                  attention transformer
+               detect spatially variable genes flow-matching perturbation models
+10:10 AM –                                                                                    fortranscription factor–DNA
+                  from spatially resolved               with DEG recovery
+ 10:30 AM                                                                                           binding prediction
+                   transcriptomics data
+                                                          Xuhong Zhang
+                                                                                                         Ping Liu
+                        Guanao Yan                Indiana University Bloomington
+                                                                                                   University of Missouri
+                  Michigan State University
+
+                                     10:30 AM – 10:50 AM Coffee Break
+                CySCI: Regularized
+10:50 AM –     multitasking  graphical       Advancing dietary assessment with               Comprehensive benchmarking
+ 11:10 PM  attention for integrative single-         computer vision                          of long-read fusion-detection
+                     cell analysis
+                                                       Jianpeng He
+                        Xinlei Wang                 Indiana University Bloomington         methods leads to improved
+               University of Texas, Arlington                                                  fusion discovery
+                                                                                                    Ke Ma
+                                                                                             Hong Kong Polytechnic
+                                                                                                  University
+              Identification of high-risk cells
+                                                                                       KoGNER: A novel framework
+              in single-cell spatially resolved
+                                                Detecting precise adverse drug events        for knowledge graph
+                transcriptomics data using
+11:10 AM –                                              from real-world data          distillationon biomedical named
+               transfer learning and spatial
+ 11:30 PM                                                                                      entity recognition
+                         smoothing                          Penyue Zhang
+                                                Indiana University School of Medicine            Heming Zhang
+                    Debolina Chatterjee
+                                                                                            Washington University
+                  University of Mississippi
+                                                     Unbiased in vitro and in vivo
+                                                                                             Multiple versus pairwise
+                 Decoding pediatric                 CRISPR screens identify novel
+                                                                                         sequence alignments for protein
+           scleroderma across scales using         regulatory genes in macrophage
+11:30 AM –                                                                                phylogenetics using foundation
+             spatial omics and histology                    efferocytosis
+ 11:50 PM                                                                                            models
+                        Wei Chen                              Xun Wu
+                                                                                                Rohan Alibutud
+                  University of Pittsburgh               Columbia University
+                                                                                               Temple University
+
+              Decipher non-coding SNPs by              Aging Synergizes with               ChromDiffusion: Refining
+              high-resolution reconstruction        Hypercholesterolemia to Drive            chromatin structure
+11:50 AM –     of single-cell spatial genome            Smooth Muscle Cell                 characterization through
+ 12:10 PM        architectures in 3D space              Transdifferentiation                   diffusion models
+                     Jianrong Wang                          Mingqiao Li                           Yang Zhao
+                 Michigan State University                Tulane University                    Temple University
+                Multimodal AI for tumor                                                      A structural antibody
+                                                    Model-guided reconstruction of
+                   microenvironment                                                        benchmark of AlphaFold3
+                                                 single-cell secretion dynamics during
+12:10 AM –        characterization and                                                    reveals hallucinated epitopes
+                                                  live CAR-T/tumor-cell interactions
+ 12:30 PM        therapeutic prediction                                                     and a bias for orderness
+                                                            Yujing Song
+                     Qianqian Song                                                              Arnav Solanki
+                                                         New York University
+                   University of Florida                                                       UTHealth Houston
+
+12:30 PM –
+                                                    Lunch Break (Room 1220)
+ 2:00 PM
+                             CONCURRENT SESSIONS/WORKSHOPS
+        Room 2220A&B                            Room 2213A               Room 2213B                  Room 1220
+                                                                                                From Data to Models
+  Computational and AI models to                                       AI and Statistical         to Agents: Using
+                                             AI and Multi-Modal
+decode disease mechanisms based on                                       Methods for             LLMs to Accelerate
+                                                Integration for
+    chromatin and multi-omics                                           Genomics and            Clinical Development
+                                                    Disease
+            integration                                                  Multi-Omics               and Personalize
+                                               Characterization
+       Chair: Jianrong Wang                                            Chairs: Wanding              Patient Care
+                                              Chair: Shibiao Wan
+                                                                       Zhou, Gang Peng          Chairs: Huanmei Wu,
+                                                                                                    Yuzhou Chen
+              Comprehensive
+             characterization of
+            N6-methyladenosine
+            RNA modification in
+                  cancer                   Agentic-AI for             Advancing the            Dual-stream cross-
+                                        hypothesis generation        Interpretation of        modal alignment for
+              Eminent Scholar:           for aging and drug           Human Genetic           clinical trial outcome
+2:00 PM –      Comprehensive                repurposing              Variation Using                prediction
+ 2:20 PM     Characterization of                                      Generative AI
+             N6-methyladenosine           Kyoung Jae Won                                         Yuzhou Chen
+             RNA modification in         Cedars-Sinai Medical      Xinghua (Mindy) Shi       University of California,
+                  Cancer                        Center              Temple University               Riverside
+                Han Liang
+            MD Anderson Cancer
+                 Center
+
+                                         An optimal-transport        Development of
+              Combining natural                                                               SepsisGuard-ICU: an
+                                          based multi-modal         Epigenetic Clocks
+            genetic variations with                                                             evidence-grounded
+                                            integration for           from Oxford
+                single molecule                                                              multi-agent system for
+                                          categorizing T-cell           Nanopore
+2:20 PM –    footprinting to learn                                                             safe and explainable
+                                         acute lymphoblastic       Methylation Data in
+               about the rules of                                                            sepsis decision support
+ 2:40 PM                                       leukemia             Human Caudate
+             chromatin regulation                                                                   in the ICU
+                                                                         Tissue
+                                            Shibiao Wan
+                   Xin He                                               Gang Peng                   Lei Liu
+                                        University of Nebraska
+            University of Chicago                                    Indiana University         Fudan University
+                                           Medical Center
+
+
+                 Robust causal
+                inference from                                     The Cancer Proteome
+             imperfect CRISPR           ShinyFeatures: a Shiny
+                                                                       Atlas: From           Developing social work
+               interventions in          App for prioritizing
+                                                                        Functional            language models for
+                 Perturb-seq:            features for machine
+                                                                    Proteomics to Next-         SYNC-Smart AI
+2:40 PM –       Heterogeneous              learning models
+                                                                   Generation Analytics            assistant
+ 3:00 PM    Perturbation Strength
+             and Off-target Bias           Timothy Shaw
+                                                                           Jun Li               Phillip McCarllion
+                                         H Lee Moffitt Cancer
+               Sunduz Keles                                         University of North         Temple University
+                                               Center
+               University of                                       Carolina at Chapel Hill
+             Wisconsin-Madison
+
+                                          TENET+: A tool for
+                                                                                             BehaviorGround: a fair
+             Learning single-cell         reconstructing gene       Unified Statistical
+                                                                                             benchmark for cognitive
+            multiomic trajectories            networks by           Inference Beyond
+                                                                                             decline detection under
+             using neural ODEs           integrating single cell    Gene Expression in
+3:00 PM –                                                                                      subjective-complaint
+                                            expression and           Single-Cell RNA
+ 3:20 PM       Christina Leslie                                                                   contamination
+                                        chromatin accessibility        Sequencing
+               Memorial Sloan
+                                                  data                                         Sambit Mukherjee
+               Kettering Cancer                                        Guoshuai Cai
+                                                                                               University of South
+                    Center                    Junil Kim             University of Florida
+                                                                                                    Carolina
+                                          Soongsil University
+
+                                      3:20 PM – 3:40 PM Coffee Break
+               From ontology             Advancing prenatal        Reliable significance       Leveraging synthetic
+3:40 PM –      fingerprints to            congenital heart         analysis for protein       text and image data to
+4:00 PM         BRAINCELL-AID:            disease screening       structure-to-structure    improve the robustness
+              literature-driven gene      through artificial              search             and generalizability of
+             function and brain cell         intelligence                                    biomedical AI models
+                    annotation                                          Yang Lu
+                                           Jieqiong Wang                                           Kai Wang
+                                                                       University of
+                Wenjin Zheng            University of Nebraska                                Children’s Hospital of
+                                                                        Wisconsin
+               UTHealth Houston            Medical Center                                         Philadelphia
+
+                                          Machine learning-
+                                          based small-RNA                                   From EHR phenotyping
+               Interpreting deep                                      Transposable
+                                        liquid biopsy enables                                 to proactive maternal
+              learning models in                                  Element–Driven Viral
+                                        accurate classification                               care: Trustworthy AI
+             genomics via concept                                  Mimicry Constrains
+4:400 PM –                              of benign, malignant,                                for early risk detection
+                  attribution                                     Multistep Pancreatic
+ 4:20 PM                                and metastatic breast                                    and personalized
+                                                                   Cancer Progression
+                Shaun Mahony                   diseases                                          decision support
+               Pennsylvania State                                       Siyu Sun
+                                            Xuhang Liu                                           Huanmei Wu
+                  University                                      University of Rochester
+                                         Roswell Park Cancer                                   Temple University
+                                              Center
+               Spatially-informed
+                 reference-free                                   Single-molecule RNA          AI in biomedical
+                                         Interpretable spatial
+                deconvolution for                                 modification mapping       research-- hypothesis
+                                        programs from multi-
+                     spatial                                        by AI analysis of       generation, drug target
+4:20 PM –                               sample tumor spatial
+              transcriptomics with                                nanopore sequencing       and activity prediction
+ 4:40 PM                                   transcriptomics
+                   SpatialCD
+                                                                     Yunxia Wang                   Jie Zhang
+                                             Yi Zhang                                          Indiana University
+                  Yuehua Cui                                        Boston Children’s
+                                           Duke University
+                 Michigan State                                         Hospital
+                  University
+
+                                                                         Recurrent
+                                                                                              Prompt-tuned open-
+             spatiAlytica: Spatially        Computational          Methylation Pattern
+                                                                                             source large language
+             intelligent multimodal       techniques for cell-         Encoding for
+                                                                                              model for structured
+               agentic system for       level inference of gene   Interpretable Analysis
+4:40 PM –                                                                                      extraction of social
+                decoding tumor          effects on human traits       of Sparse DNA
+ 5:00 PM                                                                                     determinants of health
+                    ecosystems                                         Methylomes
+                                            Jinzhuang Dou                                      from clinical notes
+                  Yufei Huang              The University of         Wanding Zhou
+                                                                                              Yan Zhuang, Indiana
+             University of Pittsburgh   Alabama at Birmingham     Children’s Hospital of
+                                                                                                  University
+                                                                      Philadelphia
+                                         A rigorous leak-free
+                                         microbiome pipeline
+                                                                                            Identifying subgroups in
+             Single-molecule RNA        revealing batch effects
+                                                                                              patient with low back
+             fate modeling by deep          as the dominant
+                                                                                              pain for personalized
+5:00 PM –           learning             challenge in a multi-
+                                                                           TBD              treatment using machine
+ 5:20 PM                                cohort immunotherapy
+                   Dean Li                                                                           learning
+                                          response prediction
+               Boston Children’s
+                                                                                                 Leming Zhou
+                   Hospital                   Amey Garg                                      University of Pittsburg
+                                        Santa Clara High School
+                                           5:00 PM – 5:10 PM
+
+
+
+
+Monday, August 3rd, 2026
+8:00 AM –
+                                                      Registration
+ 5:00 PM
+
+8:20 AM –                       Keynote Lecture: The Human Pangenome Project
+9:00 AM                               Ting Wang, PhD (Room 2220A&B)
+
+                           CONCURRENT SESSIONS/WORKSHOPS
+       Room 2220A&B                       Room 2213A                 Room 2213B                  Room 1220
+        Eminent Scholar              Computational Multi-       Bridging
+          Dr. Yun Li                 Omics Approaches to     Methodological      AI and Multi-omics
+                                      Dissect Regulatory Innovation and Real- for Modeling Aging
+Precision Medicine and Cancer        Variation and Disease World Applications in     and Disease
+           Systems                       Mechanisms          Genetic Studies       Chair: Sheng Li
+          Chair: TBD                     Chair: Lei Li      Chair: Zikun Yang
+
+                                        Prediction of rapid
+                                                                                            Transcriptional
+                                      fibrosis progression in      fastGxE: Powering
+                Eminent Scholar:                                                         heterogeneity predicts
+                                     metabolic dysfunction– genome-wide detection
+                  Multi-omics                                                              and shapes clonal
+                                     associated steatotic liver of genotype-environment
+9:00 AM –       Understanding of                                                           selection in aging
+                                           disease with          interactions in biobank
+ 9:20 AM        Complex Human                                                                hematopoiesis
+                                      interpretable machine               studies
+                   Diseases
+                                         learning models                                        Sheng Li
+                                                                       Xiang Zhou
+                   Dr. Yun Li                                                            University of Southern
+                                       Tahmina Sultana Priya         Yale University
+                                                                                               California
+                                           Virginia Tech
+
+                                                                  Distributional genetic         Liquid biopsy
+                                   Atlas of cell type-specific    effects reveal context-       biomarkers for
+              Gain and loss of DNA
+                                     post-transcriptional         dependent molecular        cancer detection and
+               methylation during
+9:20 AM –                             genetic impacts in           regulation in human        disease monitoring
+                tumor evolution
+ 9:40 AM                           immune-related diseases           brain aging and
+                                                                                                Bodour Salhia
+               Deyana Tabatabaei                                   Alzheimer’s disease
+                                             Lei Li                                          University of Southern
+               Temple University
+                                   Shenzhen Bay Laboratory           Tianying Wang                California
+                                                                 Colorado State University
+          Deep learning for early
+              hepatocellular
+              carcinoma risk                                                        A transcriptomics-
+                                  A lifespan regulatory      Powerful statistical
+           prediction in patients                                                   native foundation
+                                  atlas of the East Asian frameworks for genome-
+             with chronic liver                                                     model for universal
+                                     brain resolves the   wide survival association
+9:40 AM – diseases and diabetes: developmental origins of         analysis
+                                                                                    cell representation
+10:00 AM       insights from                                                          and virtual cell
+                                     psychiatric traits
+           retrospective cohort                                 Shiyang Ma                synthesis
+                   analysis              Chao Chen           Shanghai Jiao Tong
+                                                                                         Jichun Xie
+                                  South China University         University
+                Jinlian Wang                                                         Duke University
+                 UT Austin
+                                                                                RNA stability as a
+              An immune cell     Functional reconciliation                       key link between
+            signature for sepsis  of human gut microbes Interplay of Polygenic genetic variation and
+10:00 AM    with multiple organ    through comparative and Monogenic Kidney disease: insights from
+    –      dysfunction syndrome     pangenome analysis          Disease        multi-omics and deep
+                                                                                     learning
+10:20 AM       Rama Shankar            WeiHua Chen             Atlas Khan
+               Michigan State     Huazhong University of   Columbia University  Xinshu Grace Xiao
+                 University       Science and Technology                           University of
+                                                                                     California
+
+                                10:20 AM – 10:40 AM Coffee Break
+           GenePriori: a leakage-                                                          Precisely integrate
+              aware multi-agent                                                             single-cell data to
+            framework for bias- Multi-omics integration Integrating genomic and               decipher aging
+                 robust gene            predicts 17 disease   proteomic data improves signatures in the
+10:40 AM      prioritization with      incidences in the UK complex trait prediction monkey brain under
+ – 11:00   translational oncology             biobank          in diverse populations.      calorie restriction
+   PM              relevance
+                                             Quan Sun                Haoyu Zhang                Chao Zhang
+                 Yuxuan Jiang       University of Pennsylvania National Cancer Institute    Boston University
+              Southwest Medical                                                          ----------------------------
+                  University                                                                          -
+                                                                                         Single-cell multiomics
+               Identification of                                                            reveals malignant
+             intrinsic pancreatic                             Multi-ancestry modeling         plasticity and
+              cancer expression     Accurate estimation and       leveraging genetic      immune suppression
+                                         correction of open        diversity reveals
+           subtypes from patient-                                                        in high-risk pediatric
+11:00 AM                                chromatin biases in         heterogeneous                 cancers
+              derived xenograft           CUT&Tag data
+ – 11:20            samples
+                                                               architecture in primary Wenbao Yu, Temple
+   PM                                   Sheng’en Shawn Hu       open-angle glaucoma              University
+                  Orry Huang          University of Virginia     Jessica Cooke Bailey ----------------------------
+              University of Texas        School of Medicine                                           -
+                                                               East Carolina University
+            Health Science Center,                                                       Integrative AI-driven
+                 San Antonio                                                             multi-omics identifies
+                                                                                             NR2F1 as a key
+           Oncoordinate captures          A novel admixed                                    driver of lineage
+            microenvironmental population fine-mapping Signatures of recent
+                                                                                              plasticity and
+             state dynamics and method: mitigating false positive selection refine
+                                                                                                metastatic
+11:20 AM    identifies aggressive    discovery rate through     novel Primary open-           progression in
+ – 11:40       niches in tumors       local genetic ancestry angle glaucoma risk loci        prostate cancer
+                                             modeling
+   PM           Vignesh Venkat                                    Timothy Ciesielski         Amanda Leonita
+           Rutgers Cancer Institute          Kai  Yuan          Case  Western Reserve         Yale University
+              & Icahn School of     Indiana University School          University        ----------------------------
+           Medicine at Mount Sinai          of Medicine                                               -
+                                                                                           Quantifiable blood
+                                                                                            TCR repertoire
+                                                                                             components
+                                                                                            associated with
+                                                                                            immune aging
+                                    Associated cell types and                                 Bo Li
+            A density-based spatial
+                                         influential genes                               University of
+            functional modularity
+                                        identified through    Tractor-PGS uses local     Pennsylvania
+                framework for
+                                     integration of genome-    ancestry to improve ----------------------------
+             characterizing tumor
+11:40 AM      functional niches in
+                                    wide association studies prediction accuracy in             -
+ – 12:00                                  and single-cell      admixed populations      Cell-free   DNA
+            HER2-positive breast
+                                       transcriptomics for                           fragmentomics       and
+   PM                cancer
+                                      circulating fatty acid
+                                                                   Yi-Sian Lin
+                                                                 Baylor College of    methylation    as  AI-
+                 Fan Jhen Liu                   traits                               enabled   multi-omics
+                                                                    Medicine
+                National Taiwan                                                       biomarkers across
+                                           Elijah Sterling
+                   University                                                             cancer and
+                                      University of Georgia
+                                                                                     neuroinflammatory
+                                                                                            disease
+                                                                                                Yaping Liu
+                                                                                               Northwestern
+                                                                                                University
+
+12:00 PM
+    –                                         Lunch Break (Room 1220)
+ 1:00 PM
+                           CONCURRENT SESSIONS/WORKSHOPS
+      Room 2220A&B                        Room 2213A                Room 2213B                Room 1220
+       Invited Speaker                    Biological and
+         Dr. Min Xu                        Biomedical            Cancer Genomics
+                                                                                          Deep Learning and
+                                       Ontology Workshop           Chairs: Siyuan
+                                                                                          CRISPR Screening
+  Genome Browser Tutorial                 in the AI Era           Zheng, Xiaojing
+                                                                                           Chair: Xueqiu Lin
+     Chair: Daofeng Li                  Chairs: Oliver He,             Wang
+                                         Alexander Diehl
+               From Pixels to                                    An embedding-based
+                  Biological                                         framework for
+                 Reasoning:                                       statistical testing of
+                                                                                              Decoding Non-Coding
+                  Semantic,                                       LLM-inferred gene-
+                                                                                              Regulatory Mutations
+              Hierarchical, and                                       set functions
+                                       Representing dental                                      in Cancer Using
+              Graph-Structured
+                                       care-related fear and         Yu-Chiao Chiu             FFPE-CUTAC and
+1:00 PM –       Learning for
+                                              anxiety                  University of           Interpretable Deep
+ 1:20 PM        Interpretable
+                                                                        Pittsburgh                  Learning
+               Biomedical AI                Bill Duncan
+                                                                -----------------------------
+                                        University of Florida                                   Xueqiu (Chu) Lin
+                    Min Xu                                                    -
+                                                                                                 Fred Hutchinson
+             Mohamed bin Zayed                                   Creative applications
+                                                                                                  Cancer Center
+                 University of                                    of AI in biomedical
+             Artificial Intelligence                                     research
+                    & CMU
+                                                                      Yan Guo              Harnessing tandem
+              Browser tutorial       Pain in both general
+                                                               University of Miami repeats to understand
+            session introduction         and specific
+                                                             ----------------------------- the genetic basis of
+1:20 PM –                                ontological
+                Daofeng Li                                                 -                 human diseases
+ 1:40 PM                               representation
+                Washington                                       Proteogenomics
+                                                                                              Ya (Allen) Cui
+                University            Alexander Diehl         guides tumor systems
+                                                                                              University of
+               1:20PM-1:30PM         University at Buffalo   biology: opportunities
+                                                                                                California
+                                                                  and challenges
+              UCSC Genome
+                 Browser:                                           Chen Huang
+            Introduction + 5min     Recent developments       University of Alabama Structured Modeling
+                    QA               in social ontology           at Birmingham               of Allelic-specific
+1:40 PM –                                                    -----------------------------    Gene Expression
+                  Virtual                Bill Hogan
+ 2:00 PM        Robert Kuhn,                                               -
+                                      Medical College of                                    William H. Majoros
+              UCSC Genomics                                       Phenylalanine
+                                         Wisconsin                                             Duke University
+                  Institute                                      reprograms TLS
+               1:30PM-2:00PM                                     architecture and
+                                                                plasma cell fate in
+               UCSC Brain                                          MASH-HCC                 Characterizing the
+                 Explorer                                                                   genetic architecture
+                + 5min QA           Introducing the Injury           Chunru Lin                and molecular
+2:00 PM –         Virtual                 Ontology               The University of              mechanism of
+ 2:20 PM       Mary Goldman              Barry Smith           Texas MD Anderson circulating fatty acids
+              UCSC Genomics          University at Buffalo         Cancer Center
+                  Institute                                  ----------------------------- Kaixiong (Calvin) Ye
+               2:00PM-2:30PM                                               -               University of Georgia
+                                                                HOXA9 maintains
+                                                                                                How to Align
+                                                                cancer-specific 3D
+            WashU Epigenome          The 2026 Cell Line                                    Unpaired Single-Cell
+                                                              genome organization
+                Browser:             Ontology Updating                                     Omics: Benchmarks,
+                                                                      in AML
+              Introduction           and CellCards Web                                     Practical Guidelines,
+2:20 PM –                                 Display                                          and Impacts on Gene
+                Daofeng Li                                             Qili Shi
+ 2:40 PM                                                                                   Regulatory Modeling
+                Washington                Jie Zheng          UT Health San Antonio
+                University          University of Michigan   -----------------------------       Zhana Duren
+               2:30PM-2:40PM           Medical School                      -                 Indiana University
+                                                                 From unresolved             School of Medicine
+                                                              variants to actionable
+                                                              biomarkers: defining Perturbation of allele
+                   Develop          A decade of progress          when long-read             specific chromatin
+             visualization portal   in automated quality     sequencing is required variants in human
+            (example: BICAN &           assurance of                                       colon organoids links
+                    IGVF)           biomedical ontologies       Xiaotu Ma, St. Jude          gene regulation to
+2:40 PM –                                                       Children's Research
+ 3:00 PM                                                                                    non-coding variants
+               Wenjin Zhang              Licong Cui                   Hospital                 associated with
+               Washington            University of Texas     -----------------------------    digestive disease
+                University          Health Science Center                  -
+               2:40PM-2:45PM             at Houston                                              Siming Zhao
+                                                                                             Dartmouth College
+                                                             AI-empowered virtual
+                                         Automating           immunopeptidomics
+                                   Intervention Discovery        of neoantigen              Improving Disease
+              HPRC Epigenome
+                                       from Scientific          immunogenicity             Risk Prediction with
+                 Browser
+                                        Literature: A                                      Functional Genomics
+3:00 PM –        Tianjie Liu        Progressive Ontology             Yuhao Tan              Annotations Using
+ 3:20 PM                            Prompting and Dual-      The Children's Hospital              LLMs
+                 Washington
+                                     LLM Framework                of Philadelphia /
+                 University
+                                                                    University of             Wanwen Zeng
+                2:45PM-2:50PM
+                                        Jinjun Xiong               Pennsylvania             Stanford University
+                                     University at Buffalo   -----------------------------
+                                                               Genomic alterations
+                                                               across racial/ethnic
+             5min QA for WashU                                  groups and cancer
+             Epigenome Browser                                 outcome disparities
+                2:50PM-2:55PM
+                                                                  Xiaojing Wang
+                 5min Break                                  UT Health San Antonio
+                2:55PM-3:00PM         From Biomedical
+                                        Ontologies to        -----------------------------    Interpret human
+                                    Knowledge Discovery:           Genome-scale              genetic variants via
+                                      Ontology-Driven           discovery of RNA-          single-cell multimodal
+3:20 PM –      Hands-on for         Applications in Ignet    centered regulation in           omics and AI/ML
+ 3:40 PM      WashU Epigenome          2.0 and Vignet         cancer drug response                 models
+                  Browser                                     and immunotherapy
+                                                                                                   Yang Li
+                                        Junguk Hur                    Da Yang              Washington University
+                 Chad Seng,
+                                     University of North            University of                in St. Louis
+                 Washington
+                                          Dakota                     Pittsburgh
+                 University
+                3:00PM-3:40PM
+                 Bring laptop
+
+
+
+                                 3:40 PM – 4:00 PM Coffee Break
+                                                             Special panel: AI in
+Clinical Imaging, Multimodal AI,    Technology Session
+                                                                Research and                 Flash Talks
+   and Healthcare Deployment           Chair: TBD
+                                                              Scientific Writing             Chair: TBD
+           Chair: TBD
+                                                              Chair: Wei Zhang
+                                                                                     CO-PICO/PECO:
+                                                                                      Condition-based
+                                                                                        occupational
+                                    Empowering genomic
+               Matching speech                                                      PICO/PECO and its
+                                   discovery: Accelerating
+               models to ADRD                                                      applications for LLM
+                                      regulatory biology
+                 subtypes: A                                                           extraction and
+                                     through multi-omic
+4:00 PM –        mechanistic                                       TBD             ontological modeling
+                                            solutions
+ 4:20 PM         benchmark                                 Zhandong Liu (panelist)      of structured
+                                   Yun Zhao, Zonghui Peng                           occupational safety
+                Xiaoyu Zhang
+                                        Admera Health                                    and health
+               SUNY at Buffalo
+                                          (30 minutes)
+                                       4:00 PM – 4:30 PM
+                                                                                       Hasin Rehana,
+                                                                                     University of North
+                                                                                            Dakota
+                                                                                           4:00 PM – 4:10 PM
+                                                                      CIRCA identifies cell-
+                                                                         and niche-level
+                                                                        interactions with
+                                                                       amyloid-β plaques
+                                                                          using causal
+                                                                         representation
+                                                                            learning
+                                                                         Tyler Lovelace
+                                                                        UTHealth Houston
+                                                                        4:10 PM – 4:20 PM
+                                                                       Machine learning
+                                                                           augmented
+                                                                      mechanistic modeling
+              A framework for                                            for identifying
+                                                                       predictive tumor
+            dynamically training
+             and adapting deep                                             biomarkers
+                                   Unlocking Archived
+               reinforcement                                           Alexander Silalahi
+                                  Pathology Specimens:
+             learning models to                                       MD Anderson Cancer
+                                    Robust Single-Cell
+               different, low-                                              Center
+                                  Transcriptomics    from
+4:20 PM –       compute, and                                            4:20 PM – 4:30 PM
+                continuously           FFPE   Tissue            TBD
+ 4:40 PM                                                               Multimodal protein
+             changing radiology          Jing Zhou
+                                                                      function inference via
+                 deployment      Singleron Biotechnologies
+                                                                         vision-language
+                environments            (20 minutes)
+                                                                      models and structural
+                                       4:30 PM – 4:50 PM
+                  Zoom                                                      similarity
+              Guangyao Zheng                                             representations,
+              Rice University
+                                                                       Christopher Barker,
+                                                                        Pacific Lutheran
+                                                                           University
+                                                                        4:30 PM – 4:40 PM
+                                                                       scDCBC: Model-
+                                                                       based scRNA-seq
+                                                                      deep clustering with
+                                                                        batch correction
+             Multimodal deep        Protein interactomics by
+               learning for          proximity networks of            Xiaohe Chen, Florida
+            Alzheimer’s disease            single cells                 State University
+              prediction with                                           4:40 PM – 4:50 PM
+4:40 PM –   Improved training                Zoom               TBD
+ 5:00 PM       stability and
+                 flexibility            Michael Förster
+                                           Pixelgen
+                 Jianan Liu              (30 minutes)                         TBD
+            Southeast University       4:50 PM – 5:20 PM                4:50 PM – 5:00 PM
+
+
+
+
+              RA-CMF: Region-                                             A systematic
+             adaptive conditional     Use of Stereo-seq to              investigation of
+5:00 PM –
+              MeanFlow for CT       dissect cell type spatial   TBD   molecular encoding
+ 5:20 PM                             differences in human              methods for drug
+            image reconstruction
+                                                                      property predictions
+              Md Shifatul Ahsan       brain organoids and                      across neural
+                  Apurba                 mouse eyeball                         network and
+                University of                                              transformer encoder-
+                                             Zoom
+                 Alabama at                                                    based model
+                Birmingham
+                                           Elaine Lim                      Shan-Ju Yeh, National
+                                          MGI US LLC                       Tsing Hua University
+                                          (20 minutes)                       5:00 PM – 5:10 PM
+                                        5:20 PM – 5:40 PM
+                                                                               Beyond PCA:
+                                                                                  Multiple
+                                                                             correspondence
+                                                                            analysis for robust
+                                                                           cell-type annotation
+                                                                              and trajectory
+                                                                                 inference
+                                                                           Tsai-Jung Lu, National
+                                                                           Taiwan University UT
+                                                                                San Antonio
+                                                                             5:10 PM – 5:20 PM
+                WoundWise: A
+             mobile deep learning
+             solution for accurate
+                pressure ulcer
+5:20 PM –           staging
+                                      Built for What's Next:
+                                      How 10x's Flex Apex,           TBD           TBD
+ 5:40 PM
+                Daniel Change          Xenium, and Atera
+             University of Nevada,   Platforms Are Powering
+                  Las Vegas           the AI Era of Biology
+                                        Aleksandar Janjic
+              ICA-based analysis         10x Genomics
+             of progressive multi-        (20 minutes)
+               scale structural–        5:40 PM – 6:00 PM
+5:40 PM –    functional fusion for                                   TBD           TBD
+ 6:00 PM     Alzheimer’s disease
+               Yanteng Zhang
+               TReNDS Center
+6:00 PM –
+                                              Poster Session (Atrium)
+ 7:30 PM
+
+
+
+ Tuesday, August 4th, 2026
+
+ 8:00 AM –
+                                                            Registration
+  5:00 PM
+
+ 8:20 AM –                           Keynote Lecture: Mapping the Multiscale Human
+  9:00 AM                                  Gary Bader, PhD (Room 2220A&B)
+
+                              CONCURRENT SESSIONS/WORKSHOPS
+        Room 2220A&B                         Room 2213A                  Room 2213B                Room 1220
+        Invited Speaker
+                                        From Metagenomes to                         Integrative omics to
+        Dr. Zemin Zhang
+                                            Mechanisms:        AI and Data Science    understand and
+                                        Functional Microbiome in Health Informatics   predict disease
+AI-Driven Multi-Omics for Disease
+                                              Discovery       Chairs: Yu Huang, Yan     progression
+  Mechanisms and Therapeutic
+                                          Chairs: Qiyun Zhu,          Zhuang        Chairs: Jingwen Yan,
+            Discovery
+                                            Xiaofang Jiang                                Sha Cao
+ Chairs: Hongying Sun, Kaifu Chen
+                 Invited Speaker:            Spatiotemporal
+                Decoding the tumor       microbiome dynamics:                                   Continuous Modeling
+                                                                      Agentic AI for complex
+               microenvironment by         from early disease                                  of Disease Progression
+                                                                        clinical informatics
+               pan-cancer single cell    prediction to single-cell                             in Alzheimer's Disease
+9:00 AM –                                                                    workflows
+                     analysis            functional analysis and                               and Related Dementias
+ 9:20 AM                                         sorting                      Xing He
+                                                                                                      Lu Zhang
+                  Zemin Zhang                                        Indiana University School
+                                                                                                  Indiana University
+                Chongqing Medical              Shi Huang                    of Medicine
+                                                                                                     Indianapolis
+                   University           University of Hong Kong
+
+             Longitudinal epigenome-
+               wide associations and
+                 pre-chemotherapy                                                                  Stability-aware
+                 prediction of post-       Decoding the gut
+                                                                     Multi-modal AI using       integrative clustering
+                   chemotherapy        microbiome’s functional
+                                                                    neuroimaging genomics         for characterizing
+             inflammation in patients      dark matter via
+9:20 AM –                                                           to study alzheimer's and     disease progression
+                 with breast cancer     comparative genomics
+ 9:40 AM                                                                    dementia           from multi-modal data
+                    undergoing              Xiaofang Jiang
+                   chemotherapy                                              Da Ma             Rachael Hageman Blair
+                                      National Institutes of Health
+                                                                     Wake Forest University    New York University at
+                   Hongying Sun                  (NIH)
+                                                                                                      Buffalo
+              University of Rochester
+
+
+                                                                                              Continuous staging of
+             Quantum computing for                                                            amyloid progression in
+                single-cell biology:     Microbiome-Informed
+                                                                     Immune digital twin and Alzheimer’s disease
+             networks, dynamics, and     Therapeutic Peptide
+9:40 AM –                                                               vascular disease          with enhanced
+                generative models             Discovery
+10:00 AM                                                                                        sensitivity to early
+                                                                          Juilee Thakar
+                   James J. Cai               Shanlin Ke                                              changes
+                                                                      University of Rochester
+               Texas A&M University       Ohio State University
+                                                                                                   Jingwen Yan
+                                                                                                Indiana University
+                                                                                                 AD-LLaVA-3D:
+                                                                 Unlocking clinical                 Forecasting
+               Cross-Trait PRS and     Microbiome-based early
+                                                              development innovation            Alzheimer's Disease
+             data-driven subtyping to screening of intestinal
+                                                                   with artificial              Progression with a
+                 uncover obesity          tumors driven by
+10:00 AM –                                                     intelligence and real-           Unified Multimodal
+             heterogeneity and enable intelligent sensing and
+ 10:20 AM                                                         world evidence                 Video-Language
+             precision risk prediction   privacy protection
+                                                                                                    Framework
+                                                                     Chuan Gao
+                    Shulan Tian             Xiaoquan Su
+                                                                 Johnson & Johnson                    Sha Cao
+                    Mayo Clinic          Qingdao University
+                                                                Innovative Medicine               Oregon Health &
+                                                                                                 Science University
+                                  10:20 AM – 10:40 AM Coffee Break
+                                                                                                 Staging and
+                                          Multi-dimensional virome      Agentic AI for      Pseudotime Inference
+               Agentic AI for atlas          profiling from bulk       automated RNA        of Alzheimer’s Disease
+               analysis of cell-cell      metagenomes reveals non- structural motif analysis Progression Using
+10:40 AM –      communications             redundant signatures of      and biomedical       Multimodal Imaging
+ 11:00 PM          Kaifu Chen                   gut dysbiosis             discovery                  Data
+              Harvard Medical School            Zheng Sun                     Jie Hou                Zixuan Wen
+                                             Harvard University       Michigan State University      University of
+                                                                                                     Pennsylvania
+                                                                                              From 2D Snapshots to
+              Cellular and molecular                                                             3D Molecular
+               dynamics of smooth                                    LLM-Agent-Based
+                                            Predicting metabolite                                 Landscapes:
+               muscle cells during                                   clinical trial cohort
+                                             response to dietary                                 Reconstructing
+                   aortic disease                                        building: an
+11:00 AM –                                 intervention using deep                             Volumetric Spatial
+                   development                                     experimental evaluation
+ 11:20 PM                                         learning                                    Transcriptomics with
+                                                                      using MIMIC-IV
+                   Yanming Li                                                                           AI
+                                                 Tong Wang
+             Maine Health Institute for                                    Hao Liu
+                                              Purdue University                                    Wei Zhang
+                    Research                                       Montclair State University
+                                                                                               University of Central
+                                                                                                     Florida
+                                                                    A scalable multi-omics
+             Computational biology in Calculating differential          representation
+                                                                                              How Much Biological
+               early drug discovery: genome coverages among         framework   for disease
+                                                                                             Knowledge Is Encoded
+               turning complex data                                    modeling across
+11:20 AM –                               metagenomic sources                                 in LLM-Derived Gene
+              into biological insights                              proteomic,  single-cell,
+ 11:40 PM                                                                                        Embeddings?
+                                              Yuhan Weng                  and spatial
+                      Yu Sun           University of California San transcriptomic data             Jun Li
+                      Biogen                      Diego                                      Notre Dame University
+                                                                          Daisy Shen
+                                                                     Moffitt Cancer Center
+             Machine learning-based                                                               Toward integrative
+                                             Enabling AI-driven
+               prediction of gene                                     Cross-Hospital privacy-      modeling of drug
+                                            discovery in complex
+             expression using RNA                                     preserving distributed       response in acute
+11:40 AM –                                 biological systems with
+              motifs and structural                                            AI                  myeloid leukemia
+ 12:00 PM                                         scikit-bio
+                   properties
+                                                                          Tsung-Ting Kuo            Olga Nikolova
+                                                 Qiyun Zhu
+                    Mingyi Zhu                                            Yale University          Oregon Health &
+                                           Arizona State University
+              Yale School of Medicine                                                             Science University
+
+12:00 PM –
+                                                   Lunch Break (Room 1220)
+ 1:00 PM
+                 Keynote Lecture: A Research Agenda for Clinical Informatics in the Post-AI,
+1:00 PM –
+                                         Post-EHR Vendor World
+ 1:40 PM
+                                   James Cimino, MD (Room 2220A&B)
+                            CONCURRENT SESSIONS/WORKSHOPS
+       Room 2220A&B                            Room 2213A                 Room 2213B                Room 1220
+      Eminent Scholar                                                                       Future Scientist
+      Dr. Chongzhi Zang                Single-Cell, Spatial,                                     Session
+                                         and Regulatory             Flash Talk              Chair: Chi Zhang,
+ Multi-Omics, Microbiome, and               Networks              Chair: Yufang Jin          Jingwen Yan，
+        Metabolomics                       Chair: TBD                                          Arhan Patel
+         Chair: TBD
+                                                                 Nanoparticle-Induced
+                                                                     Thermogenic
+                                                                  Adipocytes Improve
+                                                                   Endothelial Tube
+               Eminent Scholar:                                     Formation and
+                                       Single-cell analysis of
+              Chromatin and Gene                                       Network
+                                      intracellular transport
+              Regulation through                                                                Derek Ai
+                                       and expression of cell       Parker Olkowski
+1:40 PM –       Transcriptional                                                          Park Tudor High School
+                                          surface proteins          UT San Antonio
+ 2:00 PM         Condensates
+                                        Rekha Mudappathi                                   --------------------------
+               Dr. Chongzhi Zang                                 Electroencephalograp
+                                      Arizona State University
+                                                                 hy (EEG) for Remote        Christopher Barker
+                                                                    Vehicle Control          Pacific Lutheran
+                                                                     Applications               University
+                                                                    Seth Johnston
+                                                                   UT at San Antonio       --------------------------
+
+                                                                 Hardware-Oriented             Joshua Bie
+                                                                 Programming for an      Havard Westlake School
+                                                                 Autonomous Robot
+                                                                    Angela Zhang           --------------------------
+                 Multi-modality        Knowledge grounded          Basis San Antonio
+                                                                   Shavano Campus              Alyssa Chen
+              foundation model to            multi-agent
+                                                                                          Carrollwood Day High
+              link pathology with         orchestration for
+                                                                  Bridging Computer               School
+                     omics            interpretable functional
+2:00 PM –                                summarization of           Vision and Food
+ 2:20 PM        Guangyu Wang                                      Policy: A YOLOv11     --------------------------
+                                              single-cell
+              Houston Methodist,                                  Produce Freshness
+                                           transcriptomics
+             Weill Cornell Medicine                              Detector Aligned with          Tim Chu
+                    School                 Jinlian Wang            California AB 660   Forest Hills Central High
+                                         UTHealth Houston              Date Label                School
+                                                                      Vocabulary
+                                                                      Aston Liu
+                                                                  The Kinkaid School,
+                                                                       Houston
+                 Analyzing soil                                   DUET-Knockoffs:
+             microbial diversity in                                FDR-Controlled              Bianca Ehling
+             organically managed                                    Cross-Platform             The Ohio State
+             fields amended with                                   Feature Selection              University
+2:20 PM –    dredged material in               TBD               from Paired 16S and       --------------------------
+ 2:40 PM        northwest ohio                                   Shotgun Microbiome
+                                                                     Count Data                Katelyn Hur
+               Shikshya Gautam
+              Bowling Green State                                   Shiyuan Wang          Red River High School
+                  University                                       UT at San Antonio
+                                                                            --------------------------
+                                                                     TBD
+                                                                                 Jason Li
+                                                                           Westwood High School
+
+                                                                            --------------------------
+                                                                     TBD
+            DUET-Knockoffs: fdr-                                              Isabella Jiayi Li
+               controlled cross-                                            Westlake High School
+                                       miR-CellMap: a graph-
+               platform feature
+                                       transformer framework
+            selection from paired                                           --------------------------
+                                             for single-cell
+               16S and shotgun
+2:40 PM –                                  microRNA-gene
+              microbiome count                                                   Addison Liu
+ 3:00 PM                                  regulatory analysis
+                     data                                                     Park Tudor School
+                                              Jane Ohia
+                  Yiqiao Zhu
+                                        University of Nebraska-      TBD    --------------------------
+            The University of Texas
+                                               Lincoln
+               at San Antonio &
+            University of Michigan                                                Emily Liu
+                                                                             The Bishop Strachan
+                                                                                   School
+
+
+                                    3:00 PM – 3:20 PM Coffee Break
+            Multiomic integration
+                                       Cell segmentation using
+              reveals regulatory                                     TBD         Sunny Lowel
+                                        spatial transcriptomic
+              function of GWAS                                                 Brock University
+                                         data from the multi-
+3:20 PM –       variants within                                             --------------------------
+                                       objective optimization
+ 3:40 PM    transposable elements                                                  Alex Mao
+                                              perspective
+                in brain aging                                             Winston Churchill High
+                                         Aleksandar Necakov,         TBD
+             Sreejato Chatterjee,                                                    School
+                                          Brock University                  --------------------------
+            University of Rochester
+                                                                              Emma K. Molnar
+            metaSRNA: a unified                                               Waterford School
+                framework for            MolGene-E: inverse          TBD    --------------------------
+            reprocessing bacterial       molecular design to                    Christina Teng
+              data from microrna         modulate single cell                Thomas S. Wootton
+3:40 PM –    sequencing protocols                                                High School
+            and drafting bacterial         transcriptomics                  --------------------------
+ 4:00 PM
+              small RNA catalogs            Rahul Ohlan                         Alexander Wu
+              Mengyuan Zhou             The City University of       TBD   Arizona State University
+            University of Nebraska           New York
+                   Lincoln
+             SPLISUM: spectral               Dysregulated                          Austin Xu
+            prediction and library           intercellular           TBD   Williamsville East High
+                searching for            communication and                           School
+4:00 PM –        untargeted               signaling pathways                --------------------------
+ 4:20 PM        metabolomics            across brain regions in                   Shaoyu Xu
+                                         Alzheimer’s disease               Shanghai World Foreign
+                Chhavi Thakur                                        TBD
+              Indiana University,           Hani Alostaz                     Language Academy
+                 Bloomington              UTHealth Houston                  --------------------------
+                                                                                                    Adrian Z. Yang
+                  Celltaminate: a           EVTS: a topology-                  TBD             Lawrence E. Elkins High
+               bioinformatic pipeline        aware metric for                                            School
+               for rapid detection of        evaluating RNA                                     --------------------------
+4:20 PM –            pathogenic           velocity embeddings in                                      Henry Yang
+ 4:40 PM          microorganisms                 single-cell                                       Sage Hill School
+                                              transcriptomics                                   --------------------------
+                Ahmad Salman Sirajee                                          TBD
+                 Rutgers University,          Xiuquan Wang                                             Alina Yu
+                  New Brunswick              Tougaloo College                                   Germantown Friends
+                                                                                                         School
+
+            Flash Talks                         Flash Talks                Flash Talks
+            Chair: TBD                          Chair: TBD                 Chair: TBD
+               Cross-species gene set
+                    and cell type
+                 annotation through       SomAtt: a foundation
+               large language models       model for the tumor
+4:40 PM –        and agentic AI with            genome                         TBD
+ 4:50 PM        literature-grounded                                                                Daniel Zhang
+                                             David Arredondo                                   Canyon Crest Academy
+                      validation
+                                         University of New Mexico
+                   Wenbo Chen
+                 UTHealth Houston
+                                                                        Improved drug           --------------------------
+               Drug-drug interaction
+                                                                       discovery through
+                  prediction using
+                                                                     accurate prediction of
+                  proteomic scale
+4:50 PM –                                                            adverse drug reactions
+               signatures within the               TBD                                             Simon Zhang
+ 5:00 PM                                                              within the CANDO
+                 CANDO platform                                                                Lexington High School
+                                                                            platform
+                   Lucille Tomin
+                                                                      Vida Bodaghi-Namileh
+                University at Buffalo
+                                                                       University at Buffalo
+                                                                   Prevalence and Genetic --------------------------
+                 L2b-Probiotics: A    AI-based Characterization Determinants of Chronic
+                  Fusion Genetic        of Alzheimer’s Disease Diseases in a University
+                Language model for         Phenotypes from          Student Population: A
+                     probiotics       population scale single cell Cross-Sectional Analysis        Eva Zhao
+5:00 PM –                                                                                     Middlesex school
+ 5:10 PM           identification                data                  with International
+                                                                         Comparisons
+                    Caihao Sun               Chenfeng He
+               The University of Hong University of Wisconsin-          Afagh Bapirzadeh
+                       Kong                    Madison              Islamic Azad University --------------------------
+                                                                         Pre-recording
+                                           FACET: criterion-    AI in Fast Detection of
+                 Single-Cell viral
+                                           anchored semantic            Diseases
+                  detection from                                                                  Katherine Zhou
+                                       phenotype matching with
+               unmapped scRNA-seq                                  Zarrin Minuchehr             Choate Rosemary Hall
+                                       a guarded LLM for DSM-
+5:10 PM –              reads                                       National Research
+                                          5-TR face validity of
+ 5:20 PM                                                          Institute of Genetic
+                 Mohammadamin          psychiatric mouse models
+                                                                    Engineering and
+                    Mahmanzar
+                                                 An Le          Biotechnology, Tehran-
+               University of Hawaii at
+                                         SUNY Upstate Medical       Karaj Highway
+                       Manoa
+                                               University           Pre-recording
+Wednesday, August 5th, 2026
+
+8:00 AM –
+                                                             Registration
+ 5:00 PM
+
+8:00 AM –        Keynote Lecture: Digital Tissue Twins: Shaping the Future of Precision Medicine
+ 8:40 AM                               Mingyao Li, PhD (Room 2220A&B)
+
+8:40 AM –
+                                              Award Ceremony (Room 2220A&B)
+ 9:20 AM
+                            CONCURRENT SESSIONS/WORKSHOPS
+             Room 2220A&B                                 Room 2213A                           Room 2213B
+
+  Computational Drug Discovery and                  Multi-omics, AI, and the            Emerging BioHealth and
+      Therapeutic Modeling                         Future of Precision Health           Environmental Frontiers
+            Chair: TBD                                Chair: Yuanyuan Fu                      Chair: TBD
+
+
+                                           Genetic architecture of plasma
+                KGPredict-Com: a knowledge      ATX(N) biomarkers in                    Weakly-supervised topology-
+                   graph model for drug      Alzheimer’s disease reveals                preserving 3D mitochondria
+9:20 AM –         combination prediction   distinct cis and trans regulation                   segmentation
+ 9:40 AM
+                       Zhenxiang Gao                        Yuxi Liu                             Elliott Seo
+                Case Western Reserve University    Harvard T.H. Chan School of             Stony Brook University,
+                                                          Public Health
+
+                   Sparsity, structure, and           Evaluation of statistical
+                interpretability in biologically   differential analysis methods        Learning-augmented resource
+                informed neural networks for       for identification of senescent   allocation for intelligent healthcare
+9:40 AM –          drug response prediction             cells using single-cell                   scheduling
+10:00 AM                                                   transcriptomics
+                         Jason Chia                                                               Fei Li
+                 Purdue University & Argonne               Dongmei Li                     George Mason University
+                     National Laboratory              University of Rochester
+
+
+                A DALEX-based explainable ai                                          Hyperspectral deep learning for
+                                               TRACED: A Graph-Based                   compositional classification of
+                framework for lymphography
+                                              Algorithm to Infer Single-cell             municipal solid waste: an
+10:00 AM –                prediction
+                                              Time-lagged Gene Regulation            environmental health informatics
+10:20 AM                    Tapas Si                                                            application
+                  University of Engineering &           Yang Yu
+                  Management, Jaipur (Zhao)     Boston Children’s Hospital                       Jason Li
+                                                                                           Westwood High School
+
+                                   10:20 AM – 10:40 AM Coffee Break
+               TransGen: de novo enzyme                                       XLCenter: crosslink-induced
+             design via catalytic-conditioned Leveraging gene-environment truncation site identification reveals
+                                               interactions to understand
+10:40 AM –        sequence generation                                     sequence and structural specificities
+                                                  colorectal cancer risk
+ 11:20 PM                                                                    of RNA binding protein motifs
+                      Hongming Cai                     Mulong Du
+                South China University of                                            Yuping Zhang
+                                               Nanjing Medical University
+                       Technology                                               University of Connecticut
+
+             DrugPTM-Bench: a large-scale          Machine learning-derived          Genetic heterogeneity underlying
+             dataset for predictive modeling        subtypes of autism reveal         breast cancer subtypes: genetic
+                of drug-induced cell type-        distinct genetic contributions      epidemiologic investigations to
+11:00 AM –         specific protein post-            from common and rare             disentangle disease complexity
+ 11:20 PM      translational modifications                   variants
+                                                                                               Xiang Shu
+                     Amitesh Badkul                         Chang Shu                Memorial Sloan Kettering Cancer
+               City University of New York       University of Southern California               Center
+                                                      Risk-stratified hepato-
+               From generalist to specialist:        pancreato-biliary cancer
+             evolution of PS2 α-integrins and      screening with self-evolving
+11:20 AM –    implications for drug targeting            trustworthy AI
+                                                                                                  TBD
+ 11:40 PM                                                    He Ren
+                        Shixi Sun
+                 Arizona State University           The Affiliated Hospital of
+                                                      Qingdao University
+
+              A reproducible hybrid QSPR-
+              machine learning framework
+             integrating graph-theoretic and
+                                                              TBD
+             cheminformatics descriptors for
+11:40 AM –      anticancer drug property                   Yixing Han                             TBD
+ 12:00 PM               prediction                 National Institutes of Health
+                                                              (NIH)
+                   H Muhammad Fraz
+             COMSATS University Islamabad
+             & Riphah International University
+
+12:00 PM –
+                                            Closing Remarks (Room 2220A&B)
+ 12:10 PM
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICIBM 2026 Schedule Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">ICIBM 2026 • Buffalo, NY • August 2–5</p>
+          <h1>Schedule Explorer</h1>
+          <p class="lede">
+            Browse the conference by day, search talks and sessions, and save a
+            lightweight personal plan.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="ICIBM2026_program_schedule_07_23_2026.pdf" target="_blank" rel="noreferrer">
+              Open official PDF
+            </a>
+            <button class="button button-secondary" id="exportIcsButton" type="button">
+              Export saved items (.ics)
+            </button>
+          </div>
+        </div>
+        <div class="hero-metrics" id="heroMetrics">
+          <div class="metric-card">
+            <span class="metric-label">Blocks</span>
+            <strong id="blockCount">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Saved</span>
+            <strong id="savedCount">0</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Days</span>
+            <strong>4</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="Schedule controls">
+        <div class="search-wrap">
+          <label class="sr-only" for="searchInput">Search schedule</label>
+          <input
+            id="searchInput"
+            class="search-input"
+            type="search"
+            placeholder="Search by title, speaker, room, or keyword"
+          />
+        </div>
+
+        <div class="toggle-group" role="group" aria-label="View filters">
+          <label class="toggle">
+            <input id="savedOnlyToggle" type="checkbox" />
+            <span>Saved only</span>
+          </label>
+          <button class="button button-ghost" id="clearSavedButton" type="button">
+            Clear saved
+          </button>
+        </div>
+      </section>
+
+      <nav class="day-tabs" id="dayTabs" aria-label="Conference days"></nav>
+
+      <main class="content-grid">
+        <section class="schedule-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Browse</p>
+              <h2 id="activeDayTitle">Loading schedule…</h2>
+            </div>
+            <p class="panel-note" id="resultSummary"></p>
+          </div>
+
+          <div class="schedule-list" id="scheduleList"></div>
+        </section>
+
+        <aside class="saved-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">My schedule</p>
+              <h2>Saved items</h2>
+            </div>
+          </div>
+          <div class="saved-list" id="savedList">
+            <p class="empty-state">Saved sessions will appear here.</p>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Built from the official ICIBM 2026 program schedule PDF. Conference times are shown in Buffalo local time.
+        </p>
+      </footer>
+    </div>
+
+    <template id="cardTemplate">
+      <article class="session-card">
+        <div class="session-topline">
+          <span class="time-chip"></span>
+          <button class="save-button" type="button"></button>
+        </div>
+        <h3 class="session-title"></h3>
+        <div class="session-meta"></div>
+        <pre class="session-body"></pre>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
