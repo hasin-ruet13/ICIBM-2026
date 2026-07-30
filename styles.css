@@ -293,20 +293,89 @@ input {
   font-weight: 700;
 }
 
-.poster-tab {
-  margin-left: auto;
-  background: linear-gradient(135deg, rgba(255, 198, 0, 0.28), rgba(255, 140, 0, 0.22));
-  color: #5d3700;
-  border-color: rgba(255, 171, 0, 0.6);
-  box-shadow: 0 0 0 1px rgba(255, 171, 0, 0.12), 0 8px 20px rgba(255, 171, 0, 0.14);
+.poster-browser {
+  margin-top: 18px;
+  border-radius: var(--radius-xl);
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.poster-browser-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.poster-title-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 10px;
+  max-height: 320px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.poster-title {
+  border: 1px solid var(--line);
+  background: var(--panel-solid);
+  color: var(--text);
+  border-radius: var(--radius-lg);
+  padding: 14px 14px 12px;
+  cursor: pointer;
+  text-align: left;
+  display: grid;
+  gap: 6px;
+}
+
+.poster-title.is-active {
+  border-color: rgba(41, 92, 255, 0.35);
+  box-shadow: 0 0 0 4px rgba(41, 92, 255, 0.1);
+}
+
+.poster-title strong {
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.poster-title small {
+  display: block;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.poster-title-id {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+  padding: 0.26rem 0.6rem;
+  font-size: 0.78rem;
   font-weight: 700;
 }
 
-.poster-tab.is-active {
-  background: linear-gradient(135deg, rgba(255, 198, 0, 0.44), rgba(255, 140, 0, 0.32));
-  border-color: rgba(255, 171, 0, 0.78);
-  color: #472a00;
-  box-shadow: 0 0 0 1px rgba(255, 171, 0, 0.16), 0 10px 26px rgba(255, 171, 0, 0.22);
+.poster-detail {
+  border: 1px solid var(--line);
+  background: var(--panel-solid);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+}
+
+.poster-detail h3 {
+  margin: 10px 0 8px;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.poster-detail p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .content-grid {

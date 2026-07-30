@@ -34,11 +34,12 @@ const state = {
   activeTheme: "all",
   search: "",
   concurrentOnly: false,
-  selectedBlockId: "",
   saved: loadSavedBlocks(),
   blocks: [],
+  posters: [],
   filtered: [],
   themeStats: [],
+  selectedPosterId: "",
 };
 
 const elements = {
@@ -47,6 +48,9 @@ const elements = {
   themeChips: document.getElementById("themeChips"),
   themeSummary: document.getElementById("themeSummary"),
   themeList: document.getElementById("themeList"),
+  posterSummary: document.getElementById("posterSummary"),
+  posterTitleGrid: document.getElementById("posterTitleGrid"),
+  posterDetail: document.getElementById("posterDetail"),
   savedList: document.getElementById("savedList"),
   searchInput: document.getElementById("searchInput"),
   concurrentOnlyToggle: document.getElementById("concurrentOnlyToggle"),
@@ -70,15 +74,24 @@ async function init() {
   renderDayTabs();
   bindEvents();
 
-  const response = await fetch(`icibm2026_program_schedule.txt?v=${SOURCE_VERSION}`, {
-    cache: "no-store",
-  });
-  if (!response.ok) {
-    throw new Error(`Schedule source not found (${response.status})`);
+  const [scheduleResponse, posterResponse] = await Promise.all([
+    fetch(`icibm2026_program_schedule.txt?v=${SOURCE_VERSION}`, {
+      cache: "no-store",
+    }),
+    fetch("icibm2026_poster_titles.json", { cache: "no-store" }),
+  ]);
+
+  if (!scheduleResponse.ok) {
+    throw new Error(`Schedule source not found (${scheduleResponse.status})`);
+  }
+  if (!posterResponse.ok) {
+    throw new Error(`Poster titles source not found (${posterResponse.status})`);
   }
 
-  const rawText = await response.text();
+  const [rawText, posterData] = await Promise.all([scheduleResponse.text(), posterResponse.json()]);
   state.blocks = fillMissingEndTimes(parseScheduleText(rawText));
+  state.posters = Array.isArray(posterData) ? posterData : [];
+  state.selectedPosterId = state.posters[0]?.id || "";
   state.themeStats = buildThemeStats(state.blocks);
 
   elements.blockCount.textContent = String(state.blocks.length);
@@ -107,7 +120,7 @@ function bindEvents() {
       state.activeTheme = "all";
       state.search = "";
       state.concurrentOnly = false;
-      state.selectedBlockId = "";
+      state.selectedPosterId = state.posters[0]?.id || "";
       if (elements.searchInput) {
         elements.searchInput.value = "";
       }
@@ -132,21 +145,20 @@ function renderAll() {
   const activeDay = DAY_CONFIG.find((day) => day.key === state.activeDay) || DAY_CONFIG[0];
 
   const filtered = state.blocks.filter((block) => {
-    const matchesSelected = !state.selectedBlockId || block.id === state.selectedBlockId;
     const matchesDay = state.activeDay === "all" || block.dayKey === state.activeDay;
     const matchesTheme = state.activeTheme === "all" || block.themes.includes(state.activeTheme);
     const matchesSearch = !state.search || block.searchText.includes(state.search);
     const matchesConcurrent = !state.concurrentOnly || block.isConcurrent;
-    return matchesSelected && matchesDay && matchesTheme && matchesSearch && matchesConcurrent;
+    return matchesDay && matchesTheme && matchesSearch && matchesConcurrent;
   });
 
   state.filtered = filtered;
   renderBlocks(filtered);
   renderDayTabs();
+  renderPosterBrowser();
   renderThemeChips();
   renderThemeList();
   renderSavedList();
-  focusSelectedBlock();
 
   elements.activeDayTitle.textContent = activeDay.key === "all" ? "All conference days" : activeDay.label;
   elements.resultSummary.textContent = `${filtered.length} matching block${filtered.length === 1 ? "" : "s"} • ${state.saved.size} saved`;
@@ -172,7 +184,6 @@ function renderDayTabs() {
       button.textContent = day.label;
       button.addEventListener("click", () => {
         state.activeDay = day.key;
-        state.selectedBlockId = "";
         renderAll();
         elements.scheduleList.scrollIntoView({ behavior: "smooth", block: "start" });
       });
@@ -180,50 +191,9 @@ function renderDayTabs() {
     }
   }
 
-  syncPosterTab();
-
   for (const tab of elements.dayTabs.querySelectorAll(".day-tab")) {
-    const isPosterTab = tab.dataset.poster === "true";
-    tab.classList.toggle("is-active", isPosterTab ? state.selectedBlockId === getPosterBlock()?.id : tab.dataset.day === state.activeDay);
+    tab.classList.toggle("is-active", tab.dataset.day === state.activeDay);
   }
-}
-
-function syncPosterTab() {
-  if (!elements.dayTabs) {
-    return;
-  }
-
-  const posterBlock = getPosterBlock();
-  const existingPosterButton = elements.dayTabs.querySelector('[data-poster="true"]');
-
-  if (!posterBlock) {
-    existingPosterButton?.remove();
-    return;
-  }
-
-  let posterButton = existingPosterButton;
-
-  if (!posterButton) {
-    posterButton = document.createElement("button");
-    posterButton.type = "button";
-    posterButton.className = "day-tab poster-tab";
-    posterButton.dataset.poster = "true";
-    posterButton.dataset.day = posterBlock.dayKey;
-    posterButton.addEventListener("click", () => {
-      state.activeDay = posterBlock.dayKey;
-      state.activeTheme = "all";
-      state.selectedBlockId = posterBlock.id;
-      state.search = "";
-      if (elements.searchInput) {
-        elements.searchInput.value = "";
-      }
-      renderAll();
-      elements.scheduleList.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-    elements.dayTabs.appendChild(posterButton);
-  }
-
-  posterButton.textContent = `Poster · ${shortDayLabel(posterBlock.date)}`;
 }
 
 function renderThemeChips() {
@@ -336,6 +306,56 @@ function renderSavedList() {
   elements.savedList.appendChild(fragment);
 }
 
+function renderPosterBrowser() {
+  if (elements.posterSummary) {
+    elements.posterSummary.textContent = `${state.posters.length} poster${state.posters.length === 1 ? "" : "s"} in the book`;
+  }
+
+  if (!elements.posterTitleGrid || !elements.posterDetail) {
+    return;
+  }
+
+  elements.posterTitleGrid.innerHTML = "";
+
+  if (!state.posters.length) {
+    elements.posterTitleGrid.innerHTML = `<p class="empty-state">No poster titles found.</p>`;
+    elements.posterDetail.innerHTML = `<p class="empty-state">Poster details will appear here.</p>`;
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  for (const poster of state.posters) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "poster-title";
+    button.classList.toggle("is-active", poster.id === state.selectedPosterId);
+    button.innerHTML = `
+      <span class="poster-title-id">${escapeHtml(poster.id)}</span>
+      <strong>${escapeHtml(poster.title)}</strong>
+      <small>${escapeHtml(poster.authors)}</small>
+    `;
+    button.addEventListener("click", () => {
+      state.selectedPosterId = poster.id;
+      renderPosterBrowser();
+    });
+    fragment.appendChild(button);
+  }
+
+  elements.posterTitleGrid.appendChild(fragment);
+
+  const selectedPoster = state.posters.find((poster) => poster.id === state.selectedPosterId) || state.posters[0];
+  if (!selectedPoster) {
+    elements.posterDetail.innerHTML = `<p class="empty-state">Poster details will appear here.</p>`;
+    return;
+  }
+
+  elements.posterDetail.innerHTML = `
+    <span class="time-chip">Poster ${escapeHtml(selectedPoster.id)}</span>
+    <h3>${escapeHtml(selectedPoster.title)}</h3>
+    <p><strong>Authors:</strong> ${escapeHtml(selectedPoster.authors)}</p>
+  `;
+}
+
 function renderBlocks(blocks) {
   if (!elements.scheduleList) {
     return;
@@ -366,8 +386,6 @@ function createBlockCard(block) {
   const themeWrap = card.querySelector(".session-themes");
 
   const isSaved = state.saved.has(block.id);
-  const isSelected = block.id === state.selectedBlockId;
-  card.classList.toggle("is-highlighted", isSelected);
 
   timeChip.textContent = `${shortDayLabel(block.date)} · ${block.startTime}${block.endTime ? `–${block.endTime}` : ""}`;
   bookmarkButton.textContent = isSaved ? "★ Saved" : "☆ Save";
@@ -384,27 +402,6 @@ function createBlockCard(block) {
   themeWrap.innerHTML = renderThemePills(block.themes);
 
   return card;
-}
-
-function focusSelectedBlock() {
-  if (!state.selectedBlockId || !elements.scheduleList) {
-    return;
-  }
-
-  const card = elements.scheduleList.querySelector(`[data-block-id="${state.selectedBlockId}"]`);
-  if (!card) {
-    return;
-  }
-
-  card.scrollIntoView({ behavior: "smooth", block: "center" });
-  card.classList.add("is-highlighted");
-  window.setTimeout(() => {
-    card.classList.remove("is-highlighted");
-  }, 1600);
-}
-
-function getPosterBlock() {
-  return state.blocks.find((block) => block.kindLabel === "Poster");
 }
 
 function renderThemePills(themes) {
