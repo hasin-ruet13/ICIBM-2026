@@ -56,9 +56,6 @@ const elements = {
   concurrentOnlyToggle: document.getElementById("concurrentOnlyToggle"),
   resetFiltersButton: document.getElementById("resetFiltersButton"),
   clearSavedButton: document.getElementById("clearSavedButton"),
-  blockCount: document.getElementById("blockCount"),
-  themeCount: document.getElementById("themeCount"),
-  savedCount: document.getElementById("savedCount"),
   activeDayTitle: document.getElementById("activeDayTitle"),
   resultSummary: document.getElementById("resultSummary"),
 };
@@ -98,8 +95,6 @@ async function init() {
   }
   state.themeStats = buildThemeStats(state.blocks);
 
-  elements.blockCount.textContent = String(state.blocks.length);
-  elements.themeCount.textContent = String(state.themeStats.length);
   renderAll();
 }
 
@@ -168,7 +163,6 @@ function renderAll() {
 
   elements.activeDayTitle.textContent = activeDay.key === "all" ? "All conference days" : activeDay.label;
   elements.resultSummary.textContent = `${filtered.length} matching block${filtered.length === 1 ? "" : "s"} • ${state.saved.size} saved`;
-  elements.savedCount.textContent = String(state.saved.size);
   if (elements.clearSavedButton) {
     elements.clearSavedButton.disabled = state.saved.size === 0;
   }
