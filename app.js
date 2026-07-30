@@ -107,6 +107,7 @@ function bindEvents() {
       state.activeTheme = "all";
       state.search = "";
       state.concurrentOnly = false;
+      state.selectedBlockId = "";
       if (elements.searchInput) {
         elements.searchInput.value = "";
       }
@@ -131,11 +132,12 @@ function renderAll() {
   const activeDay = DAY_CONFIG.find((day) => day.key === state.activeDay) || DAY_CONFIG[0];
 
   const filtered = state.blocks.filter((block) => {
+    const matchesSelected = !state.selectedBlockId || block.id === state.selectedBlockId;
     const matchesDay = state.activeDay === "all" || block.dayKey === state.activeDay;
     const matchesTheme = state.activeTheme === "all" || block.themes.includes(state.activeTheme);
     const matchesSearch = !state.search || block.searchText.includes(state.search);
     const matchesConcurrent = !state.concurrentOnly || block.isConcurrent;
-    return matchesDay && matchesTheme && matchesSearch && matchesConcurrent;
+    return matchesSelected && matchesDay && matchesTheme && matchesSearch && matchesConcurrent;
   });
 
   state.filtered = filtered;
@@ -170,6 +172,7 @@ function renderDayTabs() {
       button.textContent = day.label;
       button.addEventListener("click", () => {
         state.activeDay = day.key;
+        state.selectedBlockId = "";
         renderAll();
         elements.scheduleList.scrollIntoView({ behavior: "smooth", block: "start" });
       });
@@ -198,7 +201,6 @@ function syncPosterTab() {
     return;
   }
 
-  const label = `Poster · ${shortDayLabel(posterBlock.date)} · ${posterBlock.startTime}–${posterBlock.endTime}`;
   let posterButton = existingPosterButton;
 
   if (!posterButton) {
@@ -206,6 +208,7 @@ function syncPosterTab() {
     posterButton.type = "button";
     posterButton.className = "day-tab poster-tab";
     posterButton.dataset.poster = "true";
+    posterButton.dataset.day = posterBlock.dayKey;
     posterButton.addEventListener("click", () => {
       state.activeDay = posterBlock.dayKey;
       state.activeTheme = "all";
@@ -220,7 +223,7 @@ function syncPosterTab() {
     elements.dayTabs.appendChild(posterButton);
   }
 
-  posterButton.textContent = label;
+  posterButton.textContent = `Poster · ${shortDayLabel(posterBlock.date)}`;
 }
 
 function renderThemeChips() {
