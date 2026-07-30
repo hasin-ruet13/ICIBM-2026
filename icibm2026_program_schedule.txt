@@ -97,7 +97,8 @@ methods leads to improved fusion discovery
 Ke Ma
 Hong Kong Polytechnic University
 
-11:10 AM – 11:30 PM
+1
+1:10 AM – 11:30 PM
 Identification of high-risk cells in single-cell spatially resolved transcriptomics data using transfer learning and spatial smoothing
 Debolina Chatterjee University of Mississippi
 Detecting precise adverse drug events from real-world data
@@ -551,7 +552,8 @@ Room 2213B
 Signatures of recent positive selection refine novel Primary open- angle glaucoma risk loci
 Timothy Ciesielski Case Western Reserve University
 
-11:40 AM – 12:00 PM
+1
+1:40 AM – 12:00 PM
 A density-based spatial functional modularity framework for characterizing tumor functional niches in HER2-positive breast cancer
 Fan Jhen Liu National Taiwan University
 Associated cell types and influential genes identified through integration of genome- wide association studies and single-cell transcriptomics for circulating fatty acid traits
@@ -804,7 +806,8 @@ Hasin Rehana, University of North Dakota
 CIRCA identifies cell-
 and niche-level interactions with amyloid-β plaques using causal representation learning
 Tyler Lovelace
-UTHealth Houston 4:10 PM – 4:20 PM
+UTHealth Houston
+4:10 PM – 4:20 PM
 
 4: 20 PM – 4:40 PM
 A framework for dynamically training and adapting deep reinforcement learning models to different, low- compute, and continuously changing radiology deployment environments

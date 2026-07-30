@@ -39,7 +39,7 @@ const state = {
   posters: [],
   filtered: [],
   themeStats: [],
-  selectedPosterId: "",
+  posterBrowserOpen: false,
 };
 
 const elements = {
@@ -50,7 +50,8 @@ const elements = {
   themeList: document.getElementById("themeList"),
   posterSummary: document.getElementById("posterSummary"),
   posterTitleGrid: document.getElementById("posterTitleGrid"),
-  posterDetail: document.getElementById("posterDetail"),
+  posterBrowser: document.getElementById("posterBrowser"),
+  posterSessionButton: document.getElementById("posterSessionButton"),
   savedList: document.getElementById("savedList"),
   searchInput: document.getElementById("searchInput"),
   concurrentOnlyToggle: document.getElementById("concurrentOnlyToggle"),
@@ -96,7 +97,6 @@ async function init() {
       console.warn("Poster titles could not be loaded.", posterResult);
     }
   }
-  state.selectedPosterId = state.posters[0]?.id || "";
   state.themeStats = buildThemeStats(state.blocks);
 
   elements.blockCount.textContent = String(state.blocks.length);
@@ -125,7 +125,6 @@ function bindEvents() {
       state.activeTheme = "all";
       state.search = "";
       state.concurrentOnly = false;
-      state.selectedPosterId = state.posters[0]?.id || "";
       if (elements.searchInput) {
         elements.searchInput.value = "";
       }
@@ -135,6 +134,14 @@ function bindEvents() {
       renderAll();
     });
   }
+
+  elements.posterSessionButton?.addEventListener("click", () => {
+    state.posterBrowserOpen = !state.posterBrowserOpen;
+    renderAll();
+    if (state.posterBrowserOpen && elements.posterBrowser) {
+      elements.posterBrowser.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
 
   elements.clearSavedButton?.addEventListener("click", () => {
     if (!state.saved.size) {
@@ -316,7 +323,14 @@ function renderPosterBrowser() {
     elements.posterSummary.textContent = `${state.posters.length} poster${state.posters.length === 1 ? "" : "s"} in the book`;
   }
 
-  if (!elements.posterTitleGrid || !elements.posterDetail) {
+  if (!elements.posterBrowser || !elements.posterTitleGrid) {
+    return;
+  }
+
+  elements.posterBrowser.hidden = !state.posterBrowserOpen;
+  elements.posterSessionButton?.setAttribute("aria-expanded", String(state.posterBrowserOpen));
+
+  if (!state.posterBrowserOpen) {
     return;
   }
 
@@ -324,41 +338,22 @@ function renderPosterBrowser() {
 
   if (!state.posters.length) {
     elements.posterTitleGrid.innerHTML = `<p class="empty-state">No poster titles found.</p>`;
-    elements.posterDetail.innerHTML = `<p class="empty-state">Poster details will appear here.</p>`;
     return;
   }
 
   const fragment = document.createDocumentFragment();
   for (const poster of state.posters) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "poster-title";
-    button.classList.toggle("is-active", poster.id === state.selectedPosterId);
-    button.innerHTML = `
-      <span class="poster-title-id">${escapeHtml(poster.id)}</span>
+    const item = document.createElement("article");
+    item.className = "poster-row";
+    item.innerHTML = `
+      <span class="poster-row-time">${escapeHtml(poster.id)}</span>
       <strong>${escapeHtml(poster.title)}</strong>
       <small>${escapeHtml(poster.authors)}</small>
     `;
-    button.addEventListener("click", () => {
-      state.selectedPosterId = poster.id;
-      renderPosterBrowser();
-    });
-    fragment.appendChild(button);
+    fragment.appendChild(item);
   }
 
   elements.posterTitleGrid.appendChild(fragment);
-
-  const selectedPoster = state.posters.find((poster) => poster.id === state.selectedPosterId) || state.posters[0];
-  if (!selectedPoster) {
-    elements.posterDetail.innerHTML = `<p class="empty-state">Poster details will appear here.</p>`;
-    return;
-  }
-
-  elements.posterDetail.innerHTML = `
-    <span class="time-chip">Poster ${escapeHtml(selectedPoster.id)}</span>
-    <h3>${escapeHtml(selectedPoster.title)}</h3>
-    <p><strong>Authors:</strong> ${escapeHtml(selectedPoster.authors)}</p>
-  `;
 }
 
 function renderBlocks(blocks) {

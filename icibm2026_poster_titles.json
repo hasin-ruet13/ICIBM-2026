@@ -1,0 +1,312 @@
+[
+  {
+    "id": "P01",
+    "title": "Network Rewiring Reveals Coordinated Metabolic, Structural, and Immune-Proteostasis Programs in Heart Failure",
+    "authors": "Addison Liu1, Sandali Dewni Lokuge2, Sheng Liu3,4, Jun Wan2,3,4"
+  },
+  {
+    "id": "P02",
+    "title": "Isoform-resolved predicted dsRNA burden is concentrated in enterocyte-like malignant colorectal cancer cells identified by long-read single-cell RNA sequencing",
+    "authors": "Alex Fang¹, Yunyun Zhou²"
+  },
+  {
+    "id": "P03",
+    "title": "PGCC Explorer: An Interactive Web Platform for Integrative Analysis of Drug Responses in Polyploid Giant Cancer Cells",
+    "authors": "Li-Ju Wang1, Hsiao-Chun Chen1, Chien-Hung Shih1, Yuan Zhang1, Huikang Ye1, Ying-Ju Lai1, Yushu Ma1, Tiffany Habib1, Hsi-Chun Wang1, Yu-Chih Chen1, Yu-Chiao Chiu1"
+  },
+  {
+    "id": "P04",
+    "title": "Associated Cell Types and Influential Genes Identified through Integration of Genome-Wide Association Studies and Single-cell Transcriptomics for Circulating Fatty Acid Traits",
+    "authors": "Elijah Sterling1,2, Saurav Choudhary3, Kaixiong Ye1,3"
+  },
+  {
+    "id": "P05",
+    "title": "From Screening to Differential Diagnosis: A 3D Point Cloud Benchmark for Craniofacial Conditions",
+    "authors": "Tingting Chen1, Mian Umair Ahsan1, Justin Cotney2,3, Eric Liao2, Kai Wang1,4"
+  },
+  {
+    "id": "P06",
+    "title": "Characterizing the genetic architecture and molecular mechanism of circulating fatty acids",
+    "authors": "Kaixiong Ye1,2, Huifang Xu1, Saurav Kumar Choudhary2, Haifeng Zhang1, Jiayi Xue1, Ge Yu1, Ke Yi1, Pengpeng Bi1,3"
+  },
+  {
+    "id": "P07",
+    "title": "STITCH: A Platform-Agnostic Pipeline for Barcoding-based Spatial Transcriptomics",
+    "authors": "Yuanhang Liu1, Brenna Novotny1, Humza Ashraf1, Mariam Stein1, Jeong-Heon Lee2, Ting Zhang2, Alejandro Stark2, Sathiya Pandi Narayanan2, Corey Seavey2, Arthur Beyder2, Tamas Ordog2, Chen Wang1"
+  },
+  {
+    "id": "P08",
+    "title": "Uncovering Sex-Biased COVID-19 Vaccine Adverse Events Using a Large Language Model",
+    "authors": "Anna He1, Katelyn Hur2, Xingxian Li3, Jie Zheng4, Yongqun He4,5, Junguk Hur6"
+  },
+  {
+    "id": "P09",
+    "title": "MetaAge: a Highly Accurate Ensemble Machine Learning Model for Biological Age Estimation",
+    "authors": "Liguo Wang1, and Anping Chen2"
+  },
+  {
+    "id": "P10",
+    "title": "An AI-powered single-cell and spatial omics ecosystem for neurodegenerative disease",
+    "authors": "Weidong Wu1,2, Tae Yeon Kim3,16, Jielin Xu4,16, Hao Cheng1,16, Cankun Wang1,2,16, Weiqing Chen5,6, Qi Guo1, Xiaojie Jin1, Jeremy A. Miller7, Kaixuan Xiao1, Shaohong Feng1, Jonathan G. Miller1, Shaopeng Gu1,2, Julie Zhu1, Xiaoying Wang1,2, Elizabeth Wang1, Yunxiao Ren4, Marie-Amandine Bonte3, Jing Zhao1, Dana M. McTigue3,11, Lang Li1, Benjamin M. Segal12,13, Guangyu Wang5,6,8,9,10, Phillip G. Popovich3,11,14, Feixiong Cheng4, Hongjun Fu3,15,17, Anjun Ma1,2,17, Qin Ma1,2,17,18"
+  },
+  {
+    "id": "P11",
+    "title": "Building a Psychoplastogenic Signature: A Comparative Evaluation of Compound-Based and Target-Based Approaches in the CANDO Platform",
+    "authors": "Justin Shinkle1, William Mangione1, Zackary Falls1, and Ram Samudrala1"
+  },
+  {
+    "id": "P12",
+    "title": "Small Molecule and Peptide Based Inhibition Mechanisms for Mycobacterium Tuberculosis",
+    "authors": "Arhan Patel1"
+  },
+  {
+    "id": "P13",
+    "title": "BindFuse: A Multimodal Graph Learning Framework for Protein-Ligand Binding Affinity Prediction",
+    "authors": "Bilal Ahmad1, Ram Samudrala1 and Zackary Falls1,2"
+  },
+  {
+    "id": "P14",
+    "title": "High CRISPR-Cas System Prevalence and Discovery of the Hyper-CRISPR Phenomenon in AntibioticResistant Escherichia coli: Comprehensive Genomic Analysis of 972 Clinical Isolates Reveals Phylogenetic Clustering and Temporal Evolution",
+    "authors": "Zhabiz Golkar1, Dawn Freeman1 and Anil K. Challa1"
+  },
+  {
+    "id": "P15",
+    "title": "Agentic Delphi for Phenotyping Immune-Related Acute Kidney Injury in Cancer Patients with Immunotherapies",
+    "authors": "Haining Wang1, Hao Wang1,2, Yao Chen1, Chenxi Xiong1,2, Shihui Jiang1, Qianqian Song3, Xing He1, Lin Wang2, Michael Eadon1, Jiang Bian1, Jing Su1"
+  },
+  {
+    "id": "P16",
+    "title": "Benchmarking variation detection methods with linear reference genomes and pangenomes in grapevines",
+    "authors": "Robert Robinson1, Brooke Atamanyk1 and Ping Liang1"
+  },
+  {
+    "id": "P17",
+    "title": "Towards a novel paper-based detection of the oomycete Saprolegnia",
+    "authors": "Hsin-Ho Wei1, Bartolomeo Gorgoglione2, Vipa Phuntumart1"
+  },
+  {
+    "id": "P18",
+    "title": "Inferring and Predicting Clade-Level Relative Transmission Fitness in Seasonal Influenza A Using Differential Population Growth Rate and Deep Learning",
+    "authors": "Ursula Senam Nkonu1, Richard Annan2, Letu Qingge2, Hong Qin3"
+  },
+  {
+    "id": "P19",
+    "title": "Integrative Mendelian Randomization and Protein-Protein Interaction Network Analysis Links Multi-Organ Aging to Complex Diseases",
+    "authors": "Chunxuan Ma1,2, Yuan Hou1, Feixiong Cheng1,3,4,5"
+  },
+  {
+    "id": "P20",
+    "title": "Bridging Computer Vision and Food Policy: A YOLOv11 Produce Freshness Detector Aligned with California AB 660 Date Label Vocabulary",
+    "authors": "Aston Liu1, Hari Krishna Yalamanchili2"
+  },
+  {
+    "id": "P21",
+    "title": "Exposure, host biology, and ancestry-aware genetics shape a noninvasive skin carotenoid biomarker",
+    "authors": "Yixing Han1*, Savannah Mwesigwa2,4, Nancy E. Moran3*, Neil A. Hanchard1,3,4*"
+  },
+  {
+    "id": "P22",
+    "title": "Sex differences in AD at single-cell subtype level",
+    "authors": "Ayauzhan Arystambekova1, Yuan Hou1, Lijun Dou1 and Feixiong Cheng1"
+  },
+  {
+    "id": "P23",
+    "title": "15 years of the WashU Epigenome Browser",
+    "authors": "Chanrung (Chad) Seng1, Wenjing Zhang1, Tianjie Liu1, Daofeng Li1, Ting Wang1"
+  },
+  {
+    "id": "P24",
+    "title": "An Integrated Single-Cell and Epigenomic Resource for Comparative Analysis of the Basal Ganglia from BICAN",
+    "authors": "Wenjin Zhang1, Wubin Ding2, Kai Li3,4, Lei Chang3,4, Amit Klein2, Cindy Tatiana Báez-Becerra5, Jonathan A. Rink5, Anna Bartlett2, Huaming Chen2, Natalie Schenker2, Nelson Johansen6, Tyler Mollenkopf6, Yuanyuan Fu6, Yang Xie3,4, Shane Liu1, Chanrung Seng1, Benpeng Miao1, Tianjie Liu1, Quan Zhu7, Rebecca D. Hodge6, Trygve E. Bakken6, Ed S. Lein6, Michael Hawrylycz6, Xiangmin Xu8,9,10,11,12, M. Margarita Behrens5, Bing Ren3,4,7,13, Joseph R. Ecker2,14, Ting Wang1,15, Daofeng Li1"
+  },
+  {
+    "id": "P25",
+    "title": "Multi-sample iStar enables joint enhancement of spatial transcriptomics data across tissue samples",
+    "authors": "Xiaokang Yu1†, Anthony Q.2†, Mingyao Li3*"
+  },
+  {
+    "id": "P26",
+    "title": "Domain-Aware Evaluation Evo2 Across Evolutionary Molecular, Clinical, and Generative Contexts",
+    "authors": "Sama Salarian1,†, Anurag Shandilya2,†, Mridul Sharma2, Nishtha Vaghela2, Swati Padhee1, Ranjith Padinahateeri2, Srinivasan Parthasarathy1, Ganesh Ramakrishnan2 and Raghu Machiraju1,*"
+  },
+  {
+    "id": "P27",
+    "title": "Computational Identification of Natural Inhibitors Targeting Fiber Proteins of FAdV-1 and FAdV-4 Through Integrated Virtual Screening and Molecular Dynamics Simulations.",
+    "authors": "kardoudi Aminaa1,2*, Salaheddine Redouane2, Benani Abdelouahebc2,3, Kichou Faouzia1, Charifa Drissi Touzania,1 and Fellahi Sihama1"
+  },
+  {
+    "id": "P28",
+    "title": "Strategies for robust, accurate, and generalizable benchmarking of drug discovery platforms",
+    "authors": "Melissa Van Norden1, William Mangione1, Zackary Falls1"
+  },
+  {
+    "id": "P29",
+    "title": "Quantum Computing for Single-Cell Biology: Networks, Dynamics, and Generative Models",
+    "authors": "James J. Cai1,2"
+  },
+  {
+    "id": "P30",
+    "title": "Toward Computationally Complete Spatial Omics",
+    "authors": "Wei Li1, Liran Mao1,2,3, Yunhe Liu4, Fuduan Peng4, Nadja Sachs5,6, Wenrui Wu7, Stephanie Pei Tung Yiu7, Hanying Yan1, Amelia Schroeder1, Xiaokang Yu1, Kaitian Jin1, Shunzhou Jiang1, Zihao Chen1, Melanie L. Loth1, Lorena Gomez8, Idania Lubo8, Niklas Blank9, Laith Z. Samarah10,11,12, Ankit Basak13, Ye Won Cho14, ChiaYu Chen14, David M. Kim14, Alex K. Shalek13, Luisa Maren Solis Soto8, Joshua D. Rabinowitz10,11,12, Muredach P. Reilly15,16, Xuyu Qian17, Christoph A. Thaiss9, Lars Maegdefessel5,6,18, Linghua Wang4, Humam Kadara8, Sizun Jiang*7, Yanxiang Deng*2,19, Mingyao Li*1,2"
+  },
+  {
+    "id": "P31",
+    "title": "Interpreting Omics Data Analysis with Large Language Models for Disease Target and Drug Discovery",
+    "authors": "Zixi Xu1*, Weihang Chen1,2*, Wuyu Ren1*, Tianqi Xu1, Somadina Amaechina1, Raad Khan1,4, Yixin Chen2, Michael Province4, Philip Payne1, Fuhai Li1,2,5#"
+  },
+  {
+    "id": "P32",
+    "title": "Radiomic Analysis of Organ-specific Response in Phase Ib/II Trial of p38 Inhibitor Pexmetinib Plus Nivolumab Following PD-1 Failure in Advanced Solid Tumors",
+    "authors": "Caroline Tyndall1,2,3, Andrew S. Poklepovic4,5, Sinef Huvaj-Aksoy1,6, Mohammadreza Amjadzadeh1,6, Hyun Lee4,5, Lorenzo Sellitto1, Riley Santiago1,2,3, Nils Wildberg1,2,3, Mark Jelinek1,7, Carl Kim1,2,3, Sarah Newman1, Christopher Deitrick1,2,8, Brian Isett1,2,8, Qiangqiang Gu9, Julie Urban1, Amy Rose1, Diwakar Davar1,2, Yana Najjar1,2, Liza C. Villaruz1,2, Lazar Vujanović1,10, Rivka R. Colen1,6, Robert L. Ferris11, Dan P. Zandberg1,2,3, Riyue Bao1,2,3,*"
+  },
+  {
+    "id": "P33",
+    "title": "A Spatial Framework for Defining the Tumor-Lung Interface Reveals Distinct Gene Signatures in Metastatic Breast Cancer",
+    "authors": "Hsuan-Yu Hung1, Yu-Ting Kang1, Tzu-Hung Hsiao1, Eric Y Chuang1 and Yidong Chen1"
+  },
+  {
+    "id": "P34",
+    "title": "Cell-Type Specific APA Changes are Associated with Gene Dysregulation and Predict Survival Outcome in Head and Neck Cancer",
+    "authors": "Amra M. Vranjkovina1, Michael J. Buck1,2, and Jonathan E. Bard1"
+  },
+  {
+    "id": "P35",
+    "title": "CLARA: A Containerized Lightweight Automated Reproducible Analysis for 16S rRNA Amplicon Sequencing",
+    "authors": "Andres Benavides Arevalo1"
+  },
+  {
+    "id": "P36",
+    "title": "mRehab 2.0: A Voice-Guided, Intelligent Assistant for Home Stroke Rehabilitation",
+    "authors": "Emily Liu1 and Henry Yang1"
+  },
+  {
+    "id": "P37",
+    "title": "Multimodal Protein Function Inference via Vision-Language Models and Structural Similarity Representations",
+    "authors": "Christopher Barker1, Matthew Hou1, Boen Liu1, Brandon Ma1, Xiao Chen2, Jie Hou3, Dong Si4, Renzhi Cao1*"
+  },
+  {
+    "id": "P38",
+    "title": "Unveiling Signals Lost in the Noise: Single-Cell Viral Discovery from Unmapped Single-Cell RNA-seq Data in Colorectal Cancer",
+    "authors": "Mohammadamin Mahmanzar1,2, Karim Rahimian3, Kaveh Kavousi2,3*, Youping Deng1*"
+  },
+  {
+    "id": "P39",
+    "title": "Gene networks uncover extensive trans-genetic regulation from transcriptional to proteomic levels in the human brain",
+    "authors": "Qiuman Liang1,2 Yu Wei2, Yizhi Wang3, Yue Wang3, Chao Chen1,4*, Chunyu Liu2*"
+  },
+  {
+    "id": "P40",
+    "title": "A Comparison between CARLIN and DNA Typewriter in CRISPR-mediated Lineage Tracing",
+    "authors": "Fengshuo Liu1, Xiang Zhang2, Yipeng Yang3"
+  },
+  {
+    "id": "P41",
+    "title": "Cross-level Cross-Scale Inference and Imputation of Single-cell Spatial Proteomics",
+    "authors": "You Wu1,∗, Lei Xie1,2,3,*"
+  },
+  {
+    "id": "P42",
+    "title": "Multimodal Deep Learning for Alzheimer’s Disease Prediction with Improved Training Stability and Flexibility",
+    "authors": "Jianan Liu1,2, Jincheng Shi3, Long Zhao1,2, Yuanxin Yao3, Shihua Li1,2, Rongjie Liu4"
+  },
+  {
+    "id": "P43",
+    "title": "Long-read methylome profiling in the human pangenome reveals ancestry-associated methylation states and genetic-variant-coupled regulatory effects",
+    "authors": "Tianjie Liu1, Juan F. Macias-Velasco1, Xiaoyu Zhuo1, Wenjin Zhang1, Daofeng Li1, Juan Jiang1, Zheng Dong1, Chad Tomlinson1, Eddie Belter1 and Ting Wang1"
+  },
+  {
+    "id": "P44",
+    "title": "Investigating the Causal Impact of COVID-19 on Acute Myocardial Infarction: A Multi-ancestry Mendelian Randomization Study",
+    "authors": "Katherine Zhou1 and Ying Ma2"
+  },
+  {
+    "id": "P45",
+    "title": "Computational Pathway Analysis of Biologic Drug Innovation in Alzheimer’s Disease: A Structural Equation Modeling Framework for Care Delivery Transformation",
+    "authors": "Sang-Yong Oh,1 Janice Tran,1 Jacqueline S Markle1 and Satish Mahadevan Srinivasan1,*"
+  },
+  {
+    "id": "P46",
+    "title": "Dissecting genetic control of human neuronal DNA methylation states refines interpretation of brain disorder risk",
+    "authors": "Yu Wei1, Qiuman Liang2, Jo-Fan Chien3, Heng Xu4, Junhao Li5, Alexey Kozlenkov6,7, Ramu Vadukapuram6,7, Eran A. Mukamel5, Stella Dracheva6,7, Chunyu Liu1"
+  },
+  {
+    "id": "P47",
+    "title": "From Pixels to Biological Reasoning: Semantic, Hierarchical, and Graph-Structured Learning for Interpretable Biomedical AI",
+    "authors": "Chengzhi Cao1, Qirong Ho1, Min Xu1,2"
+  },
+  {
+    "id": "P48",
+    "title": "Decoding Solid Tumor Prognosis and Immunotherapy Response Through NK Cell Gene Signatures",
+    "authors": "Emily Tang1, Xiaoqi Li2"
+  },
+  {
+    "id": "P49",
+    "title": "Tetris: Transformative Embedding through Multilevel Contrastive learning for hypothesis discovery",
+    "authors": "Xiaoying Wang1,2, Yuke Hou1, Guangyu Wang3, Ana Mora4, Mauricio Rojas4, Qin Ma1,2,$"
+  },
+  {
+    "id": "P50",
+    "title": "Ensemble Machine Learning Models For Early Sepsis Detection",
+    "authors": "Shashvat Hariharan1, Sanjay Gobu1, Gautham Venkatramanan2"
+  },
+  {
+    "id": "P51",
+    "title": "Comparative Metagenomic Profiling of Soil Microbiota in San Antonio Urban Ecosystems: Medina River Natural Area vs. Loop 1604 Trailhead",
+    "authors": "Raymond Cai1, Claire Wang2, Jianhua Ruan3"
+  },
+  {
+    "id": "P52",
+    "title": "AI-Driven Innovations in Chinese Eight-Ball Pool: Motion Analysis and Intelligent Coaching Systems",
+    "authors": "Yanguang Wei1, Henry Yang2"
+  },
+  {
+    "id": "P53",
+    "title": "Assessing the Homogeneity of Urban Park Soil Microbiomes: A Comparative Metagenomic Analysis of McAllister and Eisenhower Parks in San Antonio",
+    "authors": "Chloe Peiyi Ruan1, Yufeng Wang2"
+  },
+  {
+    "id": "P54",
+    "title": "PIWI-RNA-Based Signatures for Colorectal Cancer: Diagnostic and Prognostic Insights from Machine Learning and Survival Modeling",
+    "authors": "Gino Quintal, MS1,Youping Deng, PhD2,Yuanyuan Fu, PhD2"
+  },
+  {
+    "id": "P55",
+    "title": "Molecular profiling of the mystic human unique heterochromatin region of the Y chromosome",
+    "authors": "Ping Liang1,2 and Sunny Lowell1"
+  },
+  {
+    "id": "P56",
+    "title": "Prediction of Rapid Fibrosis Progression in Metabolic Dysfunction–Associated Steatotic Liver Disease with Interpretable Machine Learning Models",
+    "authors": "Tahmina Sultana Priya1,2,3, Huihuang Yan3, Konstantinos N. Lazaridis4, Eric W. Klee3, Danfeng (Daphne) Yao1,2, Shulan Tian3"
+  },
+  {
+    "id": "P57",
+    "title": "Genome-scale profiling of RNA capping levels uncovers sequence determinants and roles in gene regulation",
+    "authors": "Zhenguo Lin1"
+  },
+  {
+    "id": "P58",
+    "title": "Investigating the Effects of Microplastics on miRNA Using Novel Bioinformatics Pipeline on Mus musculus Prefrontal Cortex Transcriptomic Data",
+    "authors": "Thomas Yu1"
+  },
+  {
+    "id": "P59",
+    "title": "Single-molecule RNA modification mapping by AI analysis of nanopore sequencing",
+    "authors": "Yunxia Wang1"
+  },
+  {
+    "id": "P60",
+    "title": "Classification of Cancer Types Using Cross-Cancer SNP Signatures from a Large-Scale Genomic Profile",
+    "authors": "Sunwoo Han1, Limin Jiang2 and Yan Guo2,*"
+  },
+  {
+    "id": "P61",
+    "title": "SCALE-ST: Multi-Scale Learning for Histology-Based Prediction of Spatial Gene Expression",
+    "authors": "Sayed Asaduzzaman1,2, Hasin Rehana1,2, Brett McGregor2, and Junguk Hur2,*"
+  },
+  {
+    "id": "P62",
+    "title": "Proteinext 2.0: Protein Function Prediction with Sequence Embeddings, Structure Embeddings, and Natural Language Processing",
+    "authors": "Naufal Alavi1, Sanjina Kumari1, Boen Liu1, Christopher Barker1, Ashnaa George1, Xiao Chen2, Jie Hou3, Dong Si4, Renzhi Cao1"
+  }
+]

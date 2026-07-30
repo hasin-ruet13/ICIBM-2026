@@ -55,7 +55,18 @@ def read_docx_rows(docx_path: Path) -> list[list[str]]:
 
 def normalize_paragraph_text(paragraph: ET.Element) -> str:
     text = "".join(paragraph.itertext())
-    return re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r"\s+", " ", text).strip()
+    text = split_inline_time_ranges(text)
+    return text
+
+
+def split_inline_time_ranges(text: str) -> str:
+    return re.sub(
+        r"(?<=\S)\s+(?=\d{1,2}:\d{2}\s*(?:AM|PM)\s*[–-]\s*\d{1,2}:\d{2}\s*(?:AM|PM)\b)",
+        "\n",
+        text,
+        flags=re.I,
+    )
 
 
 def normalize_cell_text(cell: ET.Element) -> str:

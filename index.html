@@ -43,6 +43,9 @@
             <a class="button button-secondary" href="ICIBM2026_Program_Book_07_23_2026.pdf" target="_blank" rel="noreferrer">
               Open program book PDF
             </a>
+            <button class="button button-secondary" id="posterSessionButton" type="button" aria-expanded="false">
+              Poster Session
+            </button>
             <button class="button button-secondary" id="resetFiltersButton" type="button">
               Reset filters
             </button>
@@ -91,20 +94,15 @@
         <div class="theme-chips" id="themeChips"></div>
       </section>
 
-      <section class="poster-browser" aria-label="Poster titles">
+      <section class="poster-browser" id="posterBrowser" aria-label="Poster titles" hidden>
         <div class="panel-header">
           <div>
-            <p class="panel-kicker">Poster browse</p>
-            <h2>Poster titles from the book</h2>
+            <p class="panel-kicker">Poster session</p>
+            <h2>Posters and authors</h2>
           </div>
           <p class="panel-note" id="posterSummary"></p>
         </div>
-        <div class="poster-browser-grid">
-          <div class="poster-title-grid" id="posterTitleGrid"></div>
-          <article class="poster-detail" id="posterDetail">
-            <p class="empty-state">Pick a poster title to preview it here.</p>
-          </article>
-        </div>
+        <div class="poster-list" id="posterTitleGrid"></div>
       </section>
 
       <nav class="day-tabs" id="dayTabs" aria-label="Conference days"></nav>
