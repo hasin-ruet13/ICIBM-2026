@@ -34,6 +34,7 @@ const state = {
   activeTheme: "all",
   search: "",
   concurrentOnly: false,
+  selectedBlockId: "",
   saved: loadSavedBlocks(),
   blocks: [],
   filtered: [],
@@ -143,6 +144,7 @@ function renderAll() {
   renderThemeChips();
   renderThemeList();
   renderSavedList();
+  focusSelectedBlock();
 
   elements.activeDayTitle.textContent = activeDay.key === "all" ? "All conference days" : activeDay.label;
   elements.resultSummary.textContent = `${filtered.length} matching block${filtered.length === 1 ? "" : "s"} • ${state.saved.size} saved`;
@@ -175,9 +177,50 @@ function renderDayTabs() {
     }
   }
 
+  syncPosterTab();
+
   for (const tab of elements.dayTabs.querySelectorAll(".day-tab")) {
-    tab.classList.toggle("is-active", tab.dataset.day === state.activeDay);
+    const isPosterTab = tab.dataset.poster === "true";
+    tab.classList.toggle("is-active", isPosterTab ? state.selectedBlockId === getPosterBlock()?.id : tab.dataset.day === state.activeDay);
   }
+}
+
+function syncPosterTab() {
+  if (!elements.dayTabs) {
+    return;
+  }
+
+  const posterBlock = getPosterBlock();
+  const existingPosterButton = elements.dayTabs.querySelector('[data-poster="true"]');
+
+  if (!posterBlock) {
+    existingPosterButton?.remove();
+    return;
+  }
+
+  const label = `Poster · ${shortDayLabel(posterBlock.date)} · ${posterBlock.startTime}–${posterBlock.endTime}`;
+  let posterButton = existingPosterButton;
+
+  if (!posterButton) {
+    posterButton = document.createElement("button");
+    posterButton.type = "button";
+    posterButton.className = "day-tab poster-tab";
+    posterButton.dataset.poster = "true";
+    posterButton.addEventListener("click", () => {
+      state.activeDay = posterBlock.dayKey;
+      state.activeTheme = "all";
+      state.selectedBlockId = posterBlock.id;
+      state.search = "";
+      if (elements.searchInput) {
+        elements.searchInput.value = "";
+      }
+      renderAll();
+      elements.scheduleList.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    elements.dayTabs.appendChild(posterButton);
+  }
+
+  posterButton.textContent = label;
 }
 
 function renderThemeChips() {
@@ -311,6 +354,7 @@ function renderBlocks(blocks) {
 
 function createBlockCard(block) {
   const card = cardTemplate.content.firstElementChild.cloneNode(true);
+  card.dataset.blockId = block.id;
   const bookmarkButton = card.querySelector(".bookmark-button");
   const timeChip = card.querySelector(".time-chip");
   const title = card.querySelector(".session-title");
@@ -319,6 +363,8 @@ function createBlockCard(block) {
   const themeWrap = card.querySelector(".session-themes");
 
   const isSaved = state.saved.has(block.id);
+  const isSelected = block.id === state.selectedBlockId;
+  card.classList.toggle("is-highlighted", isSelected);
 
   timeChip.textContent = `${shortDayLabel(block.date)} · ${block.startTime}${block.endTime ? `–${block.endTime}` : ""}`;
   bookmarkButton.textContent = isSaved ? "★ Saved" : "☆ Save";
@@ -335,6 +381,27 @@ function createBlockCard(block) {
   themeWrap.innerHTML = renderThemePills(block.themes);
 
   return card;
+}
+
+function focusSelectedBlock() {
+  if (!state.selectedBlockId || !elements.scheduleList) {
+    return;
+  }
+
+  const card = elements.scheduleList.querySelector(`[data-block-id="${state.selectedBlockId}"]`);
+  if (!card) {
+    return;
+  }
+
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  card.classList.add("is-highlighted");
+  window.setTimeout(() => {
+    card.classList.remove("is-highlighted");
+  }, 1600);
+}
+
+function getPosterBlock() {
+  return state.blocks.find((block) => block.kindLabel === "Poster");
 }
 
 function renderThemePills(themes) {

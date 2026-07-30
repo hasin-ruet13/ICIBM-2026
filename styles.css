@@ -293,6 +293,22 @@ input {
   font-weight: 700;
 }
 
+.poster-tab {
+  margin-left: auto;
+  background: linear-gradient(135deg, rgba(255, 198, 0, 0.28), rgba(255, 140, 0, 0.22));
+  color: #5d3700;
+  border-color: rgba(255, 171, 0, 0.6);
+  box-shadow: 0 0 0 1px rgba(255, 171, 0, 0.12), 0 8px 20px rgba(255, 171, 0, 0.14);
+  font-weight: 700;
+}
+
+.poster-tab.is-active {
+  background: linear-gradient(135deg, rgba(255, 198, 0, 0.44), rgba(255, 140, 0, 0.32));
+  border-color: rgba(255, 171, 0, 0.78);
+  color: #472a00;
+  box-shadow: 0 0 0 1px rgba(255, 171, 0, 0.16), 0 10px 26px rgba(255, 171, 0, 0.22);
+}
+
 .content-grid {
   margin-top: 18px;
   display: grid;
@@ -337,6 +353,7 @@ input {
 
 .schedule-list,
 .theme-list,
+.poster-list,
 .saved-list {
   display: grid;
   gap: 12px;
@@ -348,6 +365,11 @@ input {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 18px;
+}
+
+.session-card.is-highlighted {
+  border-color: rgba(41, 92, 255, 0.45);
+  box-shadow: 0 0 0 4px rgba(41, 92, 255, 0.12);
 }
 
 .session-topline {
@@ -472,6 +494,53 @@ input {
   font-size: 0.84rem;
   font-weight: 700;
   flex-shrink: 0;
+}
+
+.poster-panel {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(110, 120, 160, 0.16);
+}
+
+.poster-row {
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: var(--panel-solid);
+  color: var(--text);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+.poster-row.is-active {
+  border-color: rgba(41, 92, 255, 0.45);
+  box-shadow: 0 0 0 4px rgba(41, 92, 255, 0.12);
+}
+
+.poster-row strong {
+  display: block;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.poster-row small {
+  display: block;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.poster-row-time {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+  padding: 0.28rem 0.62rem;
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
 .saved-item {
