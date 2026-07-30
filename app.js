@@ -74,23 +74,28 @@ async function init() {
   renderDayTabs();
   bindEvents();
 
-  const [scheduleResponse, posterResponse] = await Promise.all([
+  const [scheduleResponse, posterResult] = await Promise.all([
     fetch(`icibm2026_program_schedule.txt?v=${SOURCE_VERSION}`, {
       cache: "no-store",
     }),
-    fetch("icibm2026_poster_titles.json", { cache: "no-store" }),
+    fetch("icibm2026_poster_titles.json", { cache: "no-store" }).catch((error) => error),
   ]);
 
   if (!scheduleResponse.ok) {
     throw new Error(`Schedule source not found (${scheduleResponse.status})`);
   }
-  if (!posterResponse.ok) {
-    throw new Error(`Poster titles source not found (${posterResponse.status})`);
-  }
 
-  const [rawText, posterData] = await Promise.all([scheduleResponse.text(), posterResponse.json()]);
+  const rawText = await scheduleResponse.text();
   state.blocks = fillMissingEndTimes(parseScheduleText(rawText));
-  state.posters = Array.isArray(posterData) ? posterData : [];
+  if (posterResult instanceof Response && posterResult.ok) {
+    const posterData = await posterResult.json();
+    state.posters = Array.isArray(posterData) ? posterData : [];
+  } else {
+    state.posters = [];
+    if (!(posterResult instanceof Response)) {
+      console.warn("Poster titles could not be loaded.", posterResult);
+    }
+  }
   state.selectedPosterId = state.posters[0]?.id || "";
   state.themeStats = buildThemeStats(state.blocks);
 
