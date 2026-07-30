@@ -51,7 +51,6 @@ const elements = {
   posterSummary: document.getElementById("posterSummary"),
   posterTitleGrid: document.getElementById("posterTitleGrid"),
   posterBrowser: document.getElementById("posterBrowser"),
-  posterSessionButton: document.getElementById("posterSessionButton"),
   savedList: document.getElementById("savedList"),
   searchInput: document.getElementById("searchInput"),
   concurrentOnlyToggle: document.getElementById("concurrentOnlyToggle"),
@@ -135,14 +134,6 @@ function bindEvents() {
     });
   }
 
-  elements.posterSessionButton?.addEventListener("click", () => {
-    state.posterBrowserOpen = !state.posterBrowserOpen;
-    renderAll();
-    if (state.posterBrowserOpen && elements.posterBrowser) {
-      elements.posterBrowser.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-
   elements.clearSavedButton?.addEventListener("click", () => {
     if (!state.saved.size) {
       return;
@@ -201,10 +192,25 @@ function renderDayTabs() {
       });
       elements.dayTabs.appendChild(button);
     }
+
+    const posterButton = document.createElement("button");
+    posterButton.type = "button";
+    posterButton.className = "day-tab poster-tab";
+    posterButton.dataset.day = "posters";
+    posterButton.textContent = "Poster Session";
+    posterButton.addEventListener("click", () => {
+      state.posterBrowserOpen = !state.posterBrowserOpen;
+      renderAll();
+      if (state.posterBrowserOpen && elements.posterBrowser) {
+        elements.posterBrowser.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+    elements.dayTabs.appendChild(posterButton);
   }
 
   for (const tab of elements.dayTabs.querySelectorAll(".day-tab")) {
-    tab.classList.toggle("is-active", tab.dataset.day === state.activeDay);
+    const isPosterTab = tab.dataset.day === "posters";
+    tab.classList.toggle("is-active", isPosterTab ? state.posterBrowserOpen : tab.dataset.day === state.activeDay);
   }
 }
 
@@ -328,7 +334,6 @@ function renderPosterBrowser() {
   }
 
   elements.posterBrowser.hidden = !state.posterBrowserOpen;
-  elements.posterSessionButton?.setAttribute("aria-expanded", String(state.posterBrowserOpen));
 
   if (!state.posterBrowserOpen) {
     return;
