@@ -36,17 +36,32 @@ def read_docx_rows(docx_path: Path) -> list[list[str]]:
 
     root = ET.fromstring(document_xml)
     rows: list[list[str]] = []
-    for table_row in root.findall(".//w:tbl//w:tr", NS):
-        cells = [normalize_cell_text(cell) for cell in table_row.findall("./w:tc", NS)]
-        rows.append(cells)
+    body = root.find("./w:body", NS)
+    if body is None:
+        return rows
+
+    for child in body:
+        tag = child.tag.rsplit("}", 1)[-1]
+        if tag == "p":
+            text = normalize_paragraph_text(child)
+            if text:
+                rows.append([text])
+        elif tag == "tbl":
+            for table_row in child.findall("./w:tr", NS):
+                cells = [normalize_cell_text(cell) for cell in table_row.findall("./w:tc", NS)]
+                rows.append(cells)
     return rows
+
+
+def normalize_paragraph_text(paragraph: ET.Element) -> str:
+    text = "".join(paragraph.itertext())
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def normalize_cell_text(cell: ET.Element) -> str:
     paragraphs: list[str] = []
     for paragraph in cell.findall("./w:p", NS):
-        text = "".join(paragraph.itertext())
-        text = re.sub(r"\s+", " ", text).strip()
+        text = normalize_paragraph_text(paragraph)
         if text:
             paragraphs.append(text)
     return "\n".join(paragraphs)
