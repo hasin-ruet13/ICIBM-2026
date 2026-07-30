@@ -12,6 +12,7 @@ const STORAGE_KEY = "icibm2026.savedBlocks";
 const START_TIME_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]/i;
 const TIME_ONLY_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))$/i;
 const ROOM_RE = /\bRoom\s+\d{4}[A-Z](?:&[A-Z])?/i;
+const SOURCE_VERSION = "2026-07-30";
 
 const THEME_RULES = [
   { label: "AI & ML", patterns: [/ai\b/i, /machine learning/i, /deep learning/i, /foundation model/i, /large language model/i, /\bllm\b/i, /generative ai/i, /transformer/i, /neural/i] },
@@ -68,7 +69,9 @@ async function init() {
   renderDayTabs();
   bindEvents();
 
-  const response = await fetch("icibm2026_program_schedule.txt");
+  const response = await fetch(`icibm2026_program_schedule.txt?v=${SOURCE_VERSION}`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error(`Schedule source not found (${response.status})`);
   }
