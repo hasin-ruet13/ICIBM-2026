@@ -107,6 +107,7 @@ function bindEvents() {
   if (elements.searchInput) {
     elements.searchInput.addEventListener("input", (event) => {
       state.search = event.target.value.trim().toLowerCase();
+      state.posterBrowserOpen = false;
       renderAll();
     });
   }
@@ -114,6 +115,7 @@ function bindEvents() {
   if (elements.concurrentOnlyToggle) {
     elements.concurrentOnlyToggle.addEventListener("change", (event) => {
       state.concurrentOnly = event.target.checked;
+      state.posterBrowserOpen = false;
       renderAll();
     });
   }
@@ -124,6 +126,7 @@ function bindEvents() {
       state.activeTheme = "all";
       state.search = "";
       state.concurrentOnly = false;
+      state.posterBrowserOpen = false;
       if (elements.searchInput) {
         elements.searchInput.value = "";
       }
@@ -187,6 +190,7 @@ function renderDayTabs() {
       button.textContent = day.label;
       button.addEventListener("click", () => {
         state.activeDay = day.key;
+        state.posterBrowserOpen = false;
         renderAll();
         elements.scheduleList.scrollIntoView({ behavior: "smooth", block: "start" });
       });
@@ -228,6 +232,7 @@ function renderThemeChips() {
   allButton.classList.toggle("is-active", state.activeTheme === "all");
   allButton.addEventListener("click", () => {
     state.activeTheme = "all";
+    state.posterBrowserOpen = false;
     renderAll();
   });
   elements.themeChips.appendChild(allButton);
@@ -240,6 +245,7 @@ function renderThemeChips() {
     button.classList.toggle("is-active", state.activeTheme === theme.label);
     button.addEventListener("click", () => {
       state.activeTheme = state.activeTheme === theme.label ? "all" : theme.label;
+      state.posterBrowserOpen = false;
       renderAll();
     });
     elements.themeChips.appendChild(button);
