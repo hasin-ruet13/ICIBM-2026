@@ -12,7 +12,7 @@ NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 DAY_RE = re.compile(r"^(Sunday|Monday|Tuesday|Wednesday),\s+August\s+\d{1,2}(?:st|nd|rd|th),\s+2026$")
 TIME_RANGE_RE = re.compile(r"^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))", re.I)
 TIME_START_RE = re.compile(r"^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]", re.I)
-ROOM_LABEL_RE = re.compile(r"^Room\s+\d{4}[A-Z](?:&[A-Z])?$", re.I)
+ROOM_LABEL_RE = re.compile(r"^Room\s+\d{4}[A-Z]?(?:&[A-Z])?$", re.I)
 
 
 def main() -> int:
@@ -56,6 +56,7 @@ def read_docx_rows(docx_path: Path) -> list[list[str]]:
 def normalize_paragraph_text(paragraph: ET.Element) -> str:
     text = "".join(paragraph.itertext())
     text = re.sub(r"\s+", " ", text).strip()
+    text = normalize_time_text(text)
     text = split_inline_time_ranges(text)
     return text
 
@@ -71,11 +72,36 @@ def split_inline_time_ranges(text: str) -> str:
 
 def normalize_cell_text(cell: ET.Element) -> str:
     paragraphs: list[str] = []
+    bold_paragraphs: list[str] = []
+
+    def flush_bold_paragraphs() -> None:
+        if bold_paragraphs:
+            paragraphs.append(" ".join(bold_paragraphs))
+            bold_paragraphs.clear()
+
     for paragraph in cell.findall("./w:p", NS):
         text = normalize_paragraph_text(paragraph)
-        if text:
+        if not text:
+            continue
+        if paragraph_is_bold(paragraph):
+            bold_paragraphs.append(text)
+        else:
+            flush_bold_paragraphs()
             paragraphs.append(text)
-    return "\n".join(paragraphs)
+    flush_bold_paragraphs()
+
+    text = "\n".join(paragraphs)
+    joined_text = normalize_time_text(" ".join(paragraphs))
+    if TIME_RANGE_RE.fullmatch(joined_text) or TIME_START_RE.fullmatch(joined_text):
+        return joined_text
+    return text
+
+
+def paragraph_is_bold(paragraph: ET.Element) -> bool:
+    return any(
+        run.find("./w:rPr/w:b", NS) is not None or run.find("./w:rPr/w:bCs", NS) is not None
+        for run in paragraph.findall("./w:r", NS)
+    )
 
 
 def build_schedule_lines(rows: list[list[str]]) -> list[str]:
@@ -95,9 +121,11 @@ def build_schedule_lines(rows: list[list[str]]) -> list[str]:
 
         if len(non_empty) <= 1:
             if non_empty:
-                _, text = non_empty[0]
+                index, text = non_empty[0]
                 output.append(time_line)
-                output.extend(split_lines(text))
+                if len(room_texts) > 1 and index < len(room_labels):
+                    output.append(room_labels[index])
+                output.extend(split_body_lines(text))
                 output.append("")
             current_band = None
             return
@@ -106,7 +134,7 @@ def build_schedule_lines(rows: list[list[str]]) -> list[str]:
             output.append(time_line)
             if index < len(room_labels):
                 output.append(room_labels[index])
-            output.extend(split_lines(text))
+            output.extend(split_body_lines(text))
             output.append("")
 
         current_band = None
@@ -120,6 +148,7 @@ def build_schedule_lines(rows: list[list[str]]) -> list[str]:
 
         if is_day_row(compact_row):
             flush_band()
+            current_room_labels = []
             output.append(compact_row[0])
             output.append("")
             continue
@@ -182,11 +211,20 @@ def normalize_time_line(text: str) -> str:
 
 
 def normalize_time_text(text: str) -> str:
-    text = re.sub(r"(?<=\d)\s+(?=\d{1,2}:\d{2}\s*(?:AM|PM)\b)", "", text, flags=re.I)
-    text = re.sub(r"(?<!\w)(\d{1,2}:\d{2})\s*(AM|PM)\b", r"\1 \2", text, flags=re.I)
+    text = re.sub(r"(?<!\d)(\d{1,2})\s*:\s*(\d{2,3})\s*(AM|PM)\b", normalize_clock_match, text, flags=re.I)
     text = re.sub(r"(?<!\w)(\d{1,2}:\d{2})\s*[–-]\s*(\d{1,2}:\d{2})", r"\1 – \2", text)
     text = re.sub(r"(?<!\w)(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))", r"\1 – \2", text, flags=re.I)
+    text = re.sub(r"\b12:(\d{2}) AM\s+–\s+12:(\d{2}) PM\b", r"12:\1 PM – 12:\2 PM", text, flags=re.I)
     return text
+
+
+def normalize_clock_match(match: re.Match[str]) -> str:
+    hour = match.group(1)
+    minute = match.group(2)
+    period = match.group(3).upper()
+    if len(minute) == 3 and minute.startswith(hour[-1]):
+        minute = minute[1:]
+    return f"{hour}:{minute} {period}"
 
 
 def is_day_row(row: list[str]) -> bool:
@@ -199,6 +237,11 @@ def looks_like_room_labels(row: list[str]) -> bool:
 
 def split_lines(text: str) -> list[str]:
     return [normalize_time_text(line.strip()) for line in text.split("\n") if line.strip()]
+
+
+def split_body_lines(text: str) -> list[str]:
+    lines = split_lines(text)
+    return [f"Presentation time: {line}" if TIME_START_RE.match(line) else line for line in lines]
 
 
 def trim_trailing_blank_lines(lines: list[str]) -> list[str]:

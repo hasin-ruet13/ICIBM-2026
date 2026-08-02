@@ -10,9 +10,10 @@ const DAY_LOOKUP = new Map(DAY_CONFIG.filter((day) => day.date).map((day) => [da
 const STORAGE_KEY = "icibm2026.savedBlocks";
 
 const START_TIME_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]/i;
+const TIME_RANGE_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))/i;
 const TIME_ONLY_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))$/i;
-const ROOM_RE = /\bRoom\s+\d{4}[A-Z](?:&[A-Z])?/i;
-const SOURCE_VERSION = "2026-07-30";
+const ROOM_RE = /\bRoom\s+\d{4}[A-Z]?(?:&[A-Z])?/i;
+const SOURCE_VERSION = "2026-08-02";
 
 const THEME_RULES = [
   { label: "AI & ML", patterns: [/ai\b/i, /machine learning/i, /deep learning/i, /foundation model/i, /large language model/i, /\bllm\b/i, /generative ai/i, /transformer/i, /neural/i] },
@@ -42,7 +43,7 @@ const state = {
   posterBrowserOpen: false,
 };
 
-const elements = {
+const elements = typeof document === "undefined" ? {} : {
   dayTabs: document.getElementById("dayTabs"),
   scheduleList: document.getElementById("scheduleList"),
   themeChips: document.getElementById("themeChips"),
@@ -60,12 +61,14 @@ const elements = {
   resultSummary: document.getElementById("resultSummary"),
 };
 
-const cardTemplate = document.getElementById("cardTemplate");
+const cardTemplate = typeof document === "undefined" ? null : document.getElementById("cardTemplate");
 
-init().catch((error) => {
-  console.error(error);
-  elements.scheduleList.innerHTML = `<p class="error-state">I couldn’t load the schedule text. ${escapeHtml(error.message)}</p>`;
-});
+if (typeof document !== "undefined") {
+  init().catch((error) => {
+    console.error(error);
+    elements.scheduleList.innerHTML = `<p class="error-state">I couldn’t load the schedule text. ${escapeHtml(error.message)}</p>`;
+  });
+}
 
 async function init() {
   renderDayTabs();
@@ -84,6 +87,9 @@ async function init() {
 
   const rawText = await scheduleResponse.text();
   state.blocks = fillMissingEndTimes(parseScheduleText(rawText));
+  const validBlockIds = new Set(state.blocks.map((block) => block.id));
+  state.saved = new Set([...state.saved].filter((blockId) => validBlockIds.has(blockId)));
+  persistSavedBlocks();
   if (posterResult instanceof Response && posterResult.ok) {
     const posterData = await posterResult.json();
     state.posters = Array.isArray(posterData) ? posterData : [];
@@ -464,7 +470,7 @@ function parseScheduleText(rawText) {
       .toLowerCase();
 
     blocks.push({
-      id: `${currentDay.date}-${String(blocks.length).padStart(3, "0")}`,
+      id: buildBlockId(currentDay.date, currentBlock.startTime, room, title),
       dayKey: currentDay.key,
       dayLabel: currentDay.label,
       date: currentDay.date,
@@ -505,7 +511,7 @@ function parseScheduleText(rawText) {
       currentBlock = {
         lines: [line],
         startTime: extractStartTime(trimmed),
-        endTime: "",
+        endTime: extractRangeEndTime(trimmed),
       };
       continue;
     }
@@ -539,7 +545,7 @@ function fillMissingEndTimes(blocks) {
     for (let index = 0; index < dayBlocks.length; index += 1) {
       const block = { ...dayBlocks[index] };
       if (!block.endTime) {
-        const nextBlock = dayBlocks[index + 1];
+        const nextBlock = dayBlocks.slice(index + 1).find((candidate) => candidate.startMinutes > block.startMinutes);
         block.endTime = nextBlock?.startTime || addMinutes(block.startTime, 60);
       }
       result.push(block);
@@ -586,8 +592,16 @@ function buildThemeSummary() {
 }
 
 function deriveTitle(lines) {
+  const eventLine = lines.find((line) =>
+    /(Registration|Opening Remarks|Award Ceremony|Closing Remarks|Keynote|Lunch Break|Coffee Break|Poster Session)/i.test(line),
+  );
+  if (eventLine) {
+    return eventLine.replace(TIME_RANGE_RE, "").trim();
+  }
+
   const candidates = lines.filter((line) => {
     if (!line) return false;
+    if (START_TIME_RE.test(line)) return false;
     if (TIME_ONLY_RE.test(line)) return false;
     if (/^Room\s/i.test(line)) return false;
     if (/^Chair/i.test(line)) return false;
@@ -596,20 +610,23 @@ function deriveTitle(lines) {
     return true;
   });
 
-  const preferred = candidates.find((line) =>
-    /(Registration|Opening Remarks|Keynote|Lunch Break|Coffee Break|Concurrent Sessions\/Workshops)/i.test(line),
-  );
-  if (preferred) {
-    return preferred;
-  }
-
-  const firstStrong = candidates.find((line) => line.length > 18 && /[A-Za-z]/.test(line));
-  return firstStrong || "ICIBM session block";
+  return candidates[0] || "ICIBM session block";
 }
 
 function deriveRoom(text) {
   const match = text.match(ROOM_RE);
-  return match ? match[0] : "";
+  if (match) return match[0];
+  return /\bAtrium\b/i.test(text) ? "Atrium" : "";
+}
+
+function buildBlockId(date, startTime, room, title) {
+  const value = [date, startTime, room, title].join("|").toLowerCase();
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return `${date}-${(hash >>> 0).toString(36)}`;
 }
 
 function classifyBlock(text, title) {
@@ -642,7 +659,7 @@ function compactText(lines) {
     .filter(Boolean)
     .join(" ")
     .replace(/\s+([,.;:!?])/g, "$1")
-    .replace(/\s*-\s*/g, " - ")
+    .replace(/\s+-\s+/g, " - ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -650,6 +667,11 @@ function compactText(lines) {
 function extractStartTime(line) {
   const match = line.match(START_TIME_RE);
   return match ? match[1].toUpperCase() : "";
+}
+
+function extractRangeEndTime(line) {
+  const match = line.match(TIME_RANGE_RE);
+  return match ? match[2].toUpperCase() : "";
 }
 
 function extractEndTime(lines) {
@@ -713,6 +735,9 @@ function shortDayLabel(date) {
 }
 
 function loadSavedBlocks() {
+  if (typeof window === "undefined") {
+    return new Set();
+  }
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     return new Set(raw ? JSON.parse(raw) : []);
@@ -735,4 +760,8 @@ function escapeHtml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+if (typeof module !== "undefined") {
+  module.exports = { fillMissingEndTimes, parseScheduleText, timeToMinutes };
 }
