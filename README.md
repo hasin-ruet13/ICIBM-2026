@@ -17,14 +17,14 @@ An interactive browser for the International Conference on Intelligent Biology a
 
 ## Schedule source
 
-The explorer is generated from the official ICIBM 2026 Word schedule. The updated document uses merged cells, uneven columns, split time fields, and speaker-specific times inside larger session blocks. The extraction script normalizes these structures while retaining the original details for review.
+The explorer is generated from the official ICIBM 2026 Word schedule. The extraction script converts the schedule into a consistent format for searching, filtering, and browsing while retaining the original details for review.
 
 The current data includes the announced schedule changes:
 
 - Sessions previously assigned to Room 1220 on August 3 and 4 are assigned to Room 2220B.
 - Wednesday sessions begin at 8:30 AM.
 
-The source documents contain a few formatting inconsistencies and apparent typographical errors. The official PDFs remain available in the explorer for confirmation.
+The official PDFs remain available in the explorer for confirmation. If you notice an error in the explorer, please contact [hasin.rehana@und.edu](mailto:hasin.rehana@und.edu).
 
 ## Project files
 
