@@ -92,6 +92,23 @@ input {
   line-height: 1.55;
 }
 
+.schedule-notice {
+  max-width: 64ch;
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(41, 92, 255, 0.2);
+  border-radius: 12px;
+  background: var(--brand-soft);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.schedule-notice a {
+  color: var(--brand-ink);
+  font-weight: 700;
+}
+
 .hero-actions {
   display: flex;
   gap: 12px;
