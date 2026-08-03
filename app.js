@@ -11,6 +11,7 @@ const STORAGE_KEY = "icibm2026.savedBlocks";
 
 const START_TIME_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]/i;
 const TIME_RANGE_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))/i;
+const PRESENTATION_TIME_RE = /^Presentation time:\s*(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))(.*)$/i;
 const TIME_ONLY_RE = /^(\d{1,2}:\d{2}\s*(?:AM|PM))$/i;
 const ROOM_RE = /\bRoom\s+\d{4}[A-Z]?(?:&[A-Z])?/i;
 const SOURCE_VERSION = "2026-08-02";
@@ -86,7 +87,7 @@ async function init() {
   }
 
   const rawText = await scheduleResponse.text();
-  state.blocks = fillMissingEndTimes(parseScheduleText(rawText));
+  state.blocks = sortScheduleBlocks(fillMissingEndTimes(expandPresentationBlocks(parseScheduleText(rawText))));
   const validBlockIds = new Set(state.blocks.map((block) => block.id));
   state.saved = new Set([...state.saved].filter((blockId) => validBlockIds.has(blockId)));
   persistSavedBlocks();
@@ -482,6 +483,7 @@ function parseScheduleText(rawText) {
       endTime,
       startMinutes,
       body: bodyText,
+      sourceLines: bodyLines,
       searchText,
       isConcurrent,
     });
@@ -531,6 +533,92 @@ function parseScheduleText(rawText) {
   return blocks;
 }
 
+function expandPresentationBlocks(blocks) {
+  return blocks.flatMap((block) => {
+    const sourceLines = (block.sourceLines || [])
+      .map((line) => line.replace(/\s+/g, " ").trim())
+      .filter(Boolean)
+      .filter((line) => !START_TIME_RE.test(line) && !/^Room\s/i.test(line));
+    const markerIndexes = sourceLines
+      .map((line, index) => (PRESENTATION_TIME_RE.test(line) ? index : -1))
+      .filter((index) => index >= 0);
+
+    if (!markerIndexes.length) {
+      return [block];
+    }
+
+    const presentations = [];
+    let segmentStart = 0;
+
+    for (const markerIndex of markerIndexes) {
+      const match = sourceLines[markerIndex].match(PRESENTATION_TIME_RE);
+      const lines = sourceLines.slice(segmentStart, markerIndex);
+      const trailingText = match[3].trim();
+      if (trailingText) {
+        lines.push(trailingText);
+      }
+      presentations.push({
+        startTime: match[1].toUpperCase(),
+        endTime: match[2].toUpperCase(),
+        lines,
+      });
+      segmentStart = markerIndex + 1;
+    }
+
+    const trailingLines = sourceLines.slice(segmentStart);
+    if (trailingLines.length) {
+      presentations[presentations.length - 1].lines.push(...trailingLines);
+    }
+
+    const expanded = presentations
+      .filter((presentation) => presentation.lines.some((line) => /[A-Za-z]/.test(line)))
+      .map((presentation) => createPresentationBlock(block, presentation));
+
+    return expanded.length ? expanded : [block];
+  });
+}
+
+function createPresentationBlock(parent, presentation) {
+  const title = deriveTitle(presentation.lines);
+  const kindLabel = "Presentation";
+  const bodyLines = [
+    `${presentation.startTime} – ${presentation.endTime}`,
+    parent.room,
+    ...presentation.lines,
+  ].filter(Boolean);
+  const body = compactText(bodyLines);
+  const themes = detectThemes(`${title} ${parent.room} ${kindLabel} ${body}`);
+  const startMinutes = timeToMinutes(presentation.startTime);
+  const searchText = [
+    parent.dayLabel,
+    presentation.startTime,
+    presentation.endTime,
+    title,
+    parent.room,
+    kindLabel,
+    themes.join(" "),
+    body,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  return {
+    ...parent,
+    id: buildBlockId(parent.date, presentation.startTime, parent.room, title),
+    title,
+    kindLabel,
+    themes,
+    startTime: presentation.startTime,
+    endTime: presentation.endTime,
+    startMinutes,
+    body,
+    sourceLines: bodyLines,
+    searchText,
+    isConcurrent: Boolean(parent.room),
+  };
+}
+
 function fillMissingEndTimes(blocks) {
   const grouped = new Map();
   for (const block of blocks) {
@@ -553,6 +641,16 @@ function fillMissingEndTimes(blocks) {
   }
 
   return result;
+}
+
+function sortScheduleBlocks(blocks) {
+  return [...blocks].sort(
+    (left, right) =>
+      left.date.localeCompare(right.date) ||
+      left.startMinutes - right.startMinutes ||
+      left.room.localeCompare(right.room) ||
+      left.title.localeCompare(right.title),
+  );
 }
 
 function buildThemeStats(blocks) {
@@ -763,5 +861,5 @@ function escapeHtml(value) {
 }
 
 if (typeof module !== "undefined") {
-  module.exports = { fillMissingEndTimes, parseScheduleText, timeToMinutes };
+  module.exports = { expandPresentationBlocks, fillMissingEndTimes, parseScheduleText, timeToMinutes };
 }

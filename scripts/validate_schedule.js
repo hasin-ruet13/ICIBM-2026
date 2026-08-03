@@ -2,12 +2,12 @@
 
 const fs = require("fs");
 const path = require("path");
-const { fillMissingEndTimes, parseScheduleText, timeToMinutes } = require("../app.js");
+const { expandPresentationBlocks, fillMissingEndTimes, parseScheduleText, timeToMinutes } = require("../app.js");
 
 const repoRoot = path.resolve(__dirname, "..");
 const schedulePath = path.join(repoRoot, "icibm2026_program_schedule.txt");
 const rawText = fs.readFileSync(schedulePath, "utf8");
-const blocks = fillMissingEndTimes(parseScheduleText(rawText));
+const blocks = fillMissingEndTimes(expandPresentationBlocks(parseScheduleText(rawText)));
 
 const failures = [];
 
@@ -21,10 +21,11 @@ function findBlock(fragment) {
 }
 
 expect("all four conference days are present", new Set(blocks.map((block) => block.dayKey)).size === 4);
+expect("all 249 normalized schedule entries are present", blocks.length === 249);
 expect("every block has a positive duration", blocks.every((block) => timeToMinutes(block.endTime) > block.startMinutes));
 expect("every block has a unique stable ID", new Set(blocks.map((block) => block.id)).size === blocks.length);
 expect("no anonymous session cards remain", blocks.every((block) => block.title !== "ICIBM session block"));
-expect("presentation annotations are not separate blocks", blocks.every((block) => !block.title.startsWith("Presentation time:")));
+expect("presentation annotations are expanded cleanly", blocks.every((block) => !block.title.startsWith("Presentation time:")));
 expect("no malformed clock spacing remains", !/^\s*\d{1,2}\s+:|^\s*\d{1,2}:\s+\d|:\d{3}\s*(?:AM|PM)/im.test(rawText));
 expect("no standalone dash time fragments remain", !/^\s*[–-]\s*$/m.test(rawText));
 expect("ordinary session cards retain a room", blocks.filter((block) => block.kindLabel === "Session").every((block) => block.room));
@@ -44,7 +45,15 @@ expect("corrected Sunday 4:00 PM row is present", conceptTalk?.startTime === "4:
 const hasinTalk = findBlock("CO-PICO/PECO");
 expect("CO-PICO/PECO talk is present", Boolean(hasinTalk));
 expect("CO-PICO/PECO talk is in Room 2220B", hasinTalk?.room === "Room 2220B");
-expect("CO-PICO/PECO session spans 4:00 PM–4:20 PM", hasinTalk?.startTime === "4:00 PM" && hasinTalk?.endTime === "4:20 PM");
+expect("CO-PICO/PECO flash talk spans 4:00 PM–4:10 PM", hasinTalk?.startTime === "4:00 PM" && hasinTalk?.endTime === "4:10 PM");
+
+const circaTalk = findBlock("CIRCA identifies cell-");
+expect("CIRCA flash talk spans 4:10 PM–4:20 PM", circaTalk?.startTime === "4:10 PM" && circaTalk?.endTime === "4:20 PM");
+
+const timedFlashTalks = blocks.filter(
+  (block) => block.kindLabel === "Presentation" && timeToMinutes(block.endTime) - block.startMinutes === 10,
+);
+expect("all explicit 10-minute presentations were expanded", timedFlashTalks.length === 10);
 
 const posterSession = findBlock("Poster Session (Atrium)");
 expect("poster session is present", Boolean(posterSession));
